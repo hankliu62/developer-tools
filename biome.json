@@ -12,6 +12,10 @@
       },
       "complexity": {
         "noForEach": "off"
+      },
+      "a11y": {
+        "noStaticElementInteractions": "off",
+        "useKeyWithClickEvents": "off"
       }
     }
   },

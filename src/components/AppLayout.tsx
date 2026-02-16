@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Input, Menu, Breadcrumb } from "antd";
@@ -84,7 +84,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
 
   const getBreadcrumbItems = () => {
     const items: { title: React.ReactNode }[] = [{ title: <Link href="/">首页</Link> }];
-    
+
     if (pathname.startsWith("/tools/")) {
       const tool = allTools.find(t => t.href === pathname);
       if (tool) {
@@ -95,7 +95,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
         items.push({ title: tool.name });
       } else if (pathname === "/tools/ai-prompt-optimizer") {
         items.push({ title: "AI 工具" });
-        items.push({ title: "AI Prompt Optimizer" });
+        items.push({ title: "AI 提示词优化" });
       }
     } else if (pathname === "/prompts") {
       items.push({ title: "AI 工具" });
@@ -107,7 +107,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
       items.push({ title: "AI 工具" });
       items.push({ title: "Rules" });
     }
-    
+
     return items;
   };
 
@@ -181,13 +181,18 @@ export default function AppLayout({ children }: AppLayoutProps) {
           label: (
             <Link href="/tools/ai-prompt-optimizer" className="flex items-center gap-2">
               <span>✨</span>
-              <span>AI Prompt Optimizer</span>
+              <span>提示词优化</span>
             </Link>
           ),
         },
       ],
     },
   ];
+
+  // 默认打开的菜单
+  const defaultOpenKeys = useMemo(() => {
+    return [...categories.map((c) => c.type), 'ai-tools']
+  }, [])
 
   return (
     <div className="h-screen flex flex-col bg-gray-50">
@@ -212,9 +217,9 @@ export default function AppLayout({ children }: AppLayoutProps) {
 
           {showSearchResults && filteredTools.length > 0 && (
             <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-80 overflow-y-auto z-50">
-              {filteredTools.map((tool, index) => (
+              {filteredTools.map((tool) => (
                 <div
-                  key={index}
+                  key={tool.href + tool.name}
                   className="px-4 py-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
                   onClick={() => handleToolClick(tool.href)}
                 >
@@ -239,7 +244,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
           <Menu
             mode="inline"
             selectedKeys={[pathname]}
-            defaultOpenKeys={categories.map((c) => c.type)}
+            defaultOpenKeys={defaultOpenKeys}
             items={menuItems}
             className="h-full border-none"
             style={{ height: "100%", overflowY: "auto" }}

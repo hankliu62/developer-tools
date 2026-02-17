@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useCallback, useMemo, useState } from 'react';
 import { categories, type Tool } from '@/constants/navigation';
+import { getRoutePrefix } from '@/lib/route';
 
 interface AppLayoutProps {
   children: React.ReactNode;
@@ -205,7 +206,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
       {/* Header */}
       <header className="h-16 bg-white border-b border-gray-200 flex items-center px-6 flex-shrink-0">
         <Link href="/" className="flex items-center gap-3 mr-8">
-          <Image src="/favicon.ico" alt="Logo" width={32} height={32} className="rounded-lg" />
+          <Image src={`${getRoutePrefix()}/favicon.ico`} alt="Logo" width={32} height={32} className="rounded-lg" />
           <span className="text-lg font-semibold text-gray-900">Developer Tools</span>
         </Link>
 

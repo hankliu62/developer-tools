@@ -1,10 +1,10 @@
 'use client';
 
-import { Breadcrumb, Input, Menu, type MenuProps } from 'antd';
+import { Breadcrumb, Input, type InputRef, Menu, type MenuProps } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { categories, type Tool } from '@/constants/navigation';
 import { getRoutePrefix } from '@/lib/route';
 
@@ -112,8 +112,16 @@ export default function AppLayout({ children }: AppLayoutProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredTools, setFilteredTools] = useState<Tool[]>([]);
   const [showSearchResults, setShowSearchResults] = useState(false);
+  const [searchExpanded, setSearchExpanded] = useState(false);
+  const searchInputRef = useRef<InputRef>(null);
 
   const allTools = categories.flatMap((cat) => cat.children);
+
+  useEffect(() => {
+    if (searchExpanded && searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, [searchExpanded]);
 
   const handleSearchChange = useCallback(
     (value: string) => {
@@ -138,6 +146,14 @@ export default function AppLayout({ children }: AppLayoutProps) {
     router.push(href);
     setSearchQuery('');
     setShowSearchResults(false);
+    setSearchExpanded(false);
+  };
+
+  const handleSearchBlur = () => {
+    if (!searchQuery) {
+      setSearchExpanded(false);
+    }
+    setTimeout(() => setShowSearchResults(false), 200);
   };
 
   const getBreadcrumbItems = () => {
@@ -205,41 +221,100 @@ export default function AppLayout({ children }: AppLayoutProps) {
     <div className="h-screen flex flex-col bg-gray-50">
       {/* Header */}
       <header className="h-16 bg-white border-b border-gray-200 flex items-center px-6 flex-shrink-0">
-        <Link href="/" className="flex items-center gap-3 mr-8">
-          <Image src={`${getRoutePrefix()}/favicon.ico`} alt="Logo" width={32} height={32} className="rounded-lg" />
+        <Link href="/" className="flex items-center gap-3 w-64 flex-shrink-0">
+          <Image
+            src={`${getRoutePrefix()}/favicon.ico`}
+            alt="Logo"
+            width={32}
+            height={32}
+            className="rounded-lg"
+          />
           <span className="text-lg font-semibold text-gray-900">Developer Tools</span>
         </Link>
 
-        <div className="flex-1 max-w-xl relative">
-          <Input
-            placeholder="搜索工具..."
-            value={searchQuery}
-            onChange={(e) => handleSearchChange(e.target.value)}
-            className="w-full"
-            size="large"
-            allowClear
-          />
+        {/* Search - aligned with main content */}
+        <div className="relative">
+          {/* Search button */}
+          <button
+            type="button"
+            onClick={() => setSearchExpanded(true)}
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-all cursor-pointer ${
+              searchExpanded ? 'opacity-0 pointer-events-none absolute' : 'opacity-100'
+            }`}
+            aria-label="搜索工具"
+          >
+            <svg
+              className="w-5 h-5 text-gray-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+            <span className="text-sm text-gray-600">搜索工具</span>
+          </button>
 
-          {showSearchResults && filteredTools.length > 0 && (
-            <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-80 overflow-y-auto z-50">
-              {filteredTools.map((tool) => (
-                <div
-                  key={tool.href + tool.name}
-                  className="px-4 py-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
-                  onClick={() => handleToolClick(tool.href)}
+          {/* Expanded search input */}
+          <div
+            className={`absolute top-1/2 -translate-y-1/2 left-0 transition-all duration-300 ${
+              searchExpanded ? 'opacity-100 w-[480px]' : 'opacity-0 w-0 pointer-events-none'
+            }`}
+          >
+            <Input
+              ref={searchInputRef}
+              placeholder="搜索工具名称或描述..."
+              value={searchQuery}
+              onChange={(e) => handleSearchChange(e.target.value)}
+              onFocus={() => setSearchExpanded(true)}
+              onBlur={handleSearchBlur}
+              className="w-full"
+              size="large"
+              allowClear
+              prefix={
+                <svg
+                  className="w-4 h-4 text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
-                  <div className="font-medium text-gray-900">{tool.name}</div>
-                  <div className="text-sm text-gray-500">{tool.description}</div>
-                </div>
-              ))}
-            </div>
-          )}
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              }
+            />
 
-          {showSearchResults && searchQuery && filteredTools.length === 0 && (
-            <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg p-4 z-50">
-              <div className="text-gray-500 text-center">未找到相关工具</div>
-            </div>
-          )}
+            {showSearchResults && filteredTools.length > 0 && (
+              <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-80 overflow-y-auto z-50">
+                {filteredTools.map((tool) => (
+                  <div
+                    key={tool.href + tool.name}
+                    className="px-4 py-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
+                    onMouseDown={() => handleToolClick(tool.href)}
+                  >
+                    <div className="font-medium text-gray-900">{tool.name}</div>
+                    <div className="text-sm text-gray-500">{tool.description}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {showSearchResults && searchQuery && filteredTools.length === 0 && (
+              <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg p-4 z-50">
+                <div className="text-gray-500 text-center">未找到相关工具</div>
+              </div>
+            )}
+          </div>
         </div>
       </header>
 
@@ -259,7 +334,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
         {/* Main Content */}
         <main className="flex-1 overflow-auto p-6">
           {/* Breadcrumb */}
-          <Breadcrumb items={getBreadcrumbItems()} className="mb-4" />
+          {pathname !== '/' && <Breadcrumb items={getBreadcrumbItems()} className="mb-4" />}
           {children}
         </main>
       </div>

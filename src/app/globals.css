@@ -39,7 +39,7 @@ button {
 }
 
 .code-editor {
-  font-family: "JetBrains Mono", monospace !important;
+  font-family: "JetBrains Mono", monospace;
 }
 
 ::-webkit-scrollbar {

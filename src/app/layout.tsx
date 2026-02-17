@@ -1,17 +1,13 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import AppLayout from "@/components/AppLayout";
+import type { Metadata } from 'next';
+import './globals.css';
+import AppLayout from '@/components/AppLayout';
 
 export const metadata: Metadata = {
-  title: "Developer Tools",
-  description: "A collection of useful developer tools",
+  title: '开发者小工具集合 - H.L Developer Toolkits',
+  description: 'A collection of useful developer tools',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh-CN">
       <body>

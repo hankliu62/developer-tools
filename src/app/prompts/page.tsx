@@ -1,11 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Input, Modal, Button, message, Tag } from "antd";
 import copy from "copy-to-clipboard";
 import QRCode from "qrcode";
-import { useEffect } from "react";
 import { prompts, type Prompt } from "@/data/prompts";
 
 export default function PromptsPage() {

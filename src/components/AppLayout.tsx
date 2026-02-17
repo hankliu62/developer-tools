@@ -4,8 +4,8 @@ import { useState, useCallback, useMemo } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Input, Menu, Breadcrumb } from "antd";
-import { ToolOutlined, HomeOutlined } from "@ant-design/icons";
-import { categories, toolModules, type Category, type Tool } from "@/constants/navigation";
+import { HomeOutlined } from "@ant-design/icons";
+import { categories, type Category, type Tool } from "@/constants/navigation";
 
 interface AppLayoutProps {
   children: React.ReactNode;

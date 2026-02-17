@@ -1,6 +1,6 @@
-import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc";
-import timezone from "dayjs/plugin/timezone";
+import dayjs from 'dayjs';
+import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -13,7 +13,7 @@ export function convertDateTime(
 ): string {
   const date = dayjs(input, inputFormat);
   if (!date.isValid()) {
-    throw new Error("Invalid date format");
+    throw new Error('Invalid date format');
   }
   if (targetTimezone) {
     return date.tz(targetTimezone).format(outputFormat);
@@ -21,36 +21,32 @@ export function convertDateTime(
   return date.format(outputFormat);
 }
 
-export function convertBase(
-  value: string,
-  fromBase: number,
-  toBase: number
-): string {
+export function convertBase(value: string, fromBase: number, toBase: number): string {
   const decimal = parseInt(value, fromBase);
   return decimal.toString(toBase).toUpperCase();
 }
 
 export function toRoman(num: number): string {
   if (num < 1 || num > 3999) {
-    throw new Error("Number must be between 1 and 3999");
+    throw new Error('Number must be between 1 and 3999');
   }
   const romanNumerals: [string, number][] = [
-    ["M", 1000],
-    ["CM", 900],
-    ["D", 500],
-    ["CD", 400],
-    ["C", 100],
-    ["XC", 90],
-    ["L", 50],
-    ["XL", 40],
-    ["X", 10],
-    ["IX", 9],
-    ["V", 5],
-    ["IV", 4],
-    ["I", 1],
+    ['M', 1000],
+    ['CM', 900],
+    ['D', 500],
+    ['CD', 400],
+    ['C', 100],
+    ['XC', 90],
+    ['L', 50],
+    ['XL', 40],
+    ['X', 10],
+    ['IX', 9],
+    ['V', 5],
+    ['IV', 4],
+    ['I', 1],
   ];
 
-  let result = "";
+  let result = '';
   let remaining = num;
   for (const [roman, value] of romanNumerals) {
     while (remaining >= value) {
@@ -95,14 +91,11 @@ export function decodeBase64(encoded: string): string {
   try {
     return decodeURIComponent(escape(atob(encoded)));
   } catch {
-    throw new Error("Invalid Base64 string");
+    throw new Error('Invalid Base64 string');
   }
 }
 
-export function convertColor(
-  color: string,
-  targetFormat: "hex" | "rgb" | "hsl"
-): string {
+export function convertColor(color: string, targetFormat: 'hex' | 'rgb' | 'hsl'): string {
   const hexRegex = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i;
   const rgbRegex = /^rgb\(?(\d+),(\d+),(\d+)\)?$/;
   const hslRegex = /^hsl\(?(\d+),(\d+)%,(\d+)%\)?$/;
@@ -111,30 +104,33 @@ export function convertColor(
 
   if (hexRegex.test(color)) {
     const match = color.match(hexRegex);
-    r = parseInt(match![1], 16);
-    g = parseInt(match![2], 16);
-    b = parseInt(match![3], 16);
+    if (!match) throw new Error('Invalid color format');
+    r = parseInt(match[1], 16);
+    g = parseInt(match[2], 16);
+    b = parseInt(match[3], 16);
   } else if (rgbRegex.test(color)) {
     const match = color.match(rgbRegex);
-    r = parseInt(match![1]);
-    g = parseInt(match![2]);
-    b = parseInt(match![3]);
+    if (!match) throw new Error('Invalid color format');
+    r = parseInt(match[1], 10);
+    g = parseInt(match[2], 10);
+    b = parseInt(match[3], 10);
   } else if (hslRegex.test(color)) {
     const match = color.match(hslRegex);
-    const h = parseInt(match![1]) / 360;
-    const s = parseInt(match![2]) / 100;
-    const l = parseInt(match![3]) / 100;
+    if (!match) throw new Error('Invalid color format');
+    const h = parseInt(match[1], 10) / 360;
+    const s = parseInt(match[2], 10) / 100;
+    const l = parseInt(match[3], 10) / 100;
     const [rr, gg, bb] = hslToRgb(h, s, l);
     r = rr;
     g = gg;
     b = bb;
   } else {
-    throw new Error("Invalid color format");
+    throw new Error('Invalid color format');
   }
 
-  if (targetFormat === "hex") {
-    return `#${r.toString(16).padStart(2, "0")}${g.toString(16).padStart(2, "0")}${b.toString(16).padStart(2, "0")}`.toUpperCase();
-  } else if (targetFormat === "rgb") {
+  if (targetFormat === 'hex') {
+    return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`.toUpperCase();
+  } else if (targetFormat === 'rgb') {
     return `rgb(${r}, ${g}, ${b})`;
   } else {
     const [h, s, l] = rgbToHsl(r, g, b);
@@ -143,7 +139,7 @@ export function convertColor(
 }
 
 function hslToRgb(h: number, s: number, l: number): [number, number, number] {
-  let r, g, b;
+  let r: number, g: number, b: number;
 
   if (s === 0) {
     r = g = b = l;
@@ -198,54 +194,81 @@ function rgbToHsl(r: number, g: number, b: number): [number, number, number] {
   return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
 }
 
-export function convertCase(text: string, caseType: "upper" | "lower" | "title" | "sentence"): string {
+export function convertCase(
+  text: string,
+  caseType: 'upper' | 'lower' | 'title' | 'sentence'
+): string {
   switch (caseType) {
-    case "upper":
+    case 'upper':
       return text.toUpperCase();
-    case "lower":
+    case 'lower':
       return text.toLowerCase();
-    case "title":
-      return text.replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
-    case "sentence":
-      return text.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase());
+    case 'title':
+      return text.replace(
+        /\w\S*/g,
+        (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+      );
+    case 'sentence':
+      return text.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, (c) => c.toUpperCase());
     default:
       return text;
   }
 }
 
 export const natoAlphabet: Record<string, string> = {
-  a: "Alpha", b: "Bravo", c: "Charlie", d: "Delta", e: "Echo",
-  f: "Foxtrot", g: "Golf", h: "Hotel", i: "India", j: "Juliett",
-  k: "Kilo", l: "Lima", m: "Mike", n: "November", o: "Oscar",
-  p: "Papa", q: "Quebec", r: "Romeo", s: "Sierra", t: "Tango",
-  u: "Uniform", v: "Victor", w: "Whiskey", x: "X-ray", y: "Yankee", z: "Zulu",
+  a: 'Alpha',
+  b: 'Bravo',
+  c: 'Charlie',
+  d: 'Delta',
+  e: 'Echo',
+  f: 'Foxtrot',
+  g: 'Golf',
+  h: 'Hotel',
+  i: 'India',
+  j: 'Juliett',
+  k: 'Kilo',
+  l: 'Lima',
+  m: 'Mike',
+  n: 'November',
+  o: 'Oscar',
+  p: 'Papa',
+  q: 'Quebec',
+  r: 'Romeo',
+  s: 'Sierra',
+  t: 'Tango',
+  u: 'Uniform',
+  v: 'Victor',
+  w: 'Whiskey',
+  x: 'X-ray',
+  y: 'Yankee',
+  z: 'Zulu',
 };
 
 export function textToNato(text: string): string {
   return text
     .toLowerCase()
-    .split("")
-    .map(char => {
+    .split('')
+    .map((char) => {
       if (natoAlphabet[char]) {
         return natoAlphabet[char];
       }
       return char;
     })
-    .join(" ");
+    .join(' ');
 }
 
 export function textToAsciiBinary(text: string): string {
   return text
-    .split("")
-    .map(char => char.charCodeAt(0).toString(2).padStart(8, "0"))
-    .join(" ");
+    .split('')
+    .map((char) => char.charCodeAt(0).toString(2).padStart(8, '0'))
+    .join(' ');
 }
 
 export function textToUnicode(text: string): string {
   return text
-    .split("")
-    .map(char => "\\u" + char.charCodeAt(0).toString(16).padStart(4, "0"))
-    .join("");
+    .split('')
+    .map((char) => `\\u${char.charCodeAt(0).toString(16).padStart(4, '0')}`)
+    .join('');
 }
 
 export function unicodeToText(unicode: string): string {

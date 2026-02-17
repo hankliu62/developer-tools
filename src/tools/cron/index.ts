@@ -43,7 +43,7 @@ export function describeCronPart(part: string, type: "minute" | "hour" | "dayOfM
 
   if (part.includes("/")) {
     const [range, step] = part.split("/");
-    const stepNum = parseInt(step);
+    const stepNum = parseInt(step, 10);
     if (range === "*") {
       return `every ${stepNum} ${getUnitName(type, stepNum)}`;
     }
@@ -135,7 +135,7 @@ function matchesCronPart(value: number, part: string): boolean {
     return value % step === 0;
   }
 
-  return value === parseInt(part);
+  return value === parseInt(part, 10);
 }
 
 export const cronPresets = [

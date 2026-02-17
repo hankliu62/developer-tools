@@ -1,41 +1,41 @@
-"use client";
-import { useState } from "react";
-import { Button, Input, message } from "antd";
-import copy from "copy-to-clipboard";
-import { generateOpenGraph, type OpenGraphMeta } from "@/tools/web";
+'use client';
+import { Button, Input, message } from 'antd';
+import copy from 'copy-to-clipboard';
+import { useState } from 'react';
+import { generateOpenGraph, type OpenGraphMeta } from '@/tools/web';
 
 const { TextArea } = Input;
 
 export default function OpenGraphPage() {
   const [meta, setMeta] = useState<OpenGraphMeta>({
-    title: "",
-    description: "",
-    url: "",
-    image: "",
-    siteName: "",
-    locale: "zh_CN",
-    type: "website",
+    title: '',
+    description: '',
+    url: '',
+    image: '',
+    siteName: '',
+    locale: 'zh_CN',
+    type: 'website',
   });
-  const [output, setOutput] = useState("");
+  const [output, setOutput] = useState('');
 
   const handleGenerate = () => {
     try {
       if (!meta.title || !meta.description) {
-        message.error("请填写标题和描述");
+        message.error('请填写标题和描述');
         return;
       }
       const result = generateOpenGraph(meta);
       setOutput(result);
-      message.success("生成成功");
+      message.success('生成成功');
     } catch (error) {
-      message.error(error instanceof Error ? error.message : "生成失败");
+      message.error(error instanceof Error ? error.message : '生成失败');
     }
   };
 
   const handleCopy = () => {
     if (output) {
       copy(output);
-      message.success("复制成功");
+      message.success('复制成功');
     }
   };
 

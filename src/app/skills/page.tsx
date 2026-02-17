@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Input, Modal, Button, message, Tag } from "antd";
-import copy from "copy-to-clipboard";
-import QRCode from "qrcode";
-import { skills, type Skill } from "@/data/skills";
+import { Button, Input, Modal, message, Tag } from 'antd';
+import copy from 'copy-to-clipboard';
+import QRCode from 'qrcode';
+import { useState } from 'react';
+import { type Skill, skills } from '@/data/skills';
 
 export default function SkillsPage() {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
-  const [qrCodeUrl, setQrCodeUrl] = useState("");
+  const [qrCodeUrl, setQrCodeUrl] = useState('');
   const [showQrCode, setShowQrCode] = useState(false);
 
   const filteredSkills = skills.filter(
@@ -20,7 +20,7 @@ export default function SkillsPage() {
 
   const handleCopy = (content: string) => {
     copy(content);
-    message.success("复制成功");
+    message.success('复制成功');
   };
 
   const handleShare = async (skill: Skill) => {
@@ -34,7 +34,7 @@ export default function SkillsPage() {
       setSelectedSkill(skill);
       setShowQrCode(true);
     } catch {
-      message.error("生成二维码失败");
+      message.error('生成二维码失败');
     }
   };
 
@@ -106,15 +106,10 @@ export default function SkillsPage() {
               <Tag className="ml-2">来源: {selectedSkill.source}</Tag>
             </div>
             <div className="bg-gray-50 p-4 rounded-lg mb-4 max-h-96 overflow-y-auto">
-              <pre className="whitespace-pre-wrap font-mono text-sm">
-                {selectedSkill.content}
-              </pre>
+              <pre className="whitespace-pre-wrap font-mono text-sm">{selectedSkill.content}</pre>
             </div>
             <div className="flex gap-2">
-              <Button
-                type="primary"
-                onClick={() => handleCopy(selectedSkill.content)}
-              >
+              <Button type="primary" onClick={() => handleCopy(selectedSkill.content)}>
                 复制
               </Button>
               <Button onClick={() => handleShare(selectedSkill)}>分享</Button>

@@ -1,131 +1,185 @@
-"use client";
+'use client';
 
-import { useState, useCallback, useMemo } from "react";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { Input, Menu, Breadcrumb } from "antd";
-import { HomeOutlined } from "@ant-design/icons";
-import { categories, type Category, type Tool } from "@/constants/navigation";
+import { Breadcrumb, Input, Menu, type MenuProps } from 'antd';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
+import { useCallback, useMemo, useState } from 'react';
+import { categories, type Tool } from '@/constants/navigation';
 
 interface AppLayoutProps {
   children: React.ReactNode;
 }
 
 const categoryIcons: Record<string, React.ReactNode> = {
-  crypto: "🔐",
-  converter: "🔄",
-  web: "💻",
-  cron: "⏰",
+  crypto: '🔐',
+  converter: '🔄',
+  web: '💻',
+  cron: '⏰',
+  network: '🌐',
+  math: '🧮',
+  text: '📝',
+  dev: '🛠️',
+  validator: '✅',
+  ai: '🤖',
 };
 
 const toolEmojis: Record<string, string> = {
-  "i-carbon-key": "🔑",
-  "i-carbon-hash": "#️⃣",
-  "i-carbon-password": "🔐",
-  "i-carbon-identification": "🆔",
-  "i-carbon-locked": "🔒",
-  "i-carbon-book": "📖",
-  "i-carbon-security": "🛡️",
-  "i-carbon-time": "⏰",
-  "i-carbon-number": "🔢",
-  "i-carbon-text-number-format": "🔢",
-  "i-carbon-text-kernel": "📝",
-  "i-carbon-color-palette": "🎨",
-  "i-carbon-text-capitalize": "Aa",
-  "i-carbon-character-whole": "🔤",
-  "i-carbon-data-binary": "💾",
-  "i-carbon-data-structured": "📊",
-  "i-carbon-document": "📄",
-  "i-carbon-code": "💻",
-  "i-carbon-link": "🔗",
-  "i-carbon-device-laptop": "💻",
-  "i-carbon-user-avatar": "👤",
-  "i-carbon-share": "📤",
-  "i-carbon-token": "🎫",
-  "i-carbon-keyboard": "⌨️",
-  "i-carbon-text-link": "🔗",
-  "i-carbon-document-markdown": "📝",
+  // Crypto
+  'i-carbon-key': '🔑',
+  'i-carbon-hash': '#️⃣',
+  'i-carbon-password': '🔐',
+  'i-carbon-identification': '🆔',
+  'i-carbon-locked': '🔒',
+  'i-carbon-book': '📖',
+  'i-carbon-security': '🛡️',
+  'i-carbon-document-signed': '✍️',
+  'i-carbon-qr-code': '📲',
+  'i-carbon-wifi': '📶',
+  // Converter
+  'i-carbon-time': '⏰',
+  'i-carbon-number': '🔢',
+  'i-carbon-text-number-format': '🔢',
+  'i-carbon-text-kernel': '📜',
+  'i-carbon-color-palette': '🎨',
+  'i-carbon-text-capitalize': '🔤',
+  'i-carbon-character-whole': '🔤',
+  'i-carbon-data-binary': '0️⃣',
+  'i-carbon-data-structured': '🗂️',
+  'i-carbon-document': '📄',
+  'i-carbon-document-markdown': '📝',
+  'i-carbon-document-attachment': '📎',
+  'i-carbon-list-bulleted': '📋',
+  'i-carbon-temperature': '🌡️',
+  'i-carbon-csv': '📊',
+  // Web
+  'i-carbon-link': '🔗',
+  'i-carbon-code': '💻',
+  'i-carbon-device-laptop': '💻',
+  'i-carbon-user-avatar': '👤',
+  'i-carbon-share': '📤',
+  'i-carbon-token': '🎫',
+  'i-carbon-keyboard': '⌨️',
+  'i-carbon-text-link': '🔗',
+  'i-carbon-text-annotation-toggle': '🖊️',
+  'i-carbon-network-4': '🌐',
+  'i-carbon-image': '🖼️',
+  // Network
+  'i-carbon-network-enterprise': '🏢',
+  'i-carbon-search': '🔍',
+  'i-carbon-subnet': '🕸️',
+  'i-carbon-port': '🔌',
+  // Math
+  'i-carbon-calculator': '🧮',
+  'i-carbon-percentage': '📊',
+  'i-carbon-timer': '⏱️',
+  // Text
+  'i-carbon-text-mining': '📊',
+  'i-carbon-text-tracking': '👁️',
+  'i-carbon-text-font': '🔤',
+  'i-carbon-face-wink': '😉',
+  'i-carbon-compare': '⚖️',
+  'i-carbon-email': '✉️',
+  'i-carbon-phone': '📱',
+  'i-carbon-text-small-caps': '🅰️',
+  'i-carbon-text-fill': '📄',
+  // Dev
+  'i-carbon-sql': '🗃️',
+  'i-carbon-minimize': '📦',
+  'i-carbon-regex': '🔍',
+  'i-carbon-notebook-reference': '📓',
+  'i-carbon-terminal': '💻',
+  'i-carbon-branch': '🌿',
+  'i-carbon-container-software': '🐳',
+  'i-carbon-meter': '⏱️',
+  // Validator
+  'i-carbon-bank': '🏦',
+  // AI
+  'i-carbon-ai': '🤖',
+  'i-carbon-chat': '💬',
+  'i-carbon-tool-kit': '🧰',
+  'i-carbon-rule': '📏',
 };
 
 export function getToolIcon(icon: string): string {
-  return toolEmojis[icon] || "📦";
+  return toolEmojis[icon] || '📦';
 }
 
 export default function AppLayout({ children }: AppLayoutProps) {
   const pathname = usePathname();
   const router = useRouter();
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const [filteredTools, setFilteredTools] = useState<Tool[]>([]);
   const [showSearchResults, setShowSearchResults] = useState(false);
 
   const allTools = categories.flatMap((cat) => cat.children);
 
-  const handleSearchChange = useCallback((value: string) => {
-    setSearchQuery(value);
-    if (value.trim()) {
-      const query = value.toLowerCase();
-      const filtered = allTools.filter(
-        (tool) =>
-          tool.name.toLowerCase().includes(query) ||
-          tool.description.toLowerCase().includes(query)
-      );
-      setFilteredTools(filtered);
-      setShowSearchResults(true);
-    } else {
-      setShowSearchResults(false);
-    }
-  }, [allTools]);
+  const handleSearchChange = useCallback(
+    (value: string) => {
+      setSearchQuery(value);
+      if (value.trim()) {
+        const query = value.toLowerCase();
+        const filtered = allTools.filter(
+          (tool) =>
+            tool.name.toLowerCase().includes(query) ||
+            tool.description.toLowerCase().includes(query)
+        );
+        setFilteredTools(filtered);
+        setShowSearchResults(true);
+      } else {
+        setShowSearchResults(false);
+      }
+    },
+    [allTools]
+  );
 
   const handleToolClick = (href: string) => {
     router.push(href);
-    setSearchQuery("");
+    setSearchQuery('');
     setShowSearchResults(false);
   };
 
   const getBreadcrumbItems = () => {
     const items: { title: React.ReactNode }[] = [{ title: <Link href="/">首页</Link> }];
 
-    if (pathname.startsWith("/tools/")) {
-      const tool = allTools.find(t => t.href === pathname);
+    if (pathname.startsWith('/tools/')) {
+      const tool = allTools.find((t) => t.href === pathname);
       if (tool) {
-        const category = categories.find(c => c.children.some(t => t.href === pathname));
+        const category = categories.find((c) => c.children.some((t) => t.href === pathname));
         if (category) {
           items.push({ title: category.name });
         }
         items.push({ title: tool.name });
-      } else if (pathname === "/tools/ai-prompt-optimizer") {
-        items.push({ title: "AI 工具" });
-        items.push({ title: "AI 提示词优化" });
       }
-    } else if (pathname === "/prompts") {
-      items.push({ title: "AI 工具" });
-      items.push({ title: "提示词" });
-    } else if (pathname === "/skills") {
-      items.push({ title: "AI 工具" });
-      items.push({ title: "Skills" });
-    } else if (pathname === "/rules") {
-      items.push({ title: "AI 工具" });
-      items.push({ title: "Rules" });
+    } else {
+      const tool = allTools.find((t) => t.href === pathname);
+      if (tool) {
+        const category = categories.find((c) => c.children.some((t) => t.href === pathname));
+        if (category) {
+          items.push({ title: category.name });
+        }
+        items.push({ title: tool.name });
+      }
     }
 
     return items;
   };
 
-  const menuItems = [
+  const menuItems: MenuProps['items'] = [
     {
-      key: "/",
+      key: '/',
       label: (
         <Link href="/" className="flex items-center gap-2">
-          <HomeOutlined />
+          <span>🏠</span>
           <span>首页</span>
         </Link>
       ),
     },
-    ...categories.map((category: Category) => ({
+    ...categories.map((category) => ({
       key: category.type,
       label: (
         <span className="flex items-center gap-2">
-          <span>{categoryIcons[category.type] || "📁"}</span>
+          <span>{categoryIcons[category.type] || '📁'}</span>
           <span>{category.name}</span>
         </span>
       ),
@@ -139,69 +193,19 @@ export default function AppLayout({ children }: AppLayoutProps) {
         ),
       })),
     })),
-    { type: "divider" as const },
-    {
-      key: "ai-tools",
-      label: (
-        <span className="flex items-center gap-2">
-          <span>🤖</span>
-          <span>AI 工具</span>
-        </span>
-      ),
-      children: [
-        {
-          key: "/prompts",
-          label: (
-            <Link href="/prompts" className="flex items-center gap-2">
-              <span>💬</span>
-              <span>提示词</span>
-            </Link>
-          ),
-        },
-        {
-          key: "/skills",
-          label: (
-            <Link href="/skills" className="flex items-center gap-2">
-              <span>🛠️</span>
-              <span>Skills</span>
-            </Link>
-          ),
-        },
-        {
-          key: "/rules",
-          label: (
-            <Link href="/rules" className="flex items-center gap-2">
-              <span>📋</span>
-              <span>Rules</span>
-            </Link>
-          ),
-        },
-        {
-          key: "/tools/ai-prompt-optimizer",
-          label: (
-            <Link href="/tools/ai-prompt-optimizer" className="flex items-center gap-2">
-              <span>✨</span>
-              <span>提示词优化</span>
-            </Link>
-          ),
-        },
-      ],
-    },
   ];
 
   // 默认打开的菜单
   const defaultOpenKeys = useMemo(() => {
-    return [...categories.map((c) => c.type), 'ai-tools']
-  }, [])
+    return categories.map((c) => c.type);
+  }, []);
 
   return (
     <div className="h-screen flex flex-col bg-gray-50">
       {/* Header */}
       <header className="h-16 bg-white border-b border-gray-200 flex items-center px-6 flex-shrink-0">
         <Link href="/" className="flex items-center gap-3 mr-8">
-          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">DT</span>
-          </div>
+          <Image src="/favicon.ico" alt="Logo" width={32} height={32} className="rounded-lg" />
           <span className="text-lg font-semibold text-gray-900">Developer Tools</span>
         </Link>
 
@@ -238,16 +242,16 @@ export default function AppLayout({ children }: AppLayoutProps) {
         </div>
       </header>
 
-      <div className="flex flex-1 overflow-hidden">
+      {/* Main Layout */}
+      <div className="flex-1 flex overflow-hidden">
         {/* Sidebar */}
-        <aside className="w-56 bg-white border-r border-gray-200 flex-shrink-0">
+        <aside className="w-64 bg-white border-r border-gray-200 flex-shrink-0 overflow-y-auto">
           <Menu
             mode="inline"
             selectedKeys={[pathname]}
             defaultOpenKeys={defaultOpenKeys}
             items={menuItems}
-            className="h-full border-none"
-            style={{ height: "100%", overflowY: "auto" }}
+            className="border-r-0"
           />
         </aside>
 

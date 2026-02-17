@@ -9,9 +9,10 @@ export interface Skill {
 
 export const skills: Skill[] = [
   {
-    id: "1",
-    name: "frontend-design",
-    description: "Create distinctive, production-grade frontend interfaces with high design quality",
+    id: '1',
+    name: 'frontend-design',
+    description:
+      'Create distinctive, production-grade frontend interfaces with high design quality',
     content: `# Frontend Design Skill
 
 You are an expert frontend designer specializing in creating distinctive, production-grade user interfaces.
@@ -35,13 +36,13 @@ You are an expert frontend designer specializing in creating distinctive, produc
 - CSS-in-JS or scoped styles
 - TypeScript when appropriate
 - Responsive on all screen sizes`,
-    category: "Development",
-    source: "anthropics/skills",
+    category: 'Development',
+    source: 'anthropics/skills',
   },
   {
-    id: "2",
-    name: "vercel-react-best-practices",
-    description: "React best practices for Vercel deployments",
+    id: '2',
+    name: 'vercel-react-best-practices',
+    description: 'React best practices for Vercel deployments',
     content: `# Vercel React Best Practices
 
 Follow these practices when building React apps for Vercel:
@@ -66,13 +67,13 @@ Follow these practices when building React apps for Vercel:
 - Ensure proper environment variables
 - Configure proper headers
 - Optimize for Edge runtime when possible`,
-    category: "Development",
-    source: "vercel-labs/agent-skills",
+    category: 'Development',
+    source: 'vercel-labs/agent-skills',
   },
   {
-    id: "3",
-    name: "agent-tools",
-    description: "Tools and utilities for AI agent development",
+    id: '3',
+    name: 'agent-tools',
+    description: 'Tools and utilities for AI agent development',
     content: `# Agent Tools Skill
 
 This skill provides utilities for building AI agents.
@@ -95,13 +96,13 @@ Use these tools to:
 - Use absolute paths
 - Handle errors gracefully
 - Log all operations`,
-    category: "Tools",
-    source: "inference-sh-0/skills",
+    category: 'Tools',
+    source: 'inference-sh-0/skills',
   },
   {
-    id: "4",
-    name: "skill-creator",
-    description: "Guide for creating effective skills for AI agents",
+    id: '4',
+    name: 'skill-creator',
+    description: 'Guide for creating effective skills for AI agents',
     content: `# Skill Creator
 
 Learn how to create effective skills for AI agents.
@@ -131,13 +132,13 @@ A skill consists of:
 ## Examples
 [Optional examples]
 \`\`\``,
-    category: "Development",
-    source: "anthropics/skills",
+    category: 'Development',
+    source: 'anthropics/skills',
   },
   {
-    id: "5",
-    name: "data-visualization",
-    description: "Create data visualizations with chart selection and best practices",
+    id: '5',
+    name: 'data-visualization',
+    description: 'Create data visualizations with chart selection and best practices',
     content: `# Data Visualization Skill
 
 Create effective data visualizations using Chart.js and other libraries.
@@ -162,13 +163,13 @@ Use Chart.js for most visualizations:
 - Prepare data in correct format
 - Configure options for responsiveness
 - Handle updates properly`,
-    category: "Design",
-    source: "anthropics/knowledge-work-plugins",
+    category: 'Design',
+    source: 'anthropics/knowledge-work-plugins',
   },
   {
-    id: "6",
-    name: "pdf",
-    description: "PDF operations including reading, writing, and conversion",
+    id: '6',
+    name: 'pdf',
+    description: 'PDF operations including reading, writing, and conversion',
     content: `# PDF Skill
 
 Handle all PDF-related tasks.
@@ -194,13 +195,13 @@ Use libraries like:
 - Show progress for large files
 - Preserve original quality when possible
 - Test with various PDF formats`,
-    category: "Tools",
-    source: "anthropics/skills",
+    category: 'Tools',
+    source: 'anthropics/skills',
   },
   {
-    id: "7",
-    name: "interactive-dashboard-builder",
-    description: "Build interactive HTML dashboards with Chart.js",
+    id: '7',
+    name: 'interactive-dashboard-builder',
+    description: 'Build interactive HTML dashboards with Chart.js',
     content: `# Interactive Dashboard Builder
 
 Create self-contained interactive HTML dashboards.
@@ -220,13 +221,13 @@ Create self-contained interactive HTML dashboards.
 
 ## Output Format
 Single HTML file with embedded CSS/JS that works offline.`,
-    category: "Development",
-    source: "anthropics/knowledge-work-plugins",
+    category: 'Development',
+    source: 'anthropics/knowledge-work-plugins',
   },
   {
-    id: "8",
-    name: "feature-spec",
-    description: "Write structured product requirements documents",
+    id: '8',
+    name: 'feature-spec',
+    description: 'Write structured product requirements documents',
     content: `# Feature Spec Skill
 
 Write structured PRDs (Product Requirements Documents).
@@ -244,13 +245,13 @@ Write structured PRDs (Product Requirements Documents).
 - Include acceptance criteria
 - Define out-of-scope items
 - Consider edge cases`,
-    category: "Product",
-    source: "anthropics/knowledge-work-plugins",
+    category: 'Product',
+    source: 'anthropics/knowledge-work-plugins',
   },
   {
-    id: "9",
-    name: "codereview-roasted",
-    description: "Brutally honest code review in the style of Linus Torvalds",
+    id: '9',
+    name: 'codereview-roasted',
+    description: 'Brutally honest code review in the style of Linus Torvalds',
     content: `# Code Review - Roast Style
 
 Provide brutally honest code reviews.
@@ -268,13 +269,13 @@ Provide brutally honest code reviews.
 - Focus on technical merit
 - Suggest improvements
 - Don't be mean, be helpful`,
-    category: "Development",
-    source: "openhands/skills",
+    category: 'Development',
+    source: 'openhands/skills',
   },
   {
-    id: "10",
-    name: "browser-use",
-    description: "Automate browser tasks using Playwright or Puppeteer",
+    id: '10',
+    name: 'browser-use',
+    description: 'Automate browser tasks using Playwright or Puppeteer',
     content: `# Browser Automation Skill
 
 Automate browser tasks using Playwright or Puppeteer.
@@ -292,7 +293,7 @@ Automate browser tasks using Playwright or Puppeteer.
 - Clean up resources
 - Respect robots.txt
 - Don't overload servers`,
-    category: "Automation",
-    source: "browser-use",
+    category: 'Automation',
+    source: 'browser-use',
   },
 ];

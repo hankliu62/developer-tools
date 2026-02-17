@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Input, Modal, Button, message, Tag } from "antd";
-import copy from "copy-to-clipboard";
-import QRCode from "qrcode";
-import { prompts, type Prompt } from "@/data/prompts";
+import { Button, Input, Modal, message, Tag } from 'antd';
+import copy from 'copy-to-clipboard';
+import QRCode from 'qrcode';
+import { useState } from 'react';
+import { type Prompt, prompts } from '@/data/prompts';
 
 export default function PromptsPage() {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const [selectedPrompt, setSelectedPrompt] = useState<Prompt | null>(null);
-  const [qrCodeUrl, setQrCodeUrl] = useState("");
+  const [qrCodeUrl, setQrCodeUrl] = useState('');
   const [showQrCode, setShowQrCode] = useState(false);
 
   const filteredPrompts = prompts.filter(
@@ -21,7 +21,7 @@ export default function PromptsPage() {
 
   const handleCopy = (content: string) => {
     copy(content);
-    message.success("复制成功");
+    message.success('复制成功');
   };
 
   const handleShare = async (prompt: Prompt) => {
@@ -35,7 +35,7 @@ export default function PromptsPage() {
       setSelectedPrompt(prompt);
       setShowQrCode(true);
     } catch {
-      message.error("生成二维码失败");
+      message.error('生成二维码失败');
     }
   };
 
@@ -116,15 +116,10 @@ export default function PromptsPage() {
               </div>
             </div>
             <div className="bg-gray-50 p-4 rounded-lg mb-4">
-              <pre className="whitespace-pre-wrap font-mono text-sm">
-                {selectedPrompt.content}
-              </pre>
+              <pre className="whitespace-pre-wrap font-mono text-sm">{selectedPrompt.content}</pre>
             </div>
             <div className="flex gap-2">
-              <Button
-                type="primary"
-                onClick={() => handleCopy(selectedPrompt.content)}
-              >
+              <Button type="primary" onClick={() => handleCopy(selectedPrompt.content)}>
                 复制
               </Button>
               <Button onClick={() => handleShare(selectedPrompt)}>分享</Button>

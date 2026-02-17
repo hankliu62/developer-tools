@@ -9,9 +9,9 @@ export interface Rule {
 
 export const rules: Rule[] = [
   {
-    id: "1",
-    title: "Git 提交规范",
-    description: "使用 Conventional Commits 格式规范 Git 提交信息",
+    id: '1',
+    title: 'Git 提交规范',
+    description: '使用 Conventional Commits 格式规范 Git 提交信息',
     content: `# Git 提交规范
 
 ## 格式
@@ -46,13 +46,13 @@ docs: update README with installation guide
 3. 勿在标题后加句号
 4. body 说明 what 和 why，不说明 how
 5. footer 用于关联 issue`,
-    category: "版本控制",
-    tags: ["Git", "提交规范", "Conventional Commits"],
+    category: '版本控制',
+    tags: ['Git', '提交规范', 'Conventional Commits'],
   },
   {
-    id: "2",
-    title: "React 组件规范",
-    description: "React 组件开发最佳实践",
+    id: '2',
+    title: 'React 组件规范',
+    description: 'React 组件开发最佳实践',
     content: `# React 组件规范
 
 ## 组件命名
@@ -83,13 +83,13 @@ docs: update README with installation guide
 - 大列表使用 virtualization
 - 图片使用 lazy loading
 - 合理使用 React.memo`,
-    category: "前端开发",
-    tags: ["React", "组件", "最佳实践"],
+    category: '前端开发',
+    tags: ['React', '组件', '最佳实践'],
   },
   {
-    id: "3",
-    title: "TypeScript 编码规范",
-    description: "TypeScript 项目开发规范",
+    id: '3',
+    title: 'TypeScript 编码规范',
+    description: 'TypeScript 项目开发规范',
     content: `# TypeScript 编码规范
 
 ## 类型定义
@@ -115,13 +115,13 @@ docs: update README with installation guide
 2. 不使用 \`as\` 类型断言
 3. 使用类型守卫进行类型收缩
 4. 优先使用泛型而不是 any`,
-    category: "前端开发",
-    tags: ["TypeScript", "类型系统", "最佳实践"],
+    category: '前端开发',
+    tags: ['TypeScript', '类型系统', '最佳实践'],
   },
   {
-    id: "4",
-    title: "RESTful API 设计规范",
-    description: "REST API 设计和命名规范",
+    id: '4',
+    title: 'RESTful API 设计规范',
+    description: 'REST API 设计和命名规范',
     content: `# RESTful API 设计规范
 
 ## URL 设计
@@ -162,13 +162,13 @@ docs: update README with installation guide
   }
 }
 \`\`\``,
-    category: "后端开发",
-    tags: ["REST", "API", "设计规范"],
+    category: '后端开发',
+    tags: ['REST', 'API', '设计规范'],
   },
   {
-    id: "5",
-    title: "CSS 命名规范",
-    description: "BEM 命名方法和 CSS 组织规范",
+    id: '5',
+    title: 'CSS 命名规范',
+    description: 'BEM 命名方法和 CSS 组织规范',
     content: `# CSS 命名规范
 
 ## BEM 命名
@@ -204,13 +204,13 @@ block--modifier
 3. 通用组件
 4. 特定页面样式
 5. 响应式调整`,
-    category: "前端开发",
-    tags: ["CSS", "BEM", "命名规范"],
+    category: '前端开发',
+    tags: ['CSS', 'BEM', '命名规范'],
   },
   {
-    id: "6",
-    title: "数据库设计规范",
-    description: "数据库表设计和索引规范",
+    id: '6',
+    title: '数据库设计规范',
+    description: '数据库表设计和索引规范',
     content: `# 数据库设计规范
 
 ## 表设计
@@ -237,13 +237,13 @@ block--modifier
 - 避免嵌套事务
 - 合理处理死锁
 - 使用乐观锁或悲观锁`,
-    category: "数据库",
-    tags: ["数据库", "索引", "设计规范"],
+    category: '数据库',
+    tags: ['数据库', '索引', '设计规范'],
   },
   {
-    id: "7",
-    title: "安全开发规范",
-    description: "Web 应用安全最佳实践",
+    id: '7',
+    title: '安全开发规范',
+    description: 'Web 应用安全最佳实践',
     content: `# 安全开发规范
 
 ## 常见漏洞防护
@@ -265,13 +265,13 @@ block--modifier
 - 敏感信息不记录日志
 - 合理设置 CORS
 - 使用安全 headers`,
-    category: "安全",
-    tags: ["安全", "XSS", "SQL注入"],
+    category: '安全',
+    tags: ['安全', 'XSS', 'SQL注入'],
   },
   {
-    id: "8",
-    title: "代码审查检查清单",
-    description: "代码审查时需要检查的项目",
+    id: '8',
+    title: '代码审查检查清单',
+    description: '代码审查时需要检查的项目',
     content: `# 代码审查检查清单
 
 ## 代码逻辑
@@ -303,13 +303,13 @@ block--modifier
 - [ ] 单元测试覆盖
 - [ ] 边界条件测试
 - [ ] 异常情况测试`,
-    category: "开发流程",
-    tags: ["Code Review", "代码质量"],
+    category: '开发流程',
+    tags: ['Code Review', '代码质量'],
   },
   {
-    id: "9",
-    title: "错误处理规范",
-    description: "统一的项目错误处理方式",
+    id: '9',
+    title: '错误处理规范',
+    description: '统一的项目错误处理方式',
     content: `# 错误处理规范
 
 ## 错误分类
@@ -339,13 +339,13 @@ block--modifier
 - 记录级别: debug, info, warn, error
 - 包含上下文信息
 - 脱敏敏感数据`,
-    category: "开发流程",
-    tags: ["错误处理", "日志", "最佳实践"],
+    category: '开发流程',
+    tags: ['错误处理', '日志', '最佳实践'],
   },
   {
-    id: "10",
-    title: "测试规范",
-    description: "单元测试和集成测试最佳实践",
+    id: '10',
+    title: '测试规范',
+    description: '单元测试和集成测试最佳实践',
     content: `# 测试规范
 
 ## 测试金字塔
@@ -380,7 +380,7 @@ describe('FunctionName', () => {
 - 关键用户路径
 - 避免测试过多细节
 - 使用真实环境`,
-    category: "测试",
-    tags: ["测试", "单元测试", "Jest"],
+    category: '测试',
+    tags: ['测试', '单元测试', 'Jest'],
   },
 ];

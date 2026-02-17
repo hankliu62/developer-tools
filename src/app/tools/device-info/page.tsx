@@ -1,8 +1,8 @@
-"use client";
-import { useEffect, useState } from "react";
-import { Button, message } from "antd";
-import copy from "copy-to-clipboard";
-import { getDeviceInfo, type DeviceInfo } from "@/tools/web";
+'use client';
+import { Button, message } from 'antd';
+import copy from 'copy-to-clipboard';
+import { useEffect, useState } from 'react';
+import { type DeviceInfo, getDeviceInfo } from '@/tools/web';
 
 export default function DeviceInfoPage() {
   const [info, setInfo] = useState<DeviceInfo | null>(null);
@@ -14,7 +14,7 @@ export default function DeviceInfoPage() {
   const handleCopy = () => {
     if (info) {
       copy(JSON.stringify(info, null, 2));
-      message.success("复制成功");
+      message.success('复制成功');
     }
   };
 

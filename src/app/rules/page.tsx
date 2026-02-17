@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Input, Modal, Button, message, Tag } from "antd";
-import copy from "copy-to-clipboard";
-import QRCode from "qrcode";
-import { rules, type Rule } from "@/data/rules";
+import { Button, Input, Modal, message, Tag } from 'antd';
+import copy from 'copy-to-clipboard';
+import QRCode from 'qrcode';
+import { useState } from 'react';
+import { type Rule, rules } from '@/data/rules';
 
 export default function RulesPage() {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const [selectedRule, setSelectedRule] = useState<Rule | null>(null);
-  const [qrCodeUrl, setQrCodeUrl] = useState("");
+  const [qrCodeUrl, setQrCodeUrl] = useState('');
   const [showQrCode, setShowQrCode] = useState(false);
 
   const filteredRules = rules.filter(
@@ -21,7 +21,7 @@ export default function RulesPage() {
 
   const handleCopy = (content: string) => {
     copy(content);
-    message.success("复制成功");
+    message.success('复制成功');
   };
 
   const handleShare = async (rule: Rule) => {
@@ -35,7 +35,7 @@ export default function RulesPage() {
       setSelectedRule(rule);
       setShowQrCode(true);
     } catch {
-      message.error("生成二维码失败");
+      message.error('生成二维码失败');
     }
   };
 
@@ -115,15 +115,10 @@ export default function RulesPage() {
               </div>
             </div>
             <div className="bg-gray-50 p-4 rounded-lg mb-4 max-h-96 overflow-y-auto">
-              <pre className="whitespace-pre-wrap font-mono text-sm">
-                {selectedRule.content}
-              </pre>
+              <pre className="whitespace-pre-wrap font-mono text-sm">{selectedRule.content}</pre>
             </div>
             <div className="flex gap-2">
-              <Button
-                type="primary"
-                onClick={() => handleCopy(selectedRule.content)}
-              >
+              <Button type="primary" onClick={() => handleCopy(selectedRule.content)}>
                 复制
               </Button>
               <Button onClick={() => handleShare(selectedRule)}>分享</Button>

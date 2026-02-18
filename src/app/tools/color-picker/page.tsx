@@ -110,6 +110,84 @@ const adjustBrightness = (hex: string, amount: number) => {
   );
 };
 
+const getLocalColorAnalysis = (
+  hex: string,
+  _rgb: { r: number; g: number; b: number },
+  hsl: { h: number; s: number; l: number }
+) => {
+  let meaning = '';
+  const emotions: string[] = [];
+  const useCases: string[] = [];
+
+  if (hsl.s < 10) {
+    if (hsl.l < 20) {
+      meaning = '深沉的暗色调，给人神秘、稳重的感觉';
+      emotions.push('神秘', '稳重', '高级');
+      useCases.push('正文', '背景', ' Logo');
+    } else if (hsl.l > 80) {
+      meaning = '柔和的浅色调，给人轻盈、干净的感觉';
+      emotions.push('清新', '干净', '温柔');
+      useCases.push('背景', '卡片', '婴儿用品');
+    } else {
+      meaning = '中性灰色调，给人平静、专业的感觉';
+      emotions.push('平静', '专业', '低调');
+      useCases.push('正文', '边框', '图标');
+    }
+  } else if (hsl.l < 20) {
+    meaning = '浓郁的深色调，给人深沉、奢华的感觉';
+    emotions.push('奢华', '深沉', '优雅');
+    useCases.push(' Logo', '按钮', '重点强调');
+  } else if (hsl.l > 80) {
+    meaning = '明亮的浅色调，给人活泼、年轻的感觉';
+    emotions.push('活泼', '年轻', '明亮');
+    useCases.push('背景', '装饰', '高亮');
+  } else {
+    const hue = hsl.h;
+    if (hue < 30 || hue >= 330) {
+      meaning = '温暖的红色调，给人热情、活力的感觉';
+      emotions.push('热情', '活力', '温暖');
+      useCases.push('按钮', '促销', ' Logo');
+    } else if (hue < 60) {
+      meaning = '明亮的橙色调，给人友好、创造性的感觉';
+      emotions.push('友好', '创意', '快乐');
+      useCases.push('按钮', '图标', '促销');
+    } else if (hue < 90) {
+      meaning = '明亮的黄色调，给人乐观、愉快的感觉';
+      emotions.push('乐观', '愉快', '活力');
+      useCases.push('警告', '高亮', '装饰');
+    } else if (hue < 150) {
+      meaning = '清新的绿色调，给人自然、成长的感觉';
+      emotions.push('自然', '成长', '健康');
+      useCases.push('成功', '环保', '自然');
+    } else if (hue < 210) {
+      meaning = '清澈的青色调，给人科技、理性的感觉';
+      emotions.push('科技', '理性', '冷静');
+      useCases.push('链接', '科技', '医疗');
+    } else if (hue < 270) {
+      meaning = '沉稳的蓝色调，给人专业、可信的感觉';
+      emotions.push('专业', '可信', '冷静');
+      useCases.push('链接', '企业', '科技');
+    } else {
+      meaning = '神秘的紫色调，给人创意、魔力的感觉';
+      emotions.push('创意', '魔力', '优雅');
+      useCases.push('女性', '创意', '奢侈');
+    }
+  }
+
+  return {
+    meaning,
+    emotion: emotions,
+    useCases,
+    palette: [
+      hex,
+      adjustBrightness(hex, -30),
+      adjustBrightness(hex, 30),
+      adjustBrightness(hex, -50),
+      adjustBrightness(hex, 50),
+    ],
+  };
+};
+
 export default function ColorPickerPage() {
   const [currentColor, setCurrentColor] = useState<ColorFormat>({
     hex: '#A78BFA',
@@ -158,6 +236,13 @@ export default function ColorPickerPage() {
       if (!rgb) return;
       const hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
 
+      const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+      if (!apiKey || apiKey === 'your_api_key_here') {
+        setAiAnalysis(getLocalColorAnalysis(hex, rgb, hsl));
+        setAiLoading(false);
+        return;
+      }
+
       const prompt = `分析颜色 #${hex} (RGB: ${rgb.r},${rgb.g},${rgb.b}, HSL: ${hsl.h}°,${hsl.s}%,${hsl.l}%):
 请返回 JSON 格式的分析结果：
 {
@@ -168,7 +253,7 @@ export default function ColorPickerPage() {
 }`;
 
       const response = await fetch(
-        'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyD9QvvQl7Y6tJdpHP8RrVyEWX4kWz9hS2M',
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -182,6 +267,12 @@ export default function ColorPickerPage() {
           }),
         }
       );
+
+      if (!response.ok) {
+        setAiAnalysis(getLocalColorAnalysis(hex, rgb, hsl));
+        setAiLoading(false);
+        return;
+      }
 
       const data = (await response.json()) as {
         candidates?: Array<{
@@ -201,28 +292,18 @@ export default function ColorPickerPage() {
       try {
         analysis = JSON.parse(text);
       } catch {
-        analysis = {
-          meaning: '这是一款充满活力的颜色，展现出创意与激情。',
-          emotion: ['活力', '创意', '现代', '时尚'],
-          useCases: ['品牌标识', '网页设计', 'UI组件', '社交媒体'],
-          palette: [
-            hex,
-            adjustBrightness(hex, -30),
-            adjustBrightness(hex, 30),
-            adjustBrightness(hex, -50),
-            adjustBrightness(hex, 50),
-          ],
-        };
+        analysis = getLocalColorAnalysis(hex, rgb, hsl);
       }
 
       setAiAnalysis(analysis);
     } catch {
-      setAiAnalysis({
-        meaning: 'AI 分析暂时不可用',
-        emotion: [],
-        useCases: [],
-        palette: [],
-      });
+      const rgb = hexToRgb(hex);
+      if (!rgb) {
+        setAiLoading(false);
+        return;
+      }
+      const hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+      setAiAnalysis(getLocalColorAnalysis(hex, rgb, hsl));
     } finally {
       setAiLoading(false);
     }

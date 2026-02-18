@@ -43,12 +43,16 @@ export async function POST(req: NextRequest) {
         ...(dispatcher ? { dispatcher } : {}),
       })) as unknown as Response;
 
+      const responseText = await response.text();
       if (!response.ok) {
-        const error = await response.json();
-        return NextResponse.json(error, { status: response.status });
+        return NextResponse.json({ error: responseText }, { status: response.status });
       }
 
-      const data = (await response.json()) as { choices?: { message: { content: string } }[] };
+      if (!responseText) {
+        return NextResponse.json({ error: 'Empty response from API' }, { status: 500 });
+      }
+
+      const data = JSON.parse(responseText) as { choices?: { message: { content: string } }[] };
       const text = data.choices?.[0]?.message?.content || '';
       return NextResponse.json({ candidates: [{ content: { parts: [{ text }] } }] });
     } else {
@@ -74,12 +78,12 @@ export async function POST(req: NextRequest) {
         }
       )) as unknown as Response;
 
+      const responseText = await response.text();
       if (!response.ok) {
-        const error = await response.json();
-        return NextResponse.json(error, { status: response.status });
+        return NextResponse.json({ error: responseText }, { status: response.status });
       }
 
-      const data = await response.json();
+      const data = JSON.parse(responseText);
       return NextResponse.json(data);
     }
   } catch (error) {

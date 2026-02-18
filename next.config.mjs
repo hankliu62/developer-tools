@@ -1,8 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
   reactStrictMode: true,
-  transpilePackages: ["@uiw/react-codemirror", "antd", "@ant-design/icons"],
+  transpilePackages: ['@uiw/react-codemirror', 'antd', '@ant-design/icons'],
   images: {
     unoptimized: true,
   },
@@ -11,7 +10,8 @@ const nextConfig = {
 const isGithubActions = process.env.GITHUB_ACTIONS || false;
 
 if (isGithubActions) {
-  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, "");
+  nextConfig.output = 'export';
+  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '');
   nextConfig.assetPrefix = `/${repo}/`;
   nextConfig.basePath = `/${repo}`;
   nextConfig.env = {

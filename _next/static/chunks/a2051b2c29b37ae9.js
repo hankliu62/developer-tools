@@ -1,7 +1,7 @@
-(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,30815,e=>{"use strict";let t;var n=e.i(65408),i=e.i(17900),a=e.i(23613),o=e.i(77674),s=e.i(33086);e.i(89171);var r=e.i(59990),l=e.i(45605),c=e.i(59782),d=e.i(77425),u=e.i(53359),p=e.i(557),m=e.i(29870),g=e.i(70276),h=e.i(7284),f=e.i(81221),y=e.i(78910),b=e.i(67401),v=e.i(59894),x=e.i(28363),C=e.i(85449),k=e.i(38727),w=e.i(44703);let S=e=>"function"==typeof e?.then,I=e=>{let{type:t,children:n,prefixCls:i,buttonProps:a,close:o,autoFocus:s,emitEvent:l,isSilent:c,quitOnNullishReturnValue:d,actionFn:u}=e,p=r.useRef(!1),m=r.useRef(null),[g,h]=(0,C.default)(!1),f=(...e)=>{o?.(...e)};return r.useEffect(()=>{let e=null;return s&&(e=setTimeout(()=>{m.current?.focus({preventScroll:!0})})),()=>{e&&clearTimeout(e)}},[s]),r.createElement(k.default,{...(0,w.convertLegacyProps)(t),onClick:e=>{let t;if(!p.current){var n;if(p.current=!0,!u)return void f();if(l){if(t=u(e),d&&!S(t)){p.current=!1,f(e);return}}else if(u.length)t=u(o),p.current=!1;else if(!S(t=u()))return void f();S(n=t)&&(h(!0),n.then((...e)=>{h(!1,!0),f.apply(void 0,e),p.current=!1},e=>{if(h(!1,!0),p.current=!1,!c?.())return Promise.reject(e)}))}},loading:g,prefixCls:i,...a,ref:m},n)},T=r.default.createContext({}),{Provider:A}=T,P=()=>{let{autoFocusButton:e,cancelButtonProps:t,cancelTextLocale:n,isSilent:i,mergedOkCancel:a,rootPrefixCls:o,close:s,onCancel:l,onConfirm:c,onClose:d}=(0,r.useContext)(T);return a?r.default.createElement(I,{isSilent:i,actionFn:l,close:(...e)=>{s?.(...e),c?.(!1),d?.()},autoFocus:"cancel"===e,buttonProps:t,prefixCls:`${o}-btn`},n):null},E=()=>{let{autoFocusButton:e,close:t,isSilent:n,okButtonProps:i,rootPrefixCls:a,okTextLocale:o,okType:s,onConfirm:l,onOk:c,onClose:d}=(0,r.useContext)(T);return r.default.createElement(I,{isSilent:n,type:s||"primary",actionFn:c,close:(...e)=>{t?.(...e),l?.(!0),d?.()},autoFocus:"ok"===e,buttonProps:i,prefixCls:`${a}-btn`},o)};var R=e.i(74190),N=e.i(21275);let $=r.createContext({});var M=e.i(25759),j=e.i(61934),D=e.i(14828);function L(e,t,n){let i=t;return!i&&n&&(i=`${e}-${n}`),i}function B(e,t){let n=e[`page${t?"Y":"X"}Offset`],i=`scroll${t?"Top":"Left"}`;if("number"!=typeof n){let t=e.document;"number"!=typeof(n=t.documentElement[i])&&(n=t.body[i])}return n}var U=e.i(98178),O=e.i(88317),F=e.i(55571);let Z=r.memo(({children:e})=>e,(e,{shouldUpdate:t})=>!t);function H(){return(H=Object.assign.bind()).apply(this,arguments)}let G=r.default.forwardRef((e,t)=>{let{prefixCls:n,className:i,style:a,title:o,ariaId:s,footer:l,closable:c,closeIcon:d,onClose:u,children:p,bodyStyle:m,bodyProps:g,modalRender:f,onMouseDown:y,onMouseUp:b,holderRef:v,visible:x,forceRender:C,width:k,height:w,classNames:S,styles:I,isFixedPos:T,focusTrap:A}=e,{panel:P}=r.default.useContext($),E=(0,r.useRef)(null),R=(0,O.useComposeRef)(v,P,E),[N]=(0,F.useLockFocus)(x&&T&&!1!==A,()=>E.current);r.default.useImperativeHandle(t,()=>({focus:()=>{E.current?.focus({preventScroll:!0})}}));let M={};void 0!==k&&(M.width=k),void 0!==w&&(M.height=w);let j=l?r.default.createElement("div",{className:(0,h.clsx)(`${n}-footer`,S?.footer),style:{...I?.footer}},l):null,L=o?r.default.createElement("div",{className:(0,h.clsx)(`${n}-header`,S?.header),style:{...I?.header}},r.default.createElement("div",{className:(0,h.clsx)(`${n}-title`,S?.title),id:s,style:{...I?.title}},o)):null,B=(0,r.useMemo)(()=>"object"==typeof c&&null!==c?c:c?{closeIcon:d??r.default.createElement("span",{className:`${n}-close-x`})}:{},[c,d,n]),U=(0,D.default)(B,!0),G="object"==typeof c&&c.disabled,W=c?r.default.createElement("button",H({type:"button",onClick:u,"aria-label":"Close"},U,{className:`${n}-close`,disabled:G}),B.closeIcon):null,z=r.default.createElement("div",{className:(0,h.clsx)(`${n}-container`,S?.container),style:I?.container},W,L,r.default.createElement("div",H({className:(0,h.clsx)(`${n}-body`,S?.body),style:{...m,...I?.body}},g),p),j);return r.default.createElement("div",{key:"dialog-element",role:"dialog","aria-labelledby":o?s:null,"aria-modal":"true",ref:R,style:{...a,...M},className:(0,h.clsx)(n,i),onMouseDown:y,onMouseUp:b,tabIndex:-1,onFocus:e=>{N(e.target)}},r.default.createElement(Z,{shouldUpdate:x||C},f?f(z):z))});function W(){return(W=Object.assign.bind()).apply(this,arguments)}let z=r.forwardRef((e,t)=>{let{prefixCls:n,title:i,style:a,className:o,visible:s,forceRender:l,destroyOnHidden:c,motionName:d,ariaId:u,onVisibleChanged:p,mousePosition:m}=e,g=(0,r.useRef)(null),f=(0,r.useRef)(null);r.useImperativeHandle(t,()=>({...f.current,inMotion:g.current.inMotion,enableMotion:g.current.enableMotion}));let[y,b]=r.useState(),v={};function x(){var e;let t,n,i,a;if(!g.current?.nativeElement)return;let o=(n={left:(t=(e=g.current.nativeElement).getBoundingClientRect()).left,top:t.top},a=(i=e.ownerDocument).defaultView||i.parentWindow,n.left+=B(a),n.top+=B(a,!0),n);b(m&&(m.x||m.y)?`${m.x-o.left}px ${m.y-o.top}px`:"")}return y&&(v.transformOrigin=y),r.createElement(U.default,{visible:s,onVisibleChanged:p,onAppearPrepare:x,onEnterPrepare:x,forceRender:l,motionName:d,removeOnLeave:c,ref:g},({className:t,style:s},l)=>r.createElement(G,W({},e,{ref:f,title:i,ariaId:u,prefixCls:n,holderRef:l,style:{...s,...a,...v},className:(0,h.clsx)(o,t)})))});function q(){return(q=Object.assign.bind()).apply(this,arguments)}let V=e=>{let{prefixCls:t,style:n,visible:i,maskProps:a,motionName:o,className:s}=e;return r.createElement(U.default,{key:"mask",visible:i,motionName:o,leavedClassName:`${t}-mask-hidden`},({className:e,style:i},o)=>r.createElement("div",q({ref:o,style:{...i,...n},className:(0,h.clsx)(`${t}-mask`,e,s)},a)))};function X(){return(X=Object.assign.bind()).apply(this,arguments)}e.i(87513);let K=e=>{let{prefixCls:t="rc-dialog",zIndex:n,visible:i=!1,focusTriggerAfterClose:a=!0,wrapStyle:o,wrapClassName:s,wrapProps:l,onClose:c,afterOpenChange:d,afterClose:u,transitionName:p,animation:m,closable:g=!0,mask:f=!0,maskTransitionName:y,maskAnimation:b,maskClosable:v=!0,maskStyle:x,maskProps:C,rootClassName:k,rootStyle:w,classNames:S,styles:I}=e,T=(0,r.useRef)(null),A=(0,r.useRef)(null),P=(0,r.useRef)(null),[E,R]=r.useState(i),[N,$]=r.useState(!1),B=(0,j.default)();function U(){if(R(!1),f&&T.current&&a){try{T.current.focus({preventScroll:!0})}catch(e){}T.current=null}E&&u?.()}function O(e){c?.(e)}let F=(0,r.useRef)(!1),Z=null;v&&(Z=e=>{A.current===e.target&&F.current&&O(e)}),(0,r.useEffect)(()=>{i?(F.current=!1,R(!0),(0,M.default)(A.current,document.activeElement)||(T.current=document.activeElement),A.current&&$("fixed"===getComputedStyle(A.current).position)):E&&P.current.enableMotion()&&!P.current.inMotion()&&U()},[i]);let H={zIndex:n,...o,...I?.wrapper,display:E?null:"none"};return r.createElement("div",X({className:(0,h.clsx)(`${t}-root`,k),style:w},(0,D.default)(e,{data:!0})),r.createElement(V,{prefixCls:t,visible:f&&i,motionName:L(t,y,b),style:{zIndex:n,...x,...I?.mask},maskProps:C,className:S?.mask}),r.createElement("div",X({className:(0,h.clsx)(`${t}-wrap`,s,S?.wrapper),ref:A,onClick:Z,onMouseDown:function(e){F.current=e.target===A.current},style:H},l),r.createElement(z,X({},e,{isFixedPos:N,ref:P,closable:g,ariaId:B,prefixCls:t,visible:i&&E,onClose:O,onVisibleChanged:function(e){e?(0,M.default)(A.current,document.activeElement)||P.current?.focus():U(),d?.(e)},motionName:L(t,p,m)}))))};function Y(){return(Y=Object.assign.bind()).apply(this,arguments)}let J=e=>{let{visible:t,getContainer:n,forceRender:i,destroyOnHidden:a=!1,afterClose:o,closable:s,panelRef:l,keyboard:c=!0,onClose:d}=e,[u,p]=r.useState(t),m=r.useMemo(()=>({panel:l}),[l]);return(r.useEffect(()=>{t&&p(!0)},[t]),i||!a||u)?r.createElement($.Provider,{value:m},r.createElement(N.default,{open:t||i||u,onEsc:({top:e,event:t})=>{if(e&&c){t.stopPropagation(),d?.(t);return}},autoDestroy:!1,getContainer:n,autoLock:t||u},r.createElement(K,Y({},e,{destroyOnHidden:a,afterClose:()=>{let{afterClose:e}=(s&&"object"==typeof s?s:{})||{};e?.(),o?.(),p(!1)}})))):null};var Q=e.i(45942),_=e.i(84323),ee=e.i(31861),et=e.i(96280),en=e.i(71138),ei=e.i(31328),ea=e.i(49027),eo=e.i(81485),es=e.i(61184),er=e.i(82614);let el=()=>{let{cancelButtonProps:e,cancelTextLocale:t,onCancel:n}=(0,r.useContext)(T);return r.default.createElement(k.default,{onClick:n,...e},t)},ec=()=>{let{confirmLoading:e,okButtonProps:t,okType:n,okTextLocale:i,onOk:a}=(0,r.useContext)(T);return r.default.createElement(k.default,{...(0,w.convertLegacyProps)(n),loading:e,onClick:a,...t},i)};var ed=e.i(27844);function eu(e,t){return r.default.createElement("span",{className:`${e}-close-x`},t||r.default.createElement(R.default,{className:`${e}-close-icon`}))}let ep=e=>{let t,{okText:n,okType:i="primary",cancelText:a,confirmLoading:o,onOk:s,onCancel:l,okButtonProps:c,cancelButtonProps:d,footer:u}=e,[p]=(0,v.useLocale)("Modal",(0,ed.getConfirmLocale)()),m=n||p?.okText,g=a||p?.cancelText,h=r.default.useMemo(()=>({confirmLoading:o,okButtonProps:c,cancelButtonProps:d,okTextLocale:m,cancelTextLocale:g,okType:i,onOk:s,onCancel:l}),[o,c,d,m,g,i,s,l]);return"function"==typeof u||void 0===u?(t=r.default.createElement(r.default.Fragment,null,r.default.createElement(el,null),r.default.createElement(ec,null)),"function"==typeof u&&(t=u(t,{OkBtn:ec,CancelBtn:el})),t=r.default.createElement(A,{value:h},t)):t=u,r.default.createElement(er.DisabledContextProvider,{disabled:!1},t)};var em=e.i(35492);e.i(99838);var eg=e.i(32556),eh=e.i(4999),ef=e.i(21746);let ey=(e,t)=>((e,t)=>{let{componentCls:n,gridColumns:i,antCls:a}=e,[o,s]=(0,eh.genCssVar)(a,"grid"),[,r]=(0,eh.genCssVar)(a,"col"),l={};for(let e=i;e>=0;e--)0===e?(l[`${n}${t}-${e}`]={display:"none"},l[`${n}-push-${e}`]={insetInlineStart:"auto"},l[`${n}-pull-${e}`]={insetInlineEnd:"auto"},l[`${n}${t}-push-${e}`]={insetInlineStart:"auto"},l[`${n}${t}-pull-${e}`]={insetInlineEnd:"auto"},l[`${n}${t}-offset-${e}`]={marginInlineStart:0},l[`${n}${t}-order-${e}`]={order:0}):(l[`${n}${t}-${e}`]=[{[o("display")]:"block",display:"block"},{display:s("display"),flex:`0 0 ${e/i*100}%`,maxWidth:`${e/i*100}%`}],l[`${n}${t}-push-${e}`]={insetInlineStart:`${e/i*100}%`},l[`${n}${t}-pull-${e}`]={insetInlineEnd:`${e/i*100}%`},l[`${n}${t}-offset-${e}`]={marginInlineStart:`${e/i*100}%`},l[`${n}${t}-order-${e}`]={order:e});return l[`${n}${t}-flex`]={flex:r(`${t.replace(/-/,"")}-flex`)},l})(e,t);(0,eh.genStyleHooks)("Grid",e=>{let{componentCls:t}=e;return{[t]:{display:"flex",flexFlow:"row wrap",minWidth:0,"&::before, &::after":{display:"flex"},"&-no-wrap":{flexWrap:"nowrap"},"&-start":{justifyContent:"flex-start"},"&-center":{justifyContent:"center"},"&-end":{justifyContent:"flex-end"},"&-space-between":{justifyContent:"space-between"},"&-space-around":{justifyContent:"space-around"},"&-space-evenly":{justifyContent:"space-evenly"},"&-top":{alignItems:"flex-start"},"&-middle":{alignItems:"center"},"&-bottom":{alignItems:"flex-end"}}}},()=>({}));let eb=e=>({xs:e.screenXSMin,sm:e.screenSMMin,md:e.screenMDMin,lg:e.screenLGMin,xl:e.screenXLMin,xxl:e.screenXXLMin});(0,eh.genStyleHooks)("Grid",e=>{let t=(0,ef.mergeToken)(e,{gridColumns:24}),n=eb(t);return delete n.xs,[(e=>{let{componentCls:t}=e;return{[t]:{position:"relative",maxWidth:"100%",minHeight:1}}})(t),ey(t,""),ey(t,"-xs"),Object.keys(n).map(e=>{let i,a;return i=n[e],a=`-${e}`,{[`@media (min-width: ${(0,eg.unit)(i)})`]:{...ey(t,a)}}}).reduce((e,t)=>({...e,...t}),{})]},()=>({}));var ev=e.i(97638),ex=e.i(50223),eC=e.i(8676);function ek(e){return{position:e,inset:0}}let ew=e=>{let t=e.padding,n=e.fontSizeHeading5,i=e.lineHeightHeading5;return(0,ef.mergeToken)(e,{modalHeaderHeight:e.calc(e.calc(i).mul(n).equal()).add(e.calc(t).mul(2).equal()).equal(),modalFooterBorderColorSplit:e.colorSplit,modalFooterBorderStyle:e.lineType,modalFooterBorderWidth:e.lineWidth,modalCloseIconColor:e.colorIcon,modalCloseIconHoverColor:e.colorIconHover,modalCloseBtnSize:e.controlHeight,modalConfirmIconSize:e.fontHeight,modalTitleHeight:e.calc(e.titleFontSize).mul(e.titleLineHeight).equal()})},eS=e=>({footerBg:"transparent",headerBg:"transparent",titleLineHeight:e.lineHeightHeading5,titleFontSize:e.fontSizeHeading5,contentBg:e.colorBgElevated,titleColor:e.colorTextHeading,contentPadding:e.wireframe?0:`${(0,eg.unit)(e.paddingMD)} ${(0,eg.unit)(e.paddingContentHorizontalLG)}`,headerPadding:e.wireframe?`${(0,eg.unit)(e.padding)} ${(0,eg.unit)(e.paddingLG)}`:0,headerBorderBottom:e.wireframe?`${(0,eg.unit)(e.lineWidth)} ${e.lineType} ${e.colorSplit}`:"none",headerMarginBottom:e.wireframe?0:e.marginXS,bodyPadding:e.wireframe?e.paddingLG:0,footerPadding:e.wireframe?`${(0,eg.unit)(e.paddingXS)} ${(0,eg.unit)(e.padding)}`:0,footerBorderTop:e.wireframe?`${(0,eg.unit)(e.lineWidth)} ${e.lineType} ${e.colorSplit}`:"none",footerBorderRadius:e.wireframe?`0 0 ${(0,eg.unit)(e.borderRadiusLG)} ${(0,eg.unit)(e.borderRadiusLG)}`:0,footerMarginTop:e.wireframe?0:e.marginSM,confirmBodyPadding:e.wireframe?`${(0,eg.unit)(2*e.padding)} ${(0,eg.unit)(2*e.padding)} ${(0,eg.unit)(e.paddingLG)}`:0,confirmIconMarginInlineEnd:e.wireframe?e.margin:e.marginSM,confirmBtnsMarginTop:e.wireframe?e.marginLG:e.marginSM,mask:!0}),eI=(0,eh.genStyleHooks)("Modal",e=>{let t=ew(e);return[(e=>{let{componentCls:t,motionDurationMid:n}=e;return[{[`${t}-root`]:{[`${t}-wrap-rtl`]:{direction:"rtl"},[`${t}-centered`]:{textAlign:"center","&::before":{display:"inline-block",width:0,height:"100%",verticalAlign:"middle",content:'""'},[t]:{top:0,display:"inline-block",paddingBottom:0,textAlign:"start",verticalAlign:"middle"}},[`@media (max-width: ${e.screenSMMax}px)`]:{[t]:{maxWidth:"calc(100vw - 16px)",margin:`${(0,eg.unit)(e.marginXS)} auto`},[`${t}-centered`]:{[t]:{flex:1}}}}},{[t]:{...(0,ev.resetComponent)(e),pointerEvents:"none",position:"relative",top:100,width:"auto",maxWidth:`calc(100vw - ${(0,eg.unit)(e.calc(e.margin).mul(2).equal())})`,margin:"0 auto","&:focus-visible":{borderRadius:e.borderRadiusLG,...(0,ev.genFocusOutline)(e)},[`${t}-title`]:{margin:0,color:e.titleColor,fontWeight:e.fontWeightStrong,fontSize:e.titleFontSize,lineHeight:e.titleLineHeight,wordWrap:"break-word"},[`${t}-container`]:{position:"relative",backgroundColor:e.contentBg,backgroundClip:"padding-box",border:0,borderRadius:e.borderRadiusLG,boxShadow:e.boxShadow,pointerEvents:"auto",padding:e.contentPadding},[`${t}-close`]:{position:"absolute",top:e.calc(e.modalHeaderHeight).sub(e.modalCloseBtnSize).div(2).equal(),insetInlineEnd:e.calc(e.modalHeaderHeight).sub(e.modalCloseBtnSize).div(2).equal(),zIndex:e.calc(e.zIndexPopupBase).add(10).equal(),padding:0,color:e.modalCloseIconColor,fontWeight:e.fontWeightStrong,lineHeight:1,textDecoration:"none",background:"transparent",borderRadius:e.borderRadiusSM,width:e.modalCloseBtnSize,height:e.modalCloseBtnSize,border:0,outline:0,cursor:"pointer",transition:["color","background-color"].map(e=>`${e} ${n}`).join(", "),"&-x":{display:"flex",fontSize:e.fontSizeLG,fontStyle:"normal",lineHeight:(0,eg.unit)(e.modalCloseBtnSize),justifyContent:"center",textTransform:"none",textRendering:"auto"},"&:disabled":{pointerEvents:"none"},"&:hover":{color:e.modalCloseIconHoverColor,backgroundColor:e.colorBgTextHover,textDecoration:"none"},"&:active":{backgroundColor:e.colorBgTextActive},...(0,ev.genFocusStyle)(e)},[`${t}-header`]:{color:e.colorText,background:e.headerBg,borderRadius:`${(0,eg.unit)(e.borderRadiusLG)} ${(0,eg.unit)(e.borderRadiusLG)} 0 0`,marginBottom:e.headerMarginBottom,padding:e.headerPadding,borderBottom:e.headerBorderBottom},[`${t}-body`]:{fontSize:e.fontSize,lineHeight:e.lineHeight,wordWrap:"break-word",padding:e.bodyPadding,[`${t}-body-skeleton`]:{width:"100%",height:"100%",display:"flex",justifyContent:"center",alignItems:"center",margin:`${(0,eg.unit)(e.margin)} auto`}},[`${t}-footer`]:{textAlign:"end",background:e.footerBg,marginTop:e.footerMarginTop,padding:e.footerPadding,borderTop:e.footerBorderTop,borderRadius:e.footerBorderRadius,[`> ${e.antCls}-btn + ${e.antCls}-btn`]:{marginInlineStart:e.marginXS}},[`${t}-open`]:{overflow:"hidden"}}},{[`${t}-pure-panel`]:{top:"auto",padding:0,display:"flex",flexDirection:"column",[`${t}-container,
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,30815,e=>{"use strict";let t;var n=e.i(65408),i=e.i(17900),s=e.i(23613),o=e.i(77674),a=e.i(33086);e.i(89171);var r=e.i(59990),l=e.i(45605),c=e.i(59782),d=e.i(77425),u=e.i(53359),p=e.i(557),m=e.i(29870),g=e.i(70276),h=e.i(7284),f=e.i(81221),y=e.i(78910),b=e.i(67401),v=e.i(59894),x=e.i(28363),k=e.i(85449),C=e.i(38727),w=e.i(44703);let S=e=>"function"==typeof e?.then,I=e=>{let{type:t,children:n,prefixCls:i,buttonProps:s,close:o,autoFocus:a,emitEvent:l,isSilent:c,quitOnNullishReturnValue:d,actionFn:u}=e,p=r.useRef(!1),m=r.useRef(null),[g,h]=(0,k.default)(!1),f=(...e)=>{o?.(...e)};return r.useEffect(()=>{let e=null;return a&&(e=setTimeout(()=>{m.current?.focus({preventScroll:!0})})),()=>{e&&clearTimeout(e)}},[a]),r.createElement(C.default,{...(0,w.convertLegacyProps)(t),onClick:e=>{let t;if(!p.current){var n;if(p.current=!0,!u)return void f();if(l){if(t=u(e),d&&!S(t)){p.current=!1,f(e);return}}else if(u.length)t=u(o),p.current=!1;else if(!S(t=u()))return void f();S(n=t)&&(h(!0),n.then((...e)=>{h(!1,!0),f.apply(void 0,e),p.current=!1},e=>{if(h(!1,!0),p.current=!1,!c?.())return Promise.reject(e)}))}},loading:g,prefixCls:i,...s,ref:m},n)},A=r.default.createContext({}),{Provider:T}=A,P=()=>{let{autoFocusButton:e,cancelButtonProps:t,cancelTextLocale:n,isSilent:i,mergedOkCancel:s,rootPrefixCls:o,close:a,onCancel:l,onConfirm:c,onClose:d}=(0,r.useContext)(A);return s?r.default.createElement(I,{isSilent:i,actionFn:l,close:(...e)=>{a?.(...e),c?.(!1),d?.()},autoFocus:"cancel"===e,buttonProps:t,prefixCls:`${o}-btn`},n):null},E=()=>{let{autoFocusButton:e,close:t,isSilent:n,okButtonProps:i,rootPrefixCls:s,okTextLocale:o,okType:a,onConfirm:l,onOk:c,onClose:d}=(0,r.useContext)(A);return r.default.createElement(I,{isSilent:n,type:a||"primary",actionFn:c,close:(...e)=>{t?.(...e),l?.(!0),d?.()},autoFocus:"ok"===e,buttonProps:i,prefixCls:`${s}-btn`},o)};var R=e.i(74190),N=e.i(21275);let j=r.createContext({});var D=e.i(25759),L=e.i(61934),$=e.i(14828);function B(e,t,n){let i=t;return!i&&n&&(i=`${e}-${n}`),i}function M(e,t){let n=e[`page${t?"Y":"X"}Offset`],i=`scroll${t?"Top":"Left"}`;if("number"!=typeof n){let t=e.document;"number"!=typeof(n=t.documentElement[i])&&(n=t.body[i])}return n}var U=e.i(98178),O=e.i(88317),H=e.i(55571);let G=r.memo(({children:e})=>e,(e,{shouldUpdate:t})=>!t);function F(){return(F=Object.assign.bind()).apply(this,arguments)}let Z=r.default.forwardRef((e,t)=>{let{prefixCls:n,className:i,style:s,title:o,ariaId:a,footer:l,closable:c,closeIcon:d,onClose:u,children:p,bodyStyle:m,bodyProps:g,modalRender:f,onMouseDown:y,onMouseUp:b,holderRef:v,visible:x,forceRender:k,width:C,height:w,classNames:S,styles:I,isFixedPos:A,focusTrap:T}=e,{panel:P}=r.default.useContext(j),E=(0,r.useRef)(null),R=(0,O.useComposeRef)(v,P,E),[N]=(0,H.useLockFocus)(x&&A&&!1!==T,()=>E.current);r.default.useImperativeHandle(t,()=>({focus:()=>{E.current?.focus({preventScroll:!0})}}));let D={};void 0!==C&&(D.width=C),void 0!==w&&(D.height=w);let L=l?r.default.createElement("div",{className:(0,h.clsx)(`${n}-footer`,S?.footer),style:{...I?.footer}},l):null,B=o?r.default.createElement("div",{className:(0,h.clsx)(`${n}-header`,S?.header),style:{...I?.header}},r.default.createElement("div",{className:(0,h.clsx)(`${n}-title`,S?.title),id:a,style:{...I?.title}},o)):null,M=(0,r.useMemo)(()=>"object"==typeof c&&null!==c?c:c?{closeIcon:d??r.default.createElement("span",{className:`${n}-close-x`})}:{},[c,d,n]),U=(0,$.default)(M,!0),Z="object"==typeof c&&c.disabled,W=c?r.default.createElement("button",F({type:"button",onClick:u,"aria-label":"Close"},U,{className:`${n}-close`,disabled:Z}),M.closeIcon):null,z=r.default.createElement("div",{className:(0,h.clsx)(`${n}-container`,S?.container),style:I?.container},W,B,r.default.createElement("div",F({className:(0,h.clsx)(`${n}-body`,S?.body),style:{...m,...I?.body}},g),p),L);return r.default.createElement("div",{key:"dialog-element",role:"dialog","aria-labelledby":o?a:null,"aria-modal":"true",ref:R,style:{...s,...D},className:(0,h.clsx)(n,i),onMouseDown:y,onMouseUp:b,tabIndex:-1,onFocus:e=>{N(e.target)}},r.default.createElement(G,{shouldUpdate:x||k},f?f(z):z))});function W(){return(W=Object.assign.bind()).apply(this,arguments)}let z=r.forwardRef((e,t)=>{let{prefixCls:n,title:i,style:s,className:o,visible:a,forceRender:l,destroyOnHidden:c,motionName:d,ariaId:u,onVisibleChanged:p,mousePosition:m}=e,g=(0,r.useRef)(null),f=(0,r.useRef)(null);r.useImperativeHandle(t,()=>({...f.current,inMotion:g.current.inMotion,enableMotion:g.current.enableMotion}));let[y,b]=r.useState(),v={};function x(){var e;let t,n,i,s;if(!g.current?.nativeElement)return;let o=(n={left:(t=(e=g.current.nativeElement).getBoundingClientRect()).left,top:t.top},s=(i=e.ownerDocument).defaultView||i.parentWindow,n.left+=M(s),n.top+=M(s,!0),n);b(m&&(m.x||m.y)?`${m.x-o.left}px ${m.y-o.top}px`:"")}return y&&(v.transformOrigin=y),r.createElement(U.default,{visible:a,onVisibleChanged:p,onAppearPrepare:x,onEnterPrepare:x,forceRender:l,motionName:d,removeOnLeave:c,ref:g},({className:t,style:a},l)=>r.createElement(Z,W({},e,{ref:f,title:i,ariaId:u,prefixCls:n,holderRef:l,style:{...a,...s,...v},className:(0,h.clsx)(o,t)})))});function q(){return(q=Object.assign.bind()).apply(this,arguments)}let V=e=>{let{prefixCls:t,style:n,visible:i,maskProps:s,motionName:o,className:a}=e;return r.createElement(U.default,{key:"mask",visible:i,motionName:o,leavedClassName:`${t}-mask-hidden`},({className:e,style:i},o)=>r.createElement("div",q({ref:o,style:{...i,...n},className:(0,h.clsx)(`${t}-mask`,e,a)},s)))};function K(){return(K=Object.assign.bind()).apply(this,arguments)}e.i(87513);let _=e=>{let{prefixCls:t="rc-dialog",zIndex:n,visible:i=!1,focusTriggerAfterClose:s=!0,wrapStyle:o,wrapClassName:a,wrapProps:l,onClose:c,afterOpenChange:d,afterClose:u,transitionName:p,animation:m,closable:g=!0,mask:f=!0,maskTransitionName:y,maskAnimation:b,maskClosable:v=!0,maskStyle:x,maskProps:k,rootClassName:C,rootStyle:w,classNames:S,styles:I}=e,A=(0,r.useRef)(null),T=(0,r.useRef)(null),P=(0,r.useRef)(null),[E,R]=r.useState(i),[N,j]=r.useState(!1),M=(0,L.default)();function U(){if(R(!1),f&&A.current&&s){try{A.current.focus({preventScroll:!0})}catch(e){}A.current=null}E&&u?.()}function O(e){c?.(e)}let H=(0,r.useRef)(!1),G=null;v&&(G=e=>{T.current===e.target&&H.current&&O(e)}),(0,r.useEffect)(()=>{i?(H.current=!1,R(!0),(0,D.default)(T.current,document.activeElement)||(A.current=document.activeElement),T.current&&j("fixed"===getComputedStyle(T.current).position)):E&&P.current.enableMotion()&&!P.current.inMotion()&&U()},[i]);let F={zIndex:n,...o,...I?.wrapper,display:E?null:"none"};return r.createElement("div",K({className:(0,h.clsx)(`${t}-root`,C),style:w},(0,$.default)(e,{data:!0})),r.createElement(V,{prefixCls:t,visible:f&&i,motionName:B(t,y,b),style:{zIndex:n,...x,...I?.mask},maskProps:k,className:S?.mask}),r.createElement("div",K({className:(0,h.clsx)(`${t}-wrap`,a,S?.wrapper),ref:T,onClick:G,onMouseDown:function(e){H.current=e.target===T.current},style:F},l),r.createElement(z,K({},e,{isFixedPos:N,ref:P,closable:g,ariaId:M,prefixCls:t,visible:i&&E,onClose:O,onVisibleChanged:function(e){e?(0,D.default)(T.current,document.activeElement)||P.current?.focus():U(),d?.(e)},motionName:B(t,p,m)}))))};function X(){return(X=Object.assign.bind()).apply(this,arguments)}let Y=e=>{let{visible:t,getContainer:n,forceRender:i,destroyOnHidden:s=!1,afterClose:o,closable:a,panelRef:l,keyboard:c=!0,onClose:d}=e,[u,p]=r.useState(t),m=r.useMemo(()=>({panel:l}),[l]);return(r.useEffect(()=>{t&&p(!0)},[t]),i||!s||u)?r.createElement(j.Provider,{value:m},r.createElement(N.default,{open:t||i||u,onEsc:({top:e,event:t})=>{if(e&&c){t.stopPropagation(),d?.(t);return}},autoDestroy:!1,getContainer:n,autoLock:t||u},r.createElement(_,X({},e,{destroyOnHidden:s,afterClose:()=>{let{afterClose:e}=(a&&"object"==typeof a?a:{})||{};e?.(),o?.(),p(!1)}})))):null};var J=e.i(45942),Q=e.i(84323),ee=e.i(31861),et=e.i(96280),en=e.i(71138),ei=e.i(31328),es=e.i(49027),eo=e.i(81485),ea=e.i(61184),er=e.i(82614);let el=()=>{let{cancelButtonProps:e,cancelTextLocale:t,onCancel:n}=(0,r.useContext)(A);return r.default.createElement(C.default,{onClick:n,...e},t)},ec=()=>{let{confirmLoading:e,okButtonProps:t,okType:n,okTextLocale:i,onOk:s}=(0,r.useContext)(A);return r.default.createElement(C.default,{...(0,w.convertLegacyProps)(n),loading:e,onClick:s,...t},i)};var ed=e.i(27844);function eu(e,t){return r.default.createElement("span",{className:`${e}-close-x`},t||r.default.createElement(R.default,{className:`${e}-close-icon`}))}let ep=e=>{let t,{okText:n,okType:i="primary",cancelText:s,confirmLoading:o,onOk:a,onCancel:l,okButtonProps:c,cancelButtonProps:d,footer:u}=e,[p]=(0,v.useLocale)("Modal",(0,ed.getConfirmLocale)()),m=n||p?.okText,g=s||p?.cancelText,h=r.default.useMemo(()=>({confirmLoading:o,okButtonProps:c,cancelButtonProps:d,okTextLocale:m,cancelTextLocale:g,okType:i,onOk:a,onCancel:l}),[o,c,d,m,g,i,a,l]);return"function"==typeof u||void 0===u?(t=r.default.createElement(r.default.Fragment,null,r.default.createElement(el,null),r.default.createElement(ec,null)),"function"==typeof u&&(t=u(t,{OkBtn:ec,CancelBtn:el})),t=r.default.createElement(T,{value:h},t)):t=u,r.default.createElement(er.DisabledContextProvider,{disabled:!1},t)};var em=e.i(35492);e.i(99838);var eg=e.i(32556),eh=e.i(4999),ef=e.i(21746);let ey=(e,t)=>((e,t)=>{let{componentCls:n,gridColumns:i,antCls:s}=e,[o,a]=(0,eh.genCssVar)(s,"grid"),[,r]=(0,eh.genCssVar)(s,"col"),l={};for(let e=i;e>=0;e--)0===e?(l[`${n}${t}-${e}`]={display:"none"},l[`${n}-push-${e}`]={insetInlineStart:"auto"},l[`${n}-pull-${e}`]={insetInlineEnd:"auto"},l[`${n}${t}-push-${e}`]={insetInlineStart:"auto"},l[`${n}${t}-pull-${e}`]={insetInlineEnd:"auto"},l[`${n}${t}-offset-${e}`]={marginInlineStart:0},l[`${n}${t}-order-${e}`]={order:0}):(l[`${n}${t}-${e}`]=[{[o("display")]:"block",display:"block"},{display:a("display"),flex:`0 0 ${e/i*100}%`,maxWidth:`${e/i*100}%`}],l[`${n}${t}-push-${e}`]={insetInlineStart:`${e/i*100}%`},l[`${n}${t}-pull-${e}`]={insetInlineEnd:`${e/i*100}%`},l[`${n}${t}-offset-${e}`]={marginInlineStart:`${e/i*100}%`},l[`${n}${t}-order-${e}`]={order:e});return l[`${n}${t}-flex`]={flex:r(`${t.replace(/-/,"")}-flex`)},l})(e,t);(0,eh.genStyleHooks)("Grid",e=>{let{componentCls:t}=e;return{[t]:{display:"flex",flexFlow:"row wrap",minWidth:0,"&::before, &::after":{display:"flex"},"&-no-wrap":{flexWrap:"nowrap"},"&-start":{justifyContent:"flex-start"},"&-center":{justifyContent:"center"},"&-end":{justifyContent:"flex-end"},"&-space-between":{justifyContent:"space-between"},"&-space-around":{justifyContent:"space-around"},"&-space-evenly":{justifyContent:"space-evenly"},"&-top":{alignItems:"flex-start"},"&-middle":{alignItems:"center"},"&-bottom":{alignItems:"flex-end"}}}},()=>({}));let eb=e=>({xs:e.screenXSMin,sm:e.screenSMMin,md:e.screenMDMin,lg:e.screenLGMin,xl:e.screenXLMin,xxl:e.screenXXLMin});(0,eh.genStyleHooks)("Grid",e=>{let t=(0,ef.mergeToken)(e,{gridColumns:24}),n=eb(t);return delete n.xs,[(e=>{let{componentCls:t}=e;return{[t]:{position:"relative",maxWidth:"100%",minHeight:1}}})(t),ey(t,""),ey(t,"-xs"),Object.keys(n).map(e=>{let i,s;return i=n[e],s=`-${e}`,{[`@media (min-width: ${(0,eg.unit)(i)})`]:{...ey(t,s)}}}).reduce((e,t)=>({...e,...t}),{})]},()=>({}));var ev=e.i(97638),ex=e.i(50223),ek=e.i(8676);function eC(e){return{position:e,inset:0}}let ew=e=>{let t=e.padding,n=e.fontSizeHeading5,i=e.lineHeightHeading5;return(0,ef.mergeToken)(e,{modalHeaderHeight:e.calc(e.calc(i).mul(n).equal()).add(e.calc(t).mul(2).equal()).equal(),modalFooterBorderColorSplit:e.colorSplit,modalFooterBorderStyle:e.lineType,modalFooterBorderWidth:e.lineWidth,modalCloseIconColor:e.colorIcon,modalCloseIconHoverColor:e.colorIconHover,modalCloseBtnSize:e.controlHeight,modalConfirmIconSize:e.fontHeight,modalTitleHeight:e.calc(e.titleFontSize).mul(e.titleLineHeight).equal()})},eS=e=>({footerBg:"transparent",headerBg:"transparent",titleLineHeight:e.lineHeightHeading5,titleFontSize:e.fontSizeHeading5,contentBg:e.colorBgElevated,titleColor:e.colorTextHeading,contentPadding:e.wireframe?0:`${(0,eg.unit)(e.paddingMD)} ${(0,eg.unit)(e.paddingContentHorizontalLG)}`,headerPadding:e.wireframe?`${(0,eg.unit)(e.padding)} ${(0,eg.unit)(e.paddingLG)}`:0,headerBorderBottom:e.wireframe?`${(0,eg.unit)(e.lineWidth)} ${e.lineType} ${e.colorSplit}`:"none",headerMarginBottom:e.wireframe?0:e.marginXS,bodyPadding:e.wireframe?e.paddingLG:0,footerPadding:e.wireframe?`${(0,eg.unit)(e.paddingXS)} ${(0,eg.unit)(e.padding)}`:0,footerBorderTop:e.wireframe?`${(0,eg.unit)(e.lineWidth)} ${e.lineType} ${e.colorSplit}`:"none",footerBorderRadius:e.wireframe?`0 0 ${(0,eg.unit)(e.borderRadiusLG)} ${(0,eg.unit)(e.borderRadiusLG)}`:0,footerMarginTop:e.wireframe?0:e.marginSM,confirmBodyPadding:e.wireframe?`${(0,eg.unit)(2*e.padding)} ${(0,eg.unit)(2*e.padding)} ${(0,eg.unit)(e.paddingLG)}`:0,confirmIconMarginInlineEnd:e.wireframe?e.margin:e.marginSM,confirmBtnsMarginTop:e.wireframe?e.marginLG:e.marginSM,mask:!0}),eI=(0,eh.genStyleHooks)("Modal",e=>{let t=ew(e);return[(e=>{let{componentCls:t,motionDurationMid:n}=e;return[{[`${t}-root`]:{[`${t}-wrap-rtl`]:{direction:"rtl"},[`${t}-centered`]:{textAlign:"center","&::before":{display:"inline-block",width:0,height:"100%",verticalAlign:"middle",content:'""'},[t]:{top:0,display:"inline-block",paddingBottom:0,textAlign:"start",verticalAlign:"middle"}},[`@media (max-width: ${e.screenSMMax}px)`]:{[t]:{maxWidth:"calc(100vw - 16px)",margin:`${(0,eg.unit)(e.marginXS)} auto`},[`${t}-centered`]:{[t]:{flex:1}}}}},{[t]:{...(0,ev.resetComponent)(e),pointerEvents:"none",position:"relative",top:100,width:"auto",maxWidth:`calc(100vw - ${(0,eg.unit)(e.calc(e.margin).mul(2).equal())})`,margin:"0 auto","&:focus-visible":{borderRadius:e.borderRadiusLG,...(0,ev.genFocusOutline)(e)},[`${t}-title`]:{margin:0,color:e.titleColor,fontWeight:e.fontWeightStrong,fontSize:e.titleFontSize,lineHeight:e.titleLineHeight,wordWrap:"break-word"},[`${t}-container`]:{position:"relative",backgroundColor:e.contentBg,backgroundClip:"padding-box",border:0,borderRadius:e.borderRadiusLG,boxShadow:e.boxShadow,pointerEvents:"auto",padding:e.contentPadding},[`${t}-close`]:{position:"absolute",top:e.calc(e.modalHeaderHeight).sub(e.modalCloseBtnSize).div(2).equal(),insetInlineEnd:e.calc(e.modalHeaderHeight).sub(e.modalCloseBtnSize).div(2).equal(),zIndex:e.calc(e.zIndexPopupBase).add(10).equal(),padding:0,color:e.modalCloseIconColor,fontWeight:e.fontWeightStrong,lineHeight:1,textDecoration:"none",background:"transparent",borderRadius:e.borderRadiusSM,width:e.modalCloseBtnSize,height:e.modalCloseBtnSize,border:0,outline:0,cursor:"pointer",transition:["color","background-color"].map(e=>`${e} ${n}`).join(", "),"&-x":{display:"flex",fontSize:e.fontSizeLG,fontStyle:"normal",lineHeight:(0,eg.unit)(e.modalCloseBtnSize),justifyContent:"center",textTransform:"none",textRendering:"auto"},"&:disabled":{pointerEvents:"none"},"&:hover":{color:e.modalCloseIconHoverColor,backgroundColor:e.colorBgTextHover,textDecoration:"none"},"&:active":{backgroundColor:e.colorBgTextActive},...(0,ev.genFocusStyle)(e)},[`${t}-header`]:{color:e.colorText,background:e.headerBg,borderRadius:`${(0,eg.unit)(e.borderRadiusLG)} ${(0,eg.unit)(e.borderRadiusLG)} 0 0`,marginBottom:e.headerMarginBottom,padding:e.headerPadding,borderBottom:e.headerBorderBottom},[`${t}-body`]:{fontSize:e.fontSize,lineHeight:e.lineHeight,wordWrap:"break-word",padding:e.bodyPadding,[`${t}-body-skeleton`]:{width:"100%",height:"100%",display:"flex",justifyContent:"center",alignItems:"center",margin:`${(0,eg.unit)(e.margin)} auto`}},[`${t}-footer`]:{textAlign:"end",background:e.footerBg,marginTop:e.footerMarginTop,padding:e.footerPadding,borderTop:e.footerBorderTop,borderRadius:e.footerBorderRadius,[`> ${e.antCls}-btn + ${e.antCls}-btn`]:{marginInlineStart:e.marginXS}},[`${t}-open`]:{overflow:"hidden"}}},{[`${t}-pure-panel`]:{top:"auto",padding:0,display:"flex",flexDirection:"column",[`${t}-container,
           ${t}-body,
-          ${t}-confirm-body-wrapper`]:{display:"flex",flexDirection:"column",flex:"auto"},[`${t}-confirm-body`]:{marginBottom:"auto"}}}]})(t),(e=>{let{componentCls:t}=e;return{[`${t}-root`]:{[`${t}-wrap-rtl`]:{direction:"rtl",[`${t}-confirm-body`]:{direction:"rtl"}}}}})(t),(e=>{let{componentCls:t,antCls:n}=e;return[{[`${t}-root`]:{[`${t}${n}-zoom-enter, ${t}${n}-zoom-appear`]:{transform:"none",opacity:0,animationDuration:e.motionDurationSlow,userSelect:"none"},[`${t}${n}-zoom-leave ${t}-container`]:{pointerEvents:"none"},[`${t}-mask`]:{...ek("fixed"),zIndex:e.zIndexPopupBase,height:"100%",backgroundColor:e.colorBgMask,pointerEvents:"none",[`&${t}-mask-blur`]:{backdropFilter:"blur(4px)"},[`${t}-hidden`]:{display:"none"}},[`${t}-wrap`]:{...ek("fixed"),zIndex:e.zIndexPopupBase,overflow:"auto",outline:0,WebkitOverflowScrolling:"touch"}}},{[`${t}-root`]:(0,ex.initFadeMotion)(e)}]})(t),(0,eC.initZoomMotion)(t,"zoom"),(e=>{let{componentCls:t}=e,n=eb(e),i={...n};delete i.xs;let a=`--${t.replace(".","")}-`,o=Object.keys(i).map(e=>({[`@media (min-width: ${(0,eg.unit)(i[e])})`]:{width:`var(${a}${e}-width)`}}));return{[`${t}-root`]:{[t]:[].concat((0,em.default)(Object.keys(n).map((e,t)=>{let i=Object.keys(n)[t-1];return i?{[`${a}${e}-width`]:`var(${a}${i}-width)`}:null})),[{width:`var(${a}xs-width)`}],(0,em.default)(o))}}})(t)]},eS,{unitless:{titleLineHeight:!0}});(0,et.default)()&&window.document.documentElement&&document.documentElement.addEventListener("click",e=>{t={x:e.pageX,y:e.pageY},setTimeout(()=>{t=null},100)},!0);let eT=e=>{let{prefixCls:n,className:i,rootClassName:a,open:o,wrapClassName:s,centered:l,getContainer:c,style:u,width:p=520,footer:m,classNames:g,styles:v,children:x,loading:C,confirmLoading:k,zIndex:w,mousePosition:S,onOk:I,onCancel:T,okButtonProps:A,cancelButtonProps:P,destroyOnHidden:E,destroyOnClose:N,panelRef:$=null,closable:M,mask:j,modalRender:D,maskClosable:L,focusTriggerAfterClose:B,focusable:U,...F}=e,{getPopupContainer:Z,getPrefixCls:H,direction:G,className:W,style:z,classNames:q,styles:V,centered:X,cancelButtonProps:K,okButtonProps:Y,mask:et}=(0,d.useComponentConfig)("modal"),{modal:er}=r.useContext(d.ConfigContext),[el,ec]=r.useMemo(()=>"boolean"==typeof M?[void 0,void 0]:[M?.afterClose,M?.onClose],[M]),ed=H("modal",n),em=H(),[eg,eh,ef]=(0,y.useMergedMask)(j,et,ed,L),ey=(0,ea.default)(U,eg,B),eb=e=>{k||(T?.(e),ec?.())},ev=(0,ei.default)(ed),[ex,eC]=eI(ed,ev),ek=(0,h.clsx)(s,{[`${ed}-centered`]:l??X,[`${ed}-wrap-rtl`]:"rtl"===G}),ew=null===m||C?null:r.createElement(ep,{...e,okButtonProps:{...Y,...A},onOk:e=>{I?.(e),ec?.()},cancelButtonProps:{...K,...P},onCancel:eb}),[eS,eT,eA,eP]=(0,_.useClosable)((0,_.pickClosable)(e),(0,_.pickClosable)(er),{closable:!0,closeIcon:r.createElement(R.default,{className:`${ed}-close-icon`}),closeIconRender:e=>eu(ed,e)}),eE=!!eS&&{disabled:eA,closeIcon:eT,afterClose:el,...eP},eR=D?e=>r.createElement("div",{className:`${ed}-render`},D(e)):void 0,eN=`.${ed}-${D?"render":"container"}`,e$=(0,es.usePanelRef)(eN),eM=(0,O.composeRef)($,e$),[ej,eD]=(0,f.useZIndex)("Modal",w),eL={...e,width:p,panelRef:$,focusTriggerAfterClose:ey.focusTriggerAfterClose,focusable:ey,mask:eg,maskClosable:ef,zIndex:ej},[eB,eU]=(0,ee.useMergeSemantic)([q,g,eh],[V,v],{props:eL}),[eO,eF]=r.useMemo(()=>p&&"object"==typeof p?[void 0,p]:[p,void 0],[p]),eZ=r.useMemo(()=>{let e={};return eF&&Object.keys(eF).forEach(t=>{let n=eF[t];void 0!==n&&(e[`--${ed}-${t}-width`]="number"==typeof n?`${n}px`:n)}),e},[ed,eF]);return r.createElement(Q.default,{form:!0,space:!0},r.createElement(en.default.Provider,{value:eD},r.createElement(J,{width:eO,...F,zIndex:ej,getContainer:void 0===c?Z:c,prefixCls:ed,rootClassName:(0,h.clsx)(ex,a,eC,ev,eB.root),rootStyle:eU.root,footer:ew,visible:o,mousePosition:S??t,onClose:eb,closable:eE,closeIcon:eT,transitionName:(0,b.getTransitionName)(em,"zoom",e.transitionName),maskTransitionName:(0,b.getTransitionName)(em,"fade",e.maskTransitionName),mask:eg,maskClosable:ef,className:(0,h.clsx)(ex,i,W),style:{...z,...u,...eZ},classNames:{...eB,wrapper:(0,h.clsx)(eB.wrapper,ek)},styles:eU,panelRef:eM,destroyOnHidden:E??N,modalRender:eR,focusTriggerAfterClose:ey.focusTriggerAfterClose,focusTrap:ey.trap},C?r.createElement(eo.default,{active:!0,title:!1,paragraph:{rows:4},className:`${ed}-body-skeleton`}):x)))},eA=(0,eh.genSubStyleComponent)(["Modal","confirm"],e=>(e=>{let{componentCls:t,titleFontSize:n,titleLineHeight:i,modalConfirmIconSize:a,fontSize:o,lineHeight:s,modalTitleHeight:r,fontHeight:l,confirmBodyPadding:c}=e,d=`${t}-confirm`;return{[d]:{"&-rtl":{direction:"rtl"},[`${e.antCls}-modal-header`]:{display:"none"},[`${d}-body-wrapper`]:{...(0,ev.clearFix)()},[`&${t} ${t}-body`]:{padding:c},[`${d}-body`]:{display:"flex",flexWrap:"nowrap",alignItems:"start",[`> ${e.iconCls}`]:{flex:"none",fontSize:a,marginInlineEnd:e.confirmIconMarginInlineEnd,marginTop:e.calc(e.calc(l).sub(a).equal()).div(2).equal()},[`&-has-title > ${e.iconCls}`]:{marginTop:e.calc(e.calc(r).sub(a).equal()).div(2).equal()}},[`${d}-paragraph`]:{display:"flex",flexDirection:"column",flex:"auto",rowGap:e.marginXS,maxWidth:`calc(100% - ${(0,eg.unit)(e.marginSM)})`},[`${e.iconCls} + ${d}-paragraph`]:{maxWidth:`calc(100% - ${(0,eg.unit)(e.calc(e.modalConfirmIconSize).add(e.marginSM).equal())})`},[`${d}-title`]:{color:e.colorTextHeading,fontWeight:e.fontWeightStrong,fontSize:n,lineHeight:i},[`${d}-container`]:{color:e.colorText,fontSize:o,lineHeight:s},[`${d}-btns`]:{textAlign:"end",marginTop:e.confirmBtnsMarginTop,[`${e.antCls}-btn + ${e.antCls}-btn`]:{marginBottom:0,marginInlineStart:e.marginXS}}},[`${d}-error ${d}-body > ${e.iconCls}`]:{color:e.colorError},[`${d}-warning ${d}-body > ${e.iconCls},
-        ${d}-confirm ${d}-body > ${e.iconCls}`]:{color:e.colorWarning},[`${d}-info ${d}-body > ${e.iconCls}`]:{color:e.colorInfo},[`${d}-success ${d}-body > ${e.iconCls}`]:{color:e.colorSuccess}}})(ew(e)),eS,{order:-1e3}),eP=e=>{let{prefixCls:t,icon:n,okText:i,cancelText:a,confirmPrefixCls:o,type:s,okCancel:l,footer:c,locale:d,autoFocusButton:f,focusable:y,...b}=e,x=n;if(!n&&null!==n)switch(s){case"info":x=r.createElement(g.default,null);break;case"success":x=r.createElement(u.default,null);break;case"error":x=r.createElement(p.default,null);break;default:x=r.createElement(m.default,null)}let C=l??"confirm"===s,k=r.useMemo(()=>{let e=y?.autoFocusButton||f;return e||null===e?e:"ok"},[f,y?.autoFocusButton]),[w]=(0,v.useLocale)("Modal"),S=d||w,I=i||(C?S?.okText:S?.justOkText),T=a||S?.cancelText,{closable:R}=b,{onClose:N}=R&&"object"==typeof R?R:{},$=r.useMemo(()=>({autoFocusButton:k,cancelTextLocale:T,okTextLocale:I,mergedOkCancel:C,onClose:N,...b}),[k,T,I,C,N,b]),M=r.createElement(r.Fragment,null,r.createElement(P,null),r.createElement(E,null)),j=void 0!==e.title&&null!==e.title,D=`${o}-body`;return r.createElement("div",{className:`${o}-body-wrapper`},r.createElement("div",{className:(0,h.clsx)(D,{[`${D}-has-title`]:j})},x,r.createElement("div",{className:`${o}-paragraph`},j&&r.createElement("span",{className:`${o}-title`},e.title),r.createElement("div",{className:`${o}-content`},e.content))),void 0===c||"function"==typeof c?r.createElement(A,{value:$},r.createElement("div",{className:`${o}-btns`},"function"==typeof c?c(M,{OkBtn:E,CancelBtn:P}):M)):c,r.createElement(eA,{prefixCls:t}))},eE=e=>{let{close:t,zIndex:n,maskStyle:i,direction:a,prefixCls:o,wrapClassName:s,rootPrefixCls:l,bodyStyle:c,closable:u=!1,onConfirm:p,styles:m,title:g,mask:v,maskClosable:C,okButtonProps:k,cancelButtonProps:w}=e,{cancelButtonProps:S,okButtonProps:I}=(0,d.useComponentConfig)("modal"),T=`${o}-confirm`,A=e.width||416,P=e.style||{},E=(0,h.clsx)(T,`${T}-${e.type}`,{[`${T}-rtl`]:"rtl"===a},e.className),R=r.useMemo(()=>{let e=(0,y.normalizeMaskConfig)(v,C);return e.closable??(e.closable=!1),e},[v,C]),[,N]=(0,x.default)(),$=r.useMemo(()=>void 0!==n?n:N.zIndexPopupBase+f.CONTAINER_MAX_OFFSET,[n,N]);return r.createElement(eT,{...e,className:E,wrapClassName:(0,h.clsx)({[`${T}-centered`]:!!e.centered},s),onCancel:()=>{t?.({triggerCancel:!0}),p?.(!1)},title:g,footer:null,transitionName:(0,b.getTransitionName)(l||"","zoom",e.transitionName),maskTransitionName:(0,b.getTransitionName)(l||"","fade",e.maskTransitionName),mask:R,style:P,styles:{body:c,mask:i,...m},width:A,zIndex:$,closable:u},r.createElement(eP,{...e,confirmPrefixCls:T,okButtonProps:{...I,...k},cancelButtonProps:{...S,...w}}))},eR=e=>{let{rootPrefixCls:t,iconPrefixCls:n,direction:i,theme:a}=e;return r.createElement(c.default,{prefixCls:t,iconPrefixCls:n,direction:i,theme:a},r.createElement(eE,{...e}))},eN=[],e$="",eM=e=>{let{prefixCls:t,getContainer:n,direction:i}=e,a=(0,ed.getConfirmLocale)(),o=(0,r.useContext)(d.ConfigContext),s=e$||o.getPrefixCls(),l=t||`${s}-modal`,c=n;return!1===c&&(c=void 0),r.default.createElement(eR,{...e,rootPrefixCls:s,prefixCls:l,iconPrefixCls:o.iconPrefixCls,theme:o.theme,direction:i??o.direction,locale:o.locale?.Modal??a,getContainer:c})};function ej(e){let t,n=(0,c.globalConfig)(),i=document.createDocumentFragment(),a={...e,close:d,open:!0};function o(...t){t.some(e=>e?.triggerCancel)&&e.onCancel?.(()=>{},...t.slice(1));for(let e=0;e<eN.length;e++)if(eN[e]===d){eN.splice(e,1);break}(0,l.unmount)(i).then(()=>{})}let s=e=>{clearTimeout(t),t=setTimeout(()=>{let t=n.getPrefixCls(void 0,e$),a=n.getIconPrefixCls(),o=n.getTheme(),s=r.default.createElement(eM,{...e});(0,l.render)(r.default.createElement(c.default,{prefixCls:t,iconPrefixCls:a,theme:o},"function"==typeof n.holderRender?n.holderRender(s):s),i)})};function d(...t){s(a={...a,open:!1,afterClose:()=>{"function"==typeof e.afterClose&&e.afterClose(),o.apply(this,t)}})}return s(a),eN.push(d),{destroy:d,update:function(e){s(a="function"==typeof e?e(a):{...a,...e})}}}function eD(e){return{...e,type:"warning"}}function eL(e){return{...e,type:"info"}}function eB(e){return{...e,type:"success"}}function eU(e){return{...e,type:"error"}}function eO(e){return{...e,type:"confirm"}}let eF=(0,e.i(65099).withPureRenderTheme)(e=>{let{prefixCls:t,className:n,closeIcon:i,closable:a,type:o,title:s,children:l,footer:c,classNames:u,styles:p,...m}=e,{getPrefixCls:g}=r.useContext(d.ConfigContext),{className:f,style:y,classNames:b,styles:v}=(0,d.useComponentConfig)("modal"),x=g(),C=t||g("modal"),k=(0,ei.default)(x),[w,S]=eI(C,k),[I,T]=(0,ee.useMergeSemantic)([b,u],[v,p],{props:e}),A=`${C}-confirm`,P={};return P=o?{closable:a??!1,title:"",footer:"",children:r.createElement(eP,{...e,prefixCls:C,confirmPrefixCls:A,rootPrefixCls:x,content:l})}:{closable:a??!0,title:s,footer:null!==c&&r.createElement(ep,{...e}),children:l},r.createElement(G,{prefixCls:C,className:(0,h.clsx)(w,`${C}-pure-panel`,o&&A,o&&`${A}-${o}`,n,f,S,k,I.root),style:{...y,...T.root},...m,closeIcon:eu(C,i),closable:a,classNames:I,styles:T,...P})});var eZ=e.i(18218),eH=e.i(29574);let eG=r.forwardRef(({afterClose:e,config:t,...n},i)=>{let[a,o]=r.useState(!0),[s,l]=r.useState(t),{direction:c,getPrefixCls:u}=r.useContext(d.ConfigContext),p=u("modal"),m=u(),g=(...e)=>{o(!1),e.some(e=>e?.triggerCancel)&&s.onCancel?.(()=>{},...e.slice(1))};r.useImperativeHandle(i,()=>({destroy:g,update:e=>{l(t=>{let n="function"==typeof e?e(t):e;return{...t,...n}})}}));let h=s.okCancel??"confirm"===s.type,[f]=(0,eH.default)("Modal",eZ.default.Modal);return r.createElement(eR,{prefixCls:p,rootPrefixCls:m,...s,close:g,open:a,afterClose:()=>{e(),s.afterClose?.()},okText:s.okText||(h?f?.okText:f?.justOkText),direction:s.direction||c,cancelText:s.cancelText||f?.cancelText,...n})}),eW=0,ez=r.memo(r.forwardRef((e,t)=>{let[n,i]=(()=>{let[e,t]=r.useState([]);return[e,r.useCallback(e=>(t(t=>[].concat((0,em.default)(t),[e])),()=>{t(t=>t.filter(t=>t!==e))}),[])]})();return r.useImperativeHandle(t,()=>({patchElement:i}),[i]),r.createElement(r.Fragment,null,n)}));function eq(e){return ej(eD(e))}eT.useModal=function(){let e=r.useRef(null),[t,n]=r.useState([]);r.useEffect(()=>{t.length&&((0,em.default)(t).forEach(e=>{e()}),n([]))},[t]);let i=r.useCallback(t=>function(i){let a,o;eW+=1;let s=r.createRef(),l=new Promise(e=>{a=e}),c=!1,d=r.createElement(eG,{key:`modal-${eW}`,config:t(i),ref:s,afterClose:()=>{o?.()},isSilent:()=>c,onConfirm:e=>{a(e)}});return(o=e.current?.patchElement(d))&&eN.push(o),{destroy:()=>{function e(){s.current?.destroy()}s.current?e():n(t=>[].concat((0,em.default)(t),[e]))},update:e=>{function t(){s.current?.update(e)}s.current?t():n(e=>[].concat((0,em.default)(e),[t]))},then:e=>(c=!0,l.then(e))}},[]);return[r.useMemo(()=>({info:i(eL),success:i(eB),error:i(eU),warning:i(eD),confirm:i(eO)}),[i]),r.createElement(ez,{key:"modal-holder",ref:e})]},eT.info=function(e){return ej(eL(e))},eT.success=function(e){return ej(eB(e))},eT.error=function(e){return ej(eU(e))},eT.warning=eq,eT.warn=eq,eT.confirm=function(e){return ej(eO(e))},eT.destroyAll=function(){for(;eN.length;){let e=eN.pop();e&&e()}},eT.config=function({rootPrefixCls:e}){e$=e},eT._InternalPanelDoNotUseOrYouWillBeFired=eF;var eV=e.i(59611),eX=e.i(93997),eK=e.i(57737),eY=e.i(26012),eJ=e.i(85458),eQ=e.i(73182),e_=e.i(98870);let e0=[{id:"1",name:"frontend-design",description:"Create distinctive, production-grade frontend interfaces with high design quality",descriptionZh:"创建独特、生产的 Web 前端界面",content:`# Frontend Design Skill
+          ${t}-confirm-body-wrapper`]:{display:"flex",flexDirection:"column",flex:"auto"},[`${t}-confirm-body`]:{marginBottom:"auto"}}}]})(t),(e=>{let{componentCls:t}=e;return{[`${t}-root`]:{[`${t}-wrap-rtl`]:{direction:"rtl",[`${t}-confirm-body`]:{direction:"rtl"}}}}})(t),(e=>{let{componentCls:t,antCls:n}=e;return[{[`${t}-root`]:{[`${t}${n}-zoom-enter, ${t}${n}-zoom-appear`]:{transform:"none",opacity:0,animationDuration:e.motionDurationSlow,userSelect:"none"},[`${t}${n}-zoom-leave ${t}-container`]:{pointerEvents:"none"},[`${t}-mask`]:{...eC("fixed"),zIndex:e.zIndexPopupBase,height:"100%",backgroundColor:e.colorBgMask,pointerEvents:"none",[`&${t}-mask-blur`]:{backdropFilter:"blur(4px)"},[`${t}-hidden`]:{display:"none"}},[`${t}-wrap`]:{...eC("fixed"),zIndex:e.zIndexPopupBase,overflow:"auto",outline:0,WebkitOverflowScrolling:"touch"}}},{[`${t}-root`]:(0,ex.initFadeMotion)(e)}]})(t),(0,ek.initZoomMotion)(t,"zoom"),(e=>{let{componentCls:t}=e,n=eb(e),i={...n};delete i.xs;let s=`--${t.replace(".","")}-`,o=Object.keys(i).map(e=>({[`@media (min-width: ${(0,eg.unit)(i[e])})`]:{width:`var(${s}${e}-width)`}}));return{[`${t}-root`]:{[t]:[].concat((0,em.default)(Object.keys(n).map((e,t)=>{let i=Object.keys(n)[t-1];return i?{[`${s}${e}-width`]:`var(${s}${i}-width)`}:null})),[{width:`var(${s}xs-width)`}],(0,em.default)(o))}}})(t)]},eS,{unitless:{titleLineHeight:!0}});(0,et.default)()&&window.document.documentElement&&document.documentElement.addEventListener("click",e=>{t={x:e.pageX,y:e.pageY},setTimeout(()=>{t=null},100)},!0);let eA=e=>{let{prefixCls:n,className:i,rootClassName:s,open:o,wrapClassName:a,centered:l,getContainer:c,style:u,width:p=520,footer:m,classNames:g,styles:v,children:x,loading:k,confirmLoading:C,zIndex:w,mousePosition:S,onOk:I,onCancel:A,okButtonProps:T,cancelButtonProps:P,destroyOnHidden:E,destroyOnClose:N,panelRef:j=null,closable:D,mask:L,modalRender:$,maskClosable:B,focusTriggerAfterClose:M,focusable:U,...H}=e,{getPopupContainer:G,getPrefixCls:F,direction:Z,className:W,style:z,classNames:q,styles:V,centered:K,cancelButtonProps:_,okButtonProps:X,mask:et}=(0,d.useComponentConfig)("modal"),{modal:er}=r.useContext(d.ConfigContext),[el,ec]=r.useMemo(()=>"boolean"==typeof D?[void 0,void 0]:[D?.afterClose,D?.onClose],[D]),ed=F("modal",n),em=F(),[eg,eh,ef]=(0,y.useMergedMask)(L,et,ed,B),ey=(0,es.default)(U,eg,M),eb=e=>{C||(A?.(e),ec?.())},ev=(0,ei.default)(ed),[ex,ek]=eI(ed,ev),eC=(0,h.clsx)(a,{[`${ed}-centered`]:l??K,[`${ed}-wrap-rtl`]:"rtl"===Z}),ew=null===m||k?null:r.createElement(ep,{...e,okButtonProps:{...X,...T},onOk:e=>{I?.(e),ec?.()},cancelButtonProps:{..._,...P},onCancel:eb}),[eS,eA,eT,eP]=(0,Q.useClosable)((0,Q.pickClosable)(e),(0,Q.pickClosable)(er),{closable:!0,closeIcon:r.createElement(R.default,{className:`${ed}-close-icon`}),closeIconRender:e=>eu(ed,e)}),eE=!!eS&&{disabled:eT,closeIcon:eA,afterClose:el,...eP},eR=$?e=>r.createElement("div",{className:`${ed}-render`},$(e)):void 0,eN=`.${ed}-${$?"render":"container"}`,ej=(0,ea.usePanelRef)(eN),eD=(0,O.composeRef)(j,ej),[eL,e$]=(0,f.useZIndex)("Modal",w),eB={...e,width:p,panelRef:j,focusTriggerAfterClose:ey.focusTriggerAfterClose,focusable:ey,mask:eg,maskClosable:ef,zIndex:eL},[eM,eU]=(0,ee.useMergeSemantic)([q,g,eh],[V,v],{props:eB}),[eO,eH]=r.useMemo(()=>p&&"object"==typeof p?[void 0,p]:[p,void 0],[p]),eG=r.useMemo(()=>{let e={};return eH&&Object.keys(eH).forEach(t=>{let n=eH[t];void 0!==n&&(e[`--${ed}-${t}-width`]="number"==typeof n?`${n}px`:n)}),e},[ed,eH]);return r.createElement(J.default,{form:!0,space:!0},r.createElement(en.default.Provider,{value:e$},r.createElement(Y,{width:eO,...H,zIndex:eL,getContainer:void 0===c?G:c,prefixCls:ed,rootClassName:(0,h.clsx)(ex,s,ek,ev,eM.root),rootStyle:eU.root,footer:ew,visible:o,mousePosition:S??t,onClose:eb,closable:eE,closeIcon:eA,transitionName:(0,b.getTransitionName)(em,"zoom",e.transitionName),maskTransitionName:(0,b.getTransitionName)(em,"fade",e.maskTransitionName),mask:eg,maskClosable:ef,className:(0,h.clsx)(ex,i,W),style:{...z,...u,...eG},classNames:{...eM,wrapper:(0,h.clsx)(eM.wrapper,eC)},styles:eU,panelRef:eD,destroyOnHidden:E??N,modalRender:eR,focusTriggerAfterClose:ey.focusTriggerAfterClose,focusTrap:ey.trap},k?r.createElement(eo.default,{active:!0,title:!1,paragraph:{rows:4},className:`${ed}-body-skeleton`}):x)))},eT=(0,eh.genSubStyleComponent)(["Modal","confirm"],e=>(e=>{let{componentCls:t,titleFontSize:n,titleLineHeight:i,modalConfirmIconSize:s,fontSize:o,lineHeight:a,modalTitleHeight:r,fontHeight:l,confirmBodyPadding:c}=e,d=`${t}-confirm`;return{[d]:{"&-rtl":{direction:"rtl"},[`${e.antCls}-modal-header`]:{display:"none"},[`${d}-body-wrapper`]:{...(0,ev.clearFix)()},[`&${t} ${t}-body`]:{padding:c},[`${d}-body`]:{display:"flex",flexWrap:"nowrap",alignItems:"start",[`> ${e.iconCls}`]:{flex:"none",fontSize:s,marginInlineEnd:e.confirmIconMarginInlineEnd,marginTop:e.calc(e.calc(l).sub(s).equal()).div(2).equal()},[`&-has-title > ${e.iconCls}`]:{marginTop:e.calc(e.calc(r).sub(s).equal()).div(2).equal()}},[`${d}-paragraph`]:{display:"flex",flexDirection:"column",flex:"auto",rowGap:e.marginXS,maxWidth:`calc(100% - ${(0,eg.unit)(e.marginSM)})`},[`${e.iconCls} + ${d}-paragraph`]:{maxWidth:`calc(100% - ${(0,eg.unit)(e.calc(e.modalConfirmIconSize).add(e.marginSM).equal())})`},[`${d}-title`]:{color:e.colorTextHeading,fontWeight:e.fontWeightStrong,fontSize:n,lineHeight:i},[`${d}-container`]:{color:e.colorText,fontSize:o,lineHeight:a},[`${d}-btns`]:{textAlign:"end",marginTop:e.confirmBtnsMarginTop,[`${e.antCls}-btn + ${e.antCls}-btn`]:{marginBottom:0,marginInlineStart:e.marginXS}}},[`${d}-error ${d}-body > ${e.iconCls}`]:{color:e.colorError},[`${d}-warning ${d}-body > ${e.iconCls},
+        ${d}-confirm ${d}-body > ${e.iconCls}`]:{color:e.colorWarning},[`${d}-info ${d}-body > ${e.iconCls}`]:{color:e.colorInfo},[`${d}-success ${d}-body > ${e.iconCls}`]:{color:e.colorSuccess}}})(ew(e)),eS,{order:-1e3}),eP=e=>{let{prefixCls:t,icon:n,okText:i,cancelText:s,confirmPrefixCls:o,type:a,okCancel:l,footer:c,locale:d,autoFocusButton:f,focusable:y,...b}=e,x=n;if(!n&&null!==n)switch(a){case"info":x=r.createElement(g.default,null);break;case"success":x=r.createElement(u.default,null);break;case"error":x=r.createElement(p.default,null);break;default:x=r.createElement(m.default,null)}let k=l??"confirm"===a,C=r.useMemo(()=>{let e=y?.autoFocusButton||f;return e||null===e?e:"ok"},[f,y?.autoFocusButton]),[w]=(0,v.useLocale)("Modal"),S=d||w,I=i||(k?S?.okText:S?.justOkText),A=s||S?.cancelText,{closable:R}=b,{onClose:N}=R&&"object"==typeof R?R:{},j=r.useMemo(()=>({autoFocusButton:C,cancelTextLocale:A,okTextLocale:I,mergedOkCancel:k,onClose:N,...b}),[C,A,I,k,N,b]),D=r.createElement(r.Fragment,null,r.createElement(P,null),r.createElement(E,null)),L=void 0!==e.title&&null!==e.title,$=`${o}-body`;return r.createElement("div",{className:`${o}-body-wrapper`},r.createElement("div",{className:(0,h.clsx)($,{[`${$}-has-title`]:L})},x,r.createElement("div",{className:`${o}-paragraph`},L&&r.createElement("span",{className:`${o}-title`},e.title),r.createElement("div",{className:`${o}-content`},e.content))),void 0===c||"function"==typeof c?r.createElement(T,{value:j},r.createElement("div",{className:`${o}-btns`},"function"==typeof c?c(D,{OkBtn:E,CancelBtn:P}):D)):c,r.createElement(eT,{prefixCls:t}))},eE=e=>{let{close:t,zIndex:n,maskStyle:i,direction:s,prefixCls:o,wrapClassName:a,rootPrefixCls:l,bodyStyle:c,closable:u=!1,onConfirm:p,styles:m,title:g,mask:v,maskClosable:k,okButtonProps:C,cancelButtonProps:w}=e,{cancelButtonProps:S,okButtonProps:I}=(0,d.useComponentConfig)("modal"),A=`${o}-confirm`,T=e.width||416,P=e.style||{},E=(0,h.clsx)(A,`${A}-${e.type}`,{[`${A}-rtl`]:"rtl"===s},e.className),R=r.useMemo(()=>{let e=(0,y.normalizeMaskConfig)(v,k);return e.closable??(e.closable=!1),e},[v,k]),[,N]=(0,x.default)(),j=r.useMemo(()=>void 0!==n?n:N.zIndexPopupBase+f.CONTAINER_MAX_OFFSET,[n,N]);return r.createElement(eA,{...e,className:E,wrapClassName:(0,h.clsx)({[`${A}-centered`]:!!e.centered},a),onCancel:()=>{t?.({triggerCancel:!0}),p?.(!1)},title:g,footer:null,transitionName:(0,b.getTransitionName)(l||"","zoom",e.transitionName),maskTransitionName:(0,b.getTransitionName)(l||"","fade",e.maskTransitionName),mask:R,style:P,styles:{body:c,mask:i,...m},width:T,zIndex:j,closable:u},r.createElement(eP,{...e,confirmPrefixCls:A,okButtonProps:{...I,...C},cancelButtonProps:{...S,...w}}))},eR=e=>{let{rootPrefixCls:t,iconPrefixCls:n,direction:i,theme:s}=e;return r.createElement(c.default,{prefixCls:t,iconPrefixCls:n,direction:i,theme:s},r.createElement(eE,{...e}))},eN=[],ej="",eD=e=>{let{prefixCls:t,getContainer:n,direction:i}=e,s=(0,ed.getConfirmLocale)(),o=(0,r.useContext)(d.ConfigContext),a=ej||o.getPrefixCls(),l=t||`${a}-modal`,c=n;return!1===c&&(c=void 0),r.default.createElement(eR,{...e,rootPrefixCls:a,prefixCls:l,iconPrefixCls:o.iconPrefixCls,theme:o.theme,direction:i??o.direction,locale:o.locale?.Modal??s,getContainer:c})};function eL(e){let t,n=(0,c.globalConfig)(),i=document.createDocumentFragment(),s={...e,close:d,open:!0};function o(...t){t.some(e=>e?.triggerCancel)&&e.onCancel?.(()=>{},...t.slice(1));for(let e=0;e<eN.length;e++)if(eN[e]===d){eN.splice(e,1);break}(0,l.unmount)(i).then(()=>{})}let a=e=>{clearTimeout(t),t=setTimeout(()=>{let t=n.getPrefixCls(void 0,ej),s=n.getIconPrefixCls(),o=n.getTheme(),a=r.default.createElement(eD,{...e});(0,l.render)(r.default.createElement(c.default,{prefixCls:t,iconPrefixCls:s,theme:o},"function"==typeof n.holderRender?n.holderRender(a):a),i)})};function d(...t){a(s={...s,open:!1,afterClose:()=>{"function"==typeof e.afterClose&&e.afterClose(),o.apply(this,t)}})}return a(s),eN.push(d),{destroy:d,update:function(e){a(s="function"==typeof e?e(s):{...s,...e})}}}function e$(e){return{...e,type:"warning"}}function eB(e){return{...e,type:"info"}}function eM(e){return{...e,type:"success"}}function eU(e){return{...e,type:"error"}}function eO(e){return{...e,type:"confirm"}}let eH=(0,e.i(65099).withPureRenderTheme)(e=>{let{prefixCls:t,className:n,closeIcon:i,closable:s,type:o,title:a,children:l,footer:c,classNames:u,styles:p,...m}=e,{getPrefixCls:g}=r.useContext(d.ConfigContext),{className:f,style:y,classNames:b,styles:v}=(0,d.useComponentConfig)("modal"),x=g(),k=t||g("modal"),C=(0,ei.default)(x),[w,S]=eI(k,C),[I,A]=(0,ee.useMergeSemantic)([b,u],[v,p],{props:e}),T=`${k}-confirm`,P={};return P=o?{closable:s??!1,title:"",footer:"",children:r.createElement(eP,{...e,prefixCls:k,confirmPrefixCls:T,rootPrefixCls:x,content:l})}:{closable:s??!0,title:a,footer:null!==c&&r.createElement(ep,{...e}),children:l},r.createElement(Z,{prefixCls:k,className:(0,h.clsx)(w,`${k}-pure-panel`,o&&T,o&&`${T}-${o}`,n,f,S,C,I.root),style:{...y,...A.root},...m,closeIcon:eu(k,i),closable:s,classNames:I,styles:A,...P})});var eG=e.i(18218),eF=e.i(29574);let eZ=r.forwardRef(({afterClose:e,config:t,...n},i)=>{let[s,o]=r.useState(!0),[a,l]=r.useState(t),{direction:c,getPrefixCls:u}=r.useContext(d.ConfigContext),p=u("modal"),m=u(),g=(...e)=>{o(!1),e.some(e=>e?.triggerCancel)&&a.onCancel?.(()=>{},...e.slice(1))};r.useImperativeHandle(i,()=>({destroy:g,update:e=>{l(t=>{let n="function"==typeof e?e(t):e;return{...t,...n}})}}));let h=a.okCancel??"confirm"===a.type,[f]=(0,eF.default)("Modal",eG.default.Modal);return r.createElement(eR,{prefixCls:p,rootPrefixCls:m,...a,close:g,open:s,afterClose:()=>{e(),a.afterClose?.()},okText:a.okText||(h?f?.okText:f?.justOkText),direction:a.direction||c,cancelText:a.cancelText||f?.cancelText,...n})}),eW=0,ez=r.memo(r.forwardRef((e,t)=>{let[n,i]=(()=>{let[e,t]=r.useState([]);return[e,r.useCallback(e=>(t(t=>[].concat((0,em.default)(t),[e])),()=>{t(t=>t.filter(t=>t!==e))}),[])]})();return r.useImperativeHandle(t,()=>({patchElement:i}),[i]),r.createElement(r.Fragment,null,n)}));function eq(e){return eL(e$(e))}eA.useModal=function(){let e=r.useRef(null),[t,n]=r.useState([]);r.useEffect(()=>{t.length&&((0,em.default)(t).forEach(e=>{e()}),n([]))},[t]);let i=r.useCallback(t=>function(i){let s,o;eW+=1;let a=r.createRef(),l=new Promise(e=>{s=e}),c=!1,d=r.createElement(eZ,{key:`modal-${eW}`,config:t(i),ref:a,afterClose:()=>{o?.()},isSilent:()=>c,onConfirm:e=>{s(e)}});return(o=e.current?.patchElement(d))&&eN.push(o),{destroy:()=>{function e(){a.current?.destroy()}a.current?e():n(t=>[].concat((0,em.default)(t),[e]))},update:e=>{function t(){a.current?.update(e)}a.current?t():n(e=>[].concat((0,em.default)(e),[t]))},then:e=>(c=!0,l.then(e))}},[]);return[r.useMemo(()=>({info:i(eB),success:i(eM),error:i(eU),warning:i(e$),confirm:i(eO)}),[i]),r.createElement(ez,{key:"modal-holder",ref:e})]},eA.info=function(e){return eL(eB(e))},eA.success=function(e){return eL(eM(e))},eA.error=function(e){return eL(eU(e))},eA.warning=eq,eA.warn=eq,eA.confirm=function(e){return eL(eO(e))},eA.destroyAll=function(){for(;eN.length;){let e=eN.pop();e&&e()}},eA.config=function({rootPrefixCls:e}){ej=e},eA._InternalPanelDoNotUseOrYouWillBeFired=eH;var eV=e.i(59611),eK=e.i(93997),e_=e.i(57737),eX=e.i(26012),eY=e.i(85458),eJ=e.i(73182),eQ=e.i(98870);let e0=[{id:"1",name:"frontend-design",description:"Create distinctive, production-grade frontend interfaces with high design quality",descriptionZh:"创建独特、生产的 Web 前端界面",content:`# Frontend Design Skill
 
 You are an expert frontend designer specializing in creating distinctive, production-grade user interfaces.
 
@@ -3848,4 +3848,866 @@ Create content for social media platforms.
 ### 使用
 - 每帖 2-5 个
 - 混合流行和小众
-- 避免过度饱和`,category:"Marketing",categoryZh:"营销",source:"coreyhaines31/marketingskills",installCommand:"npx skills add coreyhaines31/marketingskills/social-content",stars:8600,dateAdded:"2024-01-28"}],e1="skills-favorites",e2="skills-custom",e5="skills-api-key",e3="skills-api-model";function e4(e){return/[\u4e00-\u9fa5]/.test(e)}function e7(e){return e?e>=1e3?`${(e/1e3).toFixed(1)}k`:e.toString():"0"}function e8(e){return e?new Date(e).toLocaleDateString("zh-CN",{year:"numeric",month:"short",day:"numeric"}):""}function e6(){let[e,t]=(0,r.useState)(""),[l,c]=(0,r.useState)(null),[d,u]=(0,r.useState)(""),[p,m]=(0,r.useState)(!1),[g,h]=(0,r.useState)(!1),[f,y]=(0,r.useState)([]),[b,v]=(0,r.useState)(!0),[x,C]=(0,r.useState)([]),[k,w]=(0,r.useState)(!1),[S,I]=(0,r.useState)(!1),[T,A]=(0,r.useState)(""),[P,E]=(0,r.useState)("gemini"),[R,N]=(0,r.useState)(!1),[$,M]=(0,r.useState)("markdown"),[j,D]=(0,r.useState)({name:"",nameZh:"",description:"",descriptionZh:"",content:"",contentZh:"",category:"",categoryZh:"",source:"",installCommand:"",stars:0,dateAdded:(0,eJ.default)().format("YYYY-MM-DD")}),L=(0,r.useMemo)(()=>[...e0,...x],[x]);(0,r.useEffect)(()=>{let e,t;y((e=localStorage.getItem(e1))?JSON.parse(e):[]),C((t=localStorage.getItem(e2))?JSON.parse(t):[]),A(localStorage.getItem(e5)||""),E(localStorage.getItem(e3)||"gemini")},[]);let B=(0,r.useMemo)(()=>{let t=L.filter(t=>{let n=b&&t.nameZh||t.name,i=b&&t.descriptionZh||t.description,a=b&&t.categoryZh||t.category,o=e.toLowerCase();return n.toLowerCase().includes(o)||i.toLowerCase().includes(o)||a.toLowerCase().includes(o)}).map(e=>({...e,isFavorite:f.includes(e.id)}));return t.sort((e,t)=>e.isFavorite&&!t.isFavorite?-1:!e.isFavorite&&t.isFavorite?1:(t.stars||0)-(e.stars||0)),t},[L,e,f,b]),U=e=>b&&e.contentZh?e.contentZh:e.content,O=(0,r.useMemo)(()=>{if(!l)return"";let e=b&&l.contentZh?l.contentZh:l.content;try{return eQ.marked.parse(e)}catch{return e}},[l,b]),F=e=>{(0,eY.default)(e),eV.message.success("复制成功")},Z=async e=>{let t=`${window.location.origin}/skills?skill=${encodeURIComponent(JSON.stringify({name:e.name,content:e.content}))}`;try{let n=await e_.default.toDataURL(t);u(n),c(e),m(!0)}catch{eV.message.error("生成二维码失败")}},H=e=>{e.installCommand&&((0,eY.default)(e.installCommand),eV.message.success(`安装命令已复制: ${e.installCommand}`))},G=async()=>{if(!T){eV.message.warning("请先设置 API Key"),I(!0);return}N(!0);try{let e=j.description.trim(),t=j.content.trim(),n=j.category.trim(),i=j.name.trim(),a={};if(i&&e4(i)){let e=await fetch("/api/translate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:i,targetLang:"en",apiKey:T,model:P})}),t=await e.json();t.translatedText&&(a.nameZh=t.translatedText)}else if(i&&!e4(i)){let e=await fetch("/api/translate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:i,targetLang:"zh",apiKey:T,model:P})}),t=await e.json();t.translatedText&&(a.nameZh=t.translatedText)}if(e&&e4(e)){let t=await fetch("/api/translate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:e,targetLang:"en",apiKey:T,model:P})}),n=await t.json();n.translatedText&&(a.descriptionZh=n.translatedText)}else if(e&&!e4(e)){let t=await fetch("/api/translate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:e,targetLang:"zh",apiKey:T,model:P})}),n=await t.json();n.translatedText&&(a.descriptionZh=n.translatedText)}if(t&&e4(t)){let e=await fetch("/api/translate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:t,targetLang:"en",apiKey:T,model:P})}),n=await e.json();n.translatedText&&(a.contentZh=n.translatedText)}else if(t&&!e4(t)){let e=await fetch("/api/translate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:t,targetLang:"zh",apiKey:T,model:P})}),n=await e.json();n.translatedText&&(a.contentZh=n.translatedText)}if(n&&e4(n)){let e=await fetch("/api/translate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:n,targetLang:"en",apiKey:T,model:P})}),t=await e.json();t.translatedText&&(a.categoryZh=t.translatedText)}else if(n&&!e4(n)){let e=await fetch("/api/translate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:n,targetLang:"zh",apiKey:T,model:P})}),t=await e.json();t.translatedText&&(a.categoryZh=t.translatedText)}D(e=>({...e,...a})),eV.message.success("翻译完成")}catch(e){eV.message.error(`翻译失败: ${e.message}`)}finally{N(!1)}},W=e=>{let t=e.split("\n"),n=[],i=!1;for(let e of t){let t=e.trim();if(t.startsWith("```")){i=!i,n.push(t);continue}if(i)n.push(t);else{if(""===t&&""===n[n.length-1])continue;if(t.startsWith("#")&&t.match(/^(#+)\s*(.*)/)){n.push(""),n.push(t),n.push("");continue}if(t.match(/^[-*]\s/)||t.match(/^\d+\.\s/)){""!==n[n.length-1]&&n.push(""),n.push(t);continue}if(t.match(/^\|/)){n.push(t);continue}n.push(t)}}for(;""===n[n.length-1];)n.pop();return n.join("\n").replace(/\n{3,}/g,"\n\n")};return(0,n.jsxs)("div",{children:[(0,n.jsxs)("div",{className:"flex items-center justify-between mb-6",children:[(0,n.jsx)("h1",{className:"text-2xl font-bold text-gray-900",children:"AI Skills"}),(0,n.jsxs)("div",{className:"flex items-center gap-2",children:[(0,n.jsx)("button",{type:"button",onClick:()=>I(!0),className:"px-3 py-1.5 text-sm font-medium bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors cursor-pointer",children:"⚙️"}),(0,n.jsx)("button",{type:"button",onClick:()=>v(!b),className:"px-3 py-1.5 text-sm font-medium bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors cursor-pointer",children:b?"English":"中文"}),(0,n.jsx)("button",{type:"button",onClick:()=>w(!0),className:"px-3 py-1.5 text-sm font-medium bg-indigo-600 text-white hover:bg-indigo-700 rounded-lg transition-colors cursor-pointer",children:b?"+ 添加":"+ Add"})]})]}),(0,n.jsx)(s.Input,{placeholder:b?"搜索 Skills...":"Search Skills...",value:e,onChange:e=>t(e.target.value),className:"mb-6",size:"large"}),(0,n.jsx)("div",{className:"grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4",children:B.map(e=>(0,n.jsxs)("div",{className:"group relative bg-white rounded-xl border border-gray-200 p-5 hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-100/50 transition-all duration-300 cursor-pointer overflow-hidden",onClick:()=>{c(e),M("markdown"),h(!0)},children:[(0,n.jsx)("div",{className:"absolute inset-0 bg-gradient-to-br from-indigo-50/0 via-purple-50/0 to-pink-50/0 group-hover:from-indigo-50/50 group-hover:via-purple-50/30 group-hover:to-pink-50/20 transition-all duration-300"}),(0,n.jsxs)("div",{className:"relative",children:[(0,n.jsxs)("div",{className:"flex items-start justify-between mb-3",children:[(0,n.jsx)("h3",{className:"font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors pr-2",children:b&&e.nameZh||e.name}),(0,n.jsx)("button",{type:"button",onClick:t=>{var n;let i;t.stopPropagation(),n=e.id,y(i=f.includes(n)?f.filter(e=>e!==n):[...f,n]),localStorage.setItem(e1,JSON.stringify(i)),eV.message.success(f.includes(n)?"已取消收藏":"已添加收藏")},className:"shrink-0 p-1 hover:scale-110 transition-transform cursor-pointer","aria-label":e.isFavorite?b?"取消收藏":"Remove from favorites":b?"添加收藏":"Add to favorites",children:(0,n.jsx)("svg",{className:`w-5 h-5 ${e.isFavorite?"text-red-500 fill-current":"text-gray-400"}`,viewBox:"0 0 24 24",fill:e.isFavorite?"currentColor":"none",stroke:"currentColor",strokeWidth:2,"aria-hidden":"true",children:(0,n.jsx)("path",{d:"M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"})})})]}),(0,n.jsx)("p",{className:"text-sm text-gray-500 mb-3 line-clamp-2 h-10",children:b&&e.descriptionZh||e.description}),(0,n.jsxs)("div",{className:"flex items-center gap-3 text-xs text-gray-400 mb-3",children:[void 0!==e.stars&&e.stars>0&&(0,n.jsxs)("span",{className:"flex items-center gap-1",children:[(0,n.jsx)("svg",{className:"w-3.5 h-3.5",viewBox:"0 0 24 24",fill:"currentColor","aria-hidden":"true",children:(0,n.jsx)("path",{d:"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"})}),e7(e.stars)]}),e.dateAdded&&(0,n.jsx)("span",{children:e8(e.dateAdded)})]}),(0,n.jsxs)("div",{className:"flex items-center justify-between pt-3 border-t border-gray-100",children:[e.installCommand?(0,n.jsx)("button",{type:"button",className:"px-4 py-1.5 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors cursor-pointer",onClick:t=>{t.stopPropagation(),H(e)},children:b?"一键安装":"Install"}):(0,n.jsx)("div",{className:"w-20"}),(0,n.jsx)("button",{type:"button",className:"px-4 py-1.5 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors cursor-pointer",onClick:t=>{t.stopPropagation(),F(e.content)},children:b?"复制内容":"Copy"})]})]})]},e.id))}),(0,n.jsx)(o.Drawer,{title:b&&l?.nameZh||l?.name,placement:"right",size:"large",onClose:()=>h(!1),open:g,children:l&&(0,n.jsxs)("div",{children:[(0,n.jsx)("p",{className:"text-gray-600 mb-4",children:b&&l.descriptionZh||l.description}),(0,n.jsxs)("div",{className:"mb-4 flex flex-wrap items-center gap-2",children:[(0,n.jsx)(eK.Tag,{color:"blue",children:b&&l.categoryZh||l.category}),(0,n.jsx)(eK.Tag,{children:l.source}),void 0!==l.stars&&l.stars>0&&(0,n.jsxs)("span",{className:"flex items-center gap-1 text-sm text-gray-500",children:[(0,n.jsx)("svg",{className:"w-4 h-4 text-yellow-500",viewBox:"0 0 24 24",fill:"currentColor","aria-label":"stars",children:(0,n.jsx)("path",{d:"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"})}),e7(l.stars)]}),l.dateAdded&&(0,n.jsx)("span",{className:"text-sm text-gray-400",children:e8(l.dateAdded)}),(0,n.jsx)("div",{className:"flex-1"}),(0,n.jsx)("button",{type:"button",className:"px-3 py-1 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors cursor-pointer",onClick:()=>F(U(l)),children:b?"复制内容":"Copy"}),(0,n.jsx)("button",{type:"button",className:"px-3 py-1 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors cursor-pointer",onClick:()=>Z(l),children:b?"分享":"Share"})]}),l.installCommand&&(0,n.jsxs)("div",{className:"mb-4 p-3 bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg border border-indigo-200",children:[(0,n.jsx)("div",{className:"text-sm text-indigo-600 mb-2 font-medium",children:b?"安装命令":"Install Command"}),(0,n.jsxs)("div",{className:"flex items-center gap-2",children:[(0,n.jsx)("code",{className:"flex-1 text-sm bg-white px-3 py-2 rounded border border-indigo-200 font-mono overflow-x-auto",children:l.installCommand}),(0,n.jsx)("button",{type:"button",className:"px-3 py-1.5 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors cursor-pointer",onClick:()=>H(l),children:b?"复制":"Copy"})]})]}),(0,n.jsxs)("div",{className:"mb-2 flex items-center justify-between",children:[(0,n.jsx)("span",{className:"text-sm text-gray-500",children:b?"内容预览":"Content Preview"}),(0,n.jsx)("button",{type:"button",className:`px-3 py-1 text-sm font-medium rounded-lg transition-colors cursor-pointer ${"markdown"===$?"bg-indigo-600 text-white":"bg-gray-100 text-gray-700 hover:bg-gray-200"}`,onClick:()=>M("markdown"===$?"raw":"markdown"),children:"markdown"===$?b?"📄 原始":"📄 Raw":b?"🎨 渲染":"🎨 Render"})]}),(0,n.jsx)("div",{className:"bg-gray-50 p-4 rounded-lg max-h-[60vh] overflow-y-auto",children:"markdown"===$?(0,n.jsx)("div",{className:"prose prose-sm max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-blue-600 prose-code:text-pink-600 prose-code:bg-gray-200 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-gray-800 prose-pre:text-gray-100",dangerouslySetInnerHTML:{__html:O}}):(0,n.jsx)("pre",{className:"whitespace-pre-wrap font-mono text-sm text-gray-700",children:U(l)})})]})}),(0,n.jsx)(o.Drawer,{title:b?"分享 Skill":"Share Skill",placement:"bottom",height:"300px",onClose:()=>m(!1),open:p,children:d&&(0,n.jsxs)("div",{className:"text-center",children:[(0,n.jsx)("img",{src:d,alt:"QR Code",className:"mx-auto mb-4"}),(0,n.jsx)("p",{className:"text-gray-500 text-sm",children:b?"扫描二维码查看 Skill":"Scan QR code to view Skill"})]})}),(0,n.jsx)(eT,{title:(0,n.jsxs)("div",{className:"flex items-center gap-2",children:[(0,n.jsx)("svg",{className:"w-5 h-5 text-indigo-600",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2","aria-label":"add",children:(0,n.jsx)("path",{d:"M12 5v14M5 12h14",strokeLinecap:"round",strokeLinejoin:"round"})}),(0,n.jsx)("span",{children:b?"添加 Skill":"Add Skill"})]}),open:k,onCancel:()=>w(!1),footer:(0,n.jsxs)("div",{className:"flex justify-end gap-2 pt-2",children:[(0,n.jsx)(i.Button,{onClick:G,loading:R,children:b?"🔄 自动翻译缺失字段":"🔄 Auto Translate"}),(0,n.jsx)(i.Button,{type:"primary",onClick:()=>{if(!j.name||!j.description||!j.content)return void eV.message.warning("请填写名称、描述和内容");let e=W(j.content),t=j.contentZh?W(j.contentZh):"",n=[...x,{id:`custom-${Date.now()}`,name:j.name.trim(),nameZh:j.nameZh?.trim()||void 0,description:j.description.trim(),descriptionZh:j.descriptionZh?.trim()||void 0,content:e,contentZh:t||void 0,category:j.category.trim(),categoryZh:j.categoryZh?.trim()||void 0,source:j.source.trim()||"custom",installCommand:j.installCommand?.trim()||void 0,stars:j.stars||void 0,dateAdded:j.dateAdded}];C(n),localStorage.setItem(e2,JSON.stringify(n)),w(!1),D({name:"",nameZh:"",description:"",descriptionZh:"",content:"",contentZh:"",category:"",categoryZh:"",source:"",installCommand:"",stars:0,dateAdded:(0,eJ.default)().format("YYYY-MM-DD")}),eV.message.success("添加成功")},children:b?"保存":"Save"})]}),width:700,className:"add-skill-modal",children:(0,n.jsxs)("div",{className:"space-y-4 pr-2",style:{maxHeight:"70vh",overflowY:"auto"},children:[(0,n.jsxs)("div",{children:[(0,n.jsxs)("label",{className:"block text-sm font-medium mb-1",children:[(0,n.jsx)("span",{className:"text-red-500",children:"*"})," 名称 (Name)"]}),(0,n.jsx)(s.Input,{value:j.name,onChange:e=>D({...j,name:e.target.value}),placeholder:b?"如: frontend-design":"e.g., frontend-design"})]}),(0,n.jsxs)("div",{children:[(0,n.jsxs)("label",{className:"block text-sm font-medium mb-1",children:[(0,n.jsx)("span",{className:"text-red-500",children:"*"})," 描述 (Description)"]}),(0,n.jsx)(s.Input.TextArea,{value:j.description,onChange:e=>D({...j,description:e.target.value}),placeholder:b?"英文描述":"English description",rows:2})]}),(0,n.jsxs)("div",{children:[(0,n.jsx)("label",{className:"block text-sm font-medium mb-1",children:"描述中文"}),(0,n.jsx)(s.Input.TextArea,{value:j.descriptionZh,onChange:e=>D({...j,descriptionZh:e.target.value}),placeholder:b?"自动翻译":"Chinese description",rows:2})]}),(0,n.jsxs)("div",{children:[(0,n.jsx)("label",{className:"block text-sm font-medium mb-1",children:"分类 (Category)"}),(0,n.jsx)(s.Input,{value:j.category,onChange:e=>D({...j,category:e.target.value}),placeholder:b?"如: Development":"e.g., Development"})]}),(0,n.jsxs)("div",{children:[(0,n.jsxs)("label",{className:"block text-sm font-medium mb-1",children:[(0,n.jsx)("span",{className:"text-red-500",children:"*"})," 内容 (Content)"]}),(0,n.jsx)(s.Input.TextArea,{value:j.content,onChange:e=>D({...j,content:e.target.value}),placeholder:b?"英文内容":"English content",rows:6})]}),(0,n.jsxs)("div",{children:[(0,n.jsx)("label",{className:"block text-sm font-medium mb-1",children:"内容中文"}),(0,n.jsx)(s.Input.TextArea,{value:j.contentZh,onChange:e=>D({...j,contentZh:e.target.value}),placeholder:b?"自动翻译":"Chinese content",rows:6})]}),(0,n.jsxs)("div",{className:"grid grid-cols-2 gap-4",children:[(0,n.jsxs)("div",{children:[(0,n.jsx)("label",{className:"block text-sm font-medium mb-1",children:"来源 (Source)"}),(0,n.jsx)(s.Input,{value:j.source,onChange:e=>D({...j,source:e.target.value}),placeholder:"github/username"})]}),(0,n.jsxs)("div",{children:[(0,n.jsx)("label",{className:"block text-sm font-medium mb-1",children:"安装命令"}),(0,n.jsx)(s.Input,{value:j.installCommand,onChange:e=>D({...j,installCommand:e.target.value}),placeholder:"npx skills add ..."})]})]}),(0,n.jsxs)("div",{className:"grid grid-cols-2 gap-4",children:[(0,n.jsxs)("div",{children:[(0,n.jsx)("label",{className:"block text-sm font-medium mb-1",children:"GitHub Stars"}),(0,n.jsx)(s.Input,{type:"number",value:j.stars,onChange:e=>D({...j,stars:parseInt(e.target.value,10)||0})})]}),(0,n.jsxs)("div",{children:[(0,n.jsx)("label",{className:"block text-sm font-medium mb-1",children:"添加日期"}),(0,n.jsx)(a.DatePicker,{value:j.dateAdded?(0,eJ.default)(j.dateAdded):void 0,onChange:e=>D({...j,dateAdded:e?.format("YYYY-MM-DD")||""}),className:"w-full"})]})]})]})}),(0,n.jsx)(eT,{title:b?"API 设置":"API Settings",open:S,onCancel:()=>I(!1),onOk:()=>{localStorage.setItem(e5,T),localStorage.setItem(e3,P),I(!1),eV.message.success("设置已保存")},okText:b?"保存":"Save",children:(0,n.jsxs)("div",{className:"space-y-4",children:[(0,n.jsxs)("div",{children:[(0,n.jsx)("label",{className:"block text-sm font-medium mb-1",children:"翻译 API Key"}),(0,n.jsx)(s.Input,{value:T,onChange:e=>A(e.target.value),placeholder:b?"输入 Google/Gemini/OpenAI API Key":"Enter API Key",type:"password"}),(0,n.jsx)("p",{className:"text-xs text-gray-500 mt-1",children:b?"支持 Google Translate, Gemini, OpenAI, 智谱 GLM":"Supports Google Translate, Gemini, OpenAI, Zhipu GLM"})]}),(0,n.jsxs)("div",{children:[(0,n.jsx)("label",{className:"block text-sm font-medium mb-1",children:"API Model"}),(0,n.jsx)(eX.Select,{value:P,onChange:E,className:"w-full",options:[{value:"gemini",label:"Google Gemini (推荐)"},{value:"google",label:"Google Translate"},{value:"openai",label:"OpenAI"},{value:"bigmodel",label:"智谱 GLM"}]})]})]})})]})}e.s(["default",()=>e6],30815)}]);
+- 避免过度饱和`,category:"Marketing",categoryZh:"营销",source:"coreyhaines31/marketingskills",installCommand:"npx skills add coreyhaines31/marketingskills/social-content",stars:8600,dateAdded:"2024-01-28"},{id:"nextjs-github-actions",name:"nextjs-github-actions",description:"Set up CI/CD for Next.js with GitHub Actions",descriptionZh:"使用 GitHub Actions 为 Next.js 设置 CI/CD",content:`# Next.js + GitHub Actions CI/CD
+
+Set up automated CI/CD pipelines for Next.js applications using GitHub Actions.
+
+## Workflow Structure
+
+\`\`\`yaml
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+      
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      
+      - name: Lint
+        run: pnpm lint
+      
+      - name: Type check
+        run: pnpm typecheck
+      
+      - name: Build
+        run: pnpm build
+      
+      - name: Test
+        run: pnpm test --coverage
+\`\`\`
+
+## Key Points
+
+1. Use pnpm for faster installs
+2. Cache node_modules and pnpm store
+3. Run lint before typecheck for faster feedback
+4. Build to verify no compilation errors
+5. Run tests with coverage
+
+## Deployment
+
+For Vercel deployment:
+- Use Vercel Git Integration
+- No additional action needed
+
+For GitHub Pages:
+- Use actions/upload-pages-artifact
+- Configure gh-pages branch deployment`,contentZh:`# Next.js + GitHub Actions CI/CD
+
+使用 GitHub Actions 为 Next.js 应用程序设置自动化 CI/CD 流水线。
+
+## 工作流结构
+
+\`\`\`yaml
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+      
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      
+      - name: Lint
+        run: pnpm lint
+      
+      - name: Type check
+        run: pnpm typecheck
+      
+      - name: Build
+        run: pnpm build
+      
+      - name: Test
+        run: pnpm test --coverage
+\`\`\`
+
+## 关键点
+
+1. 使用 pnpm 更快安装
+2. 缓存 node_modules 和 pnpm store
+3. 先运行 lint 再运行 typecheck 获取更快反馈
+4. Build 验证无编译错误
+5. 运行带覆盖率的测试
+
+## 部署
+
+Vercel 部署：
+- 使用 Vercel Git 集成
+- 无需额外操作
+
+GitHub Pages 部署：
+- 使用 actions/upload-pages-artifact
+- 配置 gh-pages 分支部署`,category:"DevOps",categoryZh:"DevOps",source:"nextjs-github",stars:24500,dateAdded:"2024-05-01"},{id:"nextjs-github-oauth",name:"nextjs-github-oauth",description:"Implement GitHub OAuth login in Next.js App Router",descriptionZh:"在 Next.js App Router 中实现 GitHub OAuth 登录",content:`# Next.js GitHub OAuth Login
+
+Implement GitHub OAuth authentication in Next.js using NextAuth.js.
+
+## Setup
+
+1. Create GitHub OAuth App:
+   - Go to GitHub Settings > Developer settings > OAuth Apps
+   - Set callback URL: \`https://yourapp.com/api/auth/callback/github\`
+
+2. Install NextAuth:
+\`\`\`bash
+pnpm add next-auth
+\`\`\`
+
+3. Configure auth:
+\`\`\`typescript
+// auth.ts
+import NextAuth from "next-auth"
+import GitHub from "next-auth/providers/github"
+
+export const { handlers, auth, signIn, signOut } = NextAuth({
+  providers: [GitHub],
+})
+\`\`\`
+
+## API Route
+
+\`\`\`typescript
+// app/api/auth/[...nextauth]/route.ts
+import { handlers } from "@/auth"
+export const { GET, POST } = handlers
+\`\`\`
+
+## Protected Routes
+
+\`\`\`typescript
+// middleware.ts
+import { auth } from "@/auth"
+
+export default auth((req) => {
+  if (!req.auth && req.nextUrl.pathname !== "/login") {
+    return Response.redirect(new URL("/login", req.url))
+  }
+})
+
+export const config = {
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+}
+\`\`\`
+
+## Get Session
+
+\`\`\`typescript
+import { auth } from "@/auth"
+
+export default async function Page() {
+  const session = await auth()
+  return <div>{session?.user?.name}</div>
+}
+\`\`\`
+
+## Environment Variables
+
+\`\`\`env
+AUTH_SECRET=your-secret
+GITHUB_ID=your-github-client-id
+GITHUB_SECRET=your-github-client-secret
+\`\`\``,contentZh:`# Next.js GitHub OAuth 登录
+
+使用 NextAuth.js 在 Next.js 中实现 GitHub OAuth 认证。
+
+## 设置
+
+1. 创建 GitHub OAuth 应用：
+   - 进入 GitHub Settings > Developer settings > OAuth Apps
+   - 设置回调 URL：\`https://yourapp.com/api/auth/callback/github\`
+
+2. 安装 NextAuth：
+\`\`\`bash
+pnpm add next-auth
+\`\`\`
+
+3. 配置认证：
+\`\`\`typescript
+// auth.ts
+import NextAuth from "next-auth"
+import GitHub from "next-auth/providers/github"
+
+export const { handlers, auth, signIn, signOut } = NextAuth({
+  providers: [GitHub],
+})
+\`\`\`
+
+## API 路由
+
+\`\`\`typescript
+// app/api/auth/[...nextauth]/route.ts
+import { handlers } from "@/auth"
+export const { GET, POST } = handlers
+\`\`\`
+
+## 保护路由
+
+\`\`\`typescript
+// middleware.ts
+import { auth } from "@/auth"
+
+export default auth((req) => {
+  if (!req.auth && req.nextUrl.pathname !== "/login") {
+    return Response.redirect(new URL("/login", req.url))
+  }
+})
+
+export const config = {
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+}
+\`\`\`
+
+## 获取会话
+
+\`\`\`typescript
+import { auth } from "@/auth"
+
+export default async function Page() {
+  const session = await auth()
+  return <div>{session?.user?.name}</div>
+}
+\`\`\`
+
+## 环境变量
+
+\`\`\`env
+AUTH_SECRET=your-secret
+GITHUB_ID=your-github-client-id
+GITHUB_SECRET=your-github-client-secret
+\`\`\``,category:"Development",categoryZh:"开发",source:"nextjs-github",installCommand:"pnpm add next-auth",stars:32100,dateAdded:"2024-05-02"},{id:"github-api-integration",name:"github-api-integration",description:"Integrate GitHub REST API in Next.js applications",descriptionZh:"在 Next.js 应用中集成 GitHub REST API",content:`# GitHub API Integration
+
+Integrate GitHub REST API in Next.js for fetching repositories, issues, and more.
+
+## Octokit Setup
+
+\`\`\`bash
+pnpm add octokit
+\`\`\`
+
+## Basic Usage
+
+\`\`\`typescript
+import { Octokit } from "octokit"
+
+const octokit = new Octokit({
+  auth: process.env.GITHUB_TOKEN,
+})
+
+// Get user info
+const { data: user } = await octokit.rest.users.get({
+  username: "vercel",
+})
+
+// Get repositories
+const { data: repos } = await octokit.rest.repos.listForUser({
+  username: "vercel",
+  sort: "updated",
+})
+
+// Get issues
+const { data: issues } = await octokit.rest.issues.listForRepo({
+  owner: "vercel",
+  repo: "next.js",
+  state: "open",
+})
+\`\`\`
+
+## Server-Side Fetching
+
+\`\`\`typescript
+// app/github/page.tsx
+import { Octokit } from "octokit"
+
+async function getRepos() {
+  const octokit = new Octokit({
+    auth: process.env.GITHUB_TOKEN,
+  })
+  
+  const { data } = await octokit.rest.repos.listForUser({
+    username: "vercel",
+    per_page: 10,
+  })
+  
+  return data
+}
+
+export default async function Page() {
+  const repos = await getRepos()
+  
+  return (
+    <ul>
+      {repos.map((repo) => (
+        <li key={repo.id}>{repo.name}</li>
+      ))}
+    </ul>
+  )
+}
+\`\`\`
+
+## GraphQL API
+
+\`\`\`typescript
+const { data } = await octokit.graphql(\`
+  query($owner: String!, $name: String!) {
+    repository(owner: $owner, name: $name) {
+      stargazerCount
+      description
+      issues(states: OPEN) {
+        totalCount
+      }
+    }
+  }
+\`, {
+  owner: "vercel",
+  name: "next.js",
+})
+\`\`\`
+
+## Rate Limiting
+
+- Authenticated: 5000 requests/hour
+- Unauthenticated: 60 requests/hour
+
+Use caching for better performance:
+\`\`\`typescript
+export const dynamic = 'force-dynamic'
+
+// or use Next.js caching
+const repos = await fetch('https://api.github.com/users/vercel/repos', {
+  next: { revalidate: 3600 },
+}).then(res => res.json())
+\`\`\``,contentZh:`# GitHub API 集成
+
+在 Next.js 中集成 GitHub REST API 用于获取仓库、issues 等。
+
+## Octokit 设置
+
+\`\`\`bash
+pnpm add octokit
+\`\`\`
+
+## 基本用法
+
+\`\`\`typescript
+import { Octokit } from "octokit"
+
+const octokit = new Octokit({
+  auth: process.env.GITHUB_TOKEN,
+})
+
+// 获取用户信息
+const { data: user } = await octokit.rest.users.get({
+  username: "vercel",
+})
+
+// 获取仓库列表
+const { data: repos } = await octokit.rest.repos.listForUser({
+  username: "vercel",
+  sort: "updated",
+})
+
+// 获取 issues
+const { data: issues } = await octokit.rest.issues.listForRepo({
+  owner: "vercel",
+  repo: "next.js",
+  state: "open",
+})
+\`\`\`
+
+## 服务端获取
+
+\`\`\`typescript
+// app/github/page.tsx
+import { Octokit } from "octokit"
+
+async function getRepos() {
+  const octokit = new Octokit({
+    auth: process.env.GITHUB_TOKEN,
+  })
+  
+  const { data } = await octokit.rest.repos.listForUser({
+    username: "vercel",
+    per_page: 10,
+  })
+  
+  return data
+}
+
+export default async function Page() {
+  const repos = await getRepos()
+  
+  return (
+    <ul>
+      {repos.map((repo) => (
+        <li key={repo.id}>{repo.name}</li>
+      ))}
+    </ul>
+  )
+}
+\`\`\`
+
+## GraphQL API
+
+\`\`\`typescript
+const { data } = await octokit.graphql(\`
+  query($owner: String!, $name: String!) {
+    repository(owner: $owner, name: $name) {
+      stargazerCount
+      description
+      issues(states: OPEN) {
+        totalCount
+      }
+    }
+  }
+\`, {
+  owner: "vercel",
+  name: "next.js",
+})
+\`\`\`
+
+## 速率限制
+
+- 已认证：5000 请求/小时
+- 未认证：60 请求/小时
+
+使用缓存提高性能：
+\`\`\`typescript
+export const dynamic = 'force-dynamic'
+
+// 或使用 Next.js 缓存
+const repos = await fetch('https://api.github.com/users/vercel/repos', {
+  next: { revalidate: 3600 },
+}).then(res => res.json())
+\`\`\``,category:"Development",categoryZh:"开发",source:"nextjs-github",stars:18700,dateAdded:"2024-05-03"},{id:"nextjs-github-pages",name:"nextjs-github-pages",description:"Deploy Next.js to GitHub Pages with GitHub Actions",descriptionZh:"使用 GitHub Actions 将 Next.js 部署到 GitHub Pages",content:`# Next.js GitHub Pages Deployment
+
+Deploy Next.js static exports to GitHub Pages using GitHub Actions.
+
+## Configuration
+
+1. Set \`output: 'export'\` in next.config.js:
+\`\`\`javascript
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
+}
+
+module.exports = nextConfig
+\`\`\`
+
+2. Update package.json:
+\`\`\`json
+{
+  "scripts": {
+    "build": "next build"
+  },
+  "homepage": "https://username.github.io/repo"
+}
+\`\`\`
+
+## GitHub Actions Workflow
+
+\`\`\`yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+      
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      
+      - name: Build
+        run: pnpm build
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: \${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+\`\`\`
+
+## Enable GitHub Pages
+
+1. Go to Repository Settings > Pages
+2. Select "Deploy from a branch"
+3. Choose "gh-pages" branch and "/(root)" folder
+4. Set custom domain if needed
+
+## Notes
+
+- Use \`unoptimized: true\` for images (required for static export)
+- Each push to main triggers deployment
+- Deployment takes ~1-2 minutes`,contentZh:`# Next.js GitHub Pages 部署
+
+使用 GitHub Actions 将 Next.js 静态导出部署到 GitHub Pages。
+
+## 配置
+
+1. 在 next.config.js 中设置 \`output: 'export'\`：
+\`\`\`javascript
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
+}
+
+module.exports = nextConfig
+\`\`\`
+
+2. 更新 package.json：
+\`\`\`json
+{
+  "scripts": {
+    "build": "next build"
+  },
+  "homepage": "https://username.github.io/repo"
+}
+\`\`\`
+
+## GitHub Actions 工作流
+
+\`\`\`yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+      
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      
+      - name: Build
+        run: pnpm build
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: \${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+\`\`\`
+
+## 启用 GitHub Pages
+
+1. 进入 Repository Settings > Pages
+2. 选择 "Deploy from a branch"
+3. 选择 "gh-pages" 分支和 "/(root)" 文件夹
+4. 如需要可设置自定义域名
+
+## 注意事项
+
+- 图片使用 \`unoptimized: true\`（静态导出必需）
+- 每次推送到 main 触发部署
+- 部署需要约 1-2 分钟`,category:"DevOps",categoryZh:"DevOps",source:"nextjs-github",stars:15600,dateAdded:"2024-05-04"},{id:"github-issues-management",name:"github-issues-management",description:"Manage GitHub Issues programmatically with GitHub API",descriptionZh:"使用 GitHub API 程序化管理 GitHub Issues",content:`# GitHub Issues Management
+
+Programmatically manage GitHub Issues using GitHub API.
+
+## Create Issue
+
+\`\`\`typescript
+import { Octokit } from "octokit"
+
+const octokit = new Octokit({
+  auth: process.env.GITHUB_TOKEN,
+})
+
+const { data: issue } = await octokit.rest.issues.create({
+  owner: "username",
+  repo: "repository",
+  title: "Bug: Login not working",
+  body: "## Description\\nLogin button does nothing\\n\\n## Steps\\n1. Go to login page\\n2. Click login button\\n\\n## Expected\\nRedirect to dashboard",
+  labels: ["bug", "priority: high"],
+})
+\`\`\`
+
+## Add Comment
+
+\`\`\`typescript
+await octokit.rest.issues.createComment({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  body: "Thanks for reporting! Looking into this now.",
+})
+\`\`\`
+
+## Close/Open Issue
+
+\`\`\`typescript
+// Close
+await octokit.rest.issues.update({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  state: "closed",
+})
+
+// Reopen
+await octokit.rest.issues.update({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  state: "open",
+})
+\`\`\`
+
+## Add/Remove Labels
+
+\`\`\`typescript
+// Add labels
+await octokit.rest.issues.addLabels({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  labels: ["enhancement", "needs-review"],
+})
+
+// Remove label
+await octokit.rest.issues.removeLabel({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  name: "enhancement",
+})
+\`\`\`
+
+## Assign Users
+
+\`\`\`typescript
+await octokit.rest.issues.addAssignees({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  assignees: ["username1", "username2"],
+})
+\`\`\`
+
+## List Issues
+
+\`\`\`typescript
+const { data: issues } = await octokit.rest.issues.listForRepo({
+  owner: "username",
+  repo: "repository",
+  state: "open",
+  labels: "bug",
+  sort: "created",
+  direction: "desc",
+})
+\`\`\`
+
+## Best Practices
+
+1. Use issue templates
+2. Label issues consistently
+3. Assign to team members
+4. Use milestones for releases
+5. Close resolved issues promptly`,contentZh:`# GitHub Issues 管理
+
+使用 GitHub API 程序化管理 GitHub Issues。
+
+## 创建 Issue
+
+\`\`\`typescript
+import { Octokit } from "octokit"
+
+const octokit = new Octokit({
+  auth: process.env.GITHUB_TOKEN,
+})
+
+const { data: issue } = await octokit.rest.issues.create({
+  owner: "username",
+  repo: "repository",
+  title: "Bug: Login not working",
+  body: "## Description\\nLogin button does nothing\\n\\n## Steps\\n1. Go to login page\\n2. Click login button\\n\\n## Expected\\nRedirect to dashboard",
+  labels: ["bug", "priority: high"],
+})
+\`\`\`
+
+## 添加评论
+
+\`\`\`typescript
+await octokit.rest.issues.createComment({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  body: "Thanks for reporting! Looking into this now.",
+})
+\`\`\`
+
+## 关闭/打开 Issue
+
+\`\`\`typescript
+// 关闭
+await octokit.rest.issues.update({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  state: "closed",
+})
+
+// 重新打开
+await octokit.rest.issues.update({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  state: "open",
+})
+\`\`\`
+
+## 添加/移除标签
+
+\`\`\`typescript
+// 添加标签
+await octokit.rest.issues.addLabels({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  labels: ["enhancement", "needs-review"],
+})
+
+// 移除标签
+await octokit.rest.issues.removeLabel({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  name: "enhancement",
+})
+\`\`\`
+
+## 分配用户
+
+\`\`\`typescript
+await octokit.rest.issues.addAssignees({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  assignees: ["username1", "username2"],
+})
+\`\`\`
+
+## 列出 Issues
+
+\`\`\`typescript
+const { data: issues } = await octokit.rest.issues.listForRepo({
+  owner: "username",
+  repo: "repository",
+  state: "open",
+  labels: "bug",
+  sort: "created",
+  direction: "desc",
+})
+\`\`\`
+
+## 最佳实践
+
+1. 使用 issue 模板
+2. 一致地使用标签
+3. 分配给团队成员
+4. 使用 milestones 管理发布
+5. 及时关闭已解决的问题`,category:"DevOps",categoryZh:"DevOps",source:"nextjs-github",stars:12300,dateAdded:"2024-05-05"}],e1="skills-favorites",e2="skills-custom",e5="skills-api-key",e3="skills-api-model";function e4(e){return/[\u4e00-\u9fa5]/.test(e)}function e7(e){return e?e>=1e3?`${(e/1e3).toFixed(1)}k`:e.toString():"0"}function e8(e){return e?new Date(e).toLocaleDateString("zh-CN",{year:"numeric",month:"short",day:"numeric"}):""}function e6(){let[e,t]=(0,r.useState)(""),[l,c]=(0,r.useState)(null),[d,u]=(0,r.useState)(""),[p,m]=(0,r.useState)(!1),[g,h]=(0,r.useState)(!1),[f,y]=(0,r.useState)([]),[b,v]=(0,r.useState)(!0),[x,k]=(0,r.useState)([]),[C,w]=(0,r.useState)(!1),[S,I]=(0,r.useState)(!1),[A,T]=(0,r.useState)(""),[P,E]=(0,r.useState)("gemini"),[R,N]=(0,r.useState)(!1),[j,D]=(0,r.useState)("markdown"),[L,$]=(0,r.useState)({name:"",nameZh:"",description:"",descriptionZh:"",content:"",contentZh:"",category:"",categoryZh:"",source:"",installCommand:"",stars:0,dateAdded:(0,eY.default)().format("YYYY-MM-DD")}),B=(0,r.useMemo)(()=>[...e0,...x],[x]);(0,r.useEffect)(()=>{let e,t;y((e=localStorage.getItem(e1))?JSON.parse(e):[]),k((t=localStorage.getItem(e2))?JSON.parse(t):[]),T(localStorage.getItem(e5)||""),E(localStorage.getItem(e3)||"gemini")},[]);let M=(0,r.useMemo)(()=>{let t=B.filter(t=>{let n=b&&t.nameZh||t.name,i=b&&t.descriptionZh||t.description,s=b&&t.categoryZh||t.category,o=e.toLowerCase();return n.toLowerCase().includes(o)||i.toLowerCase().includes(o)||s.toLowerCase().includes(o)}).map(e=>({...e,isFavorite:f.includes(e.id)}));return t.sort((e,t)=>e.isFavorite&&!t.isFavorite?-1:!e.isFavorite&&t.isFavorite?1:(t.stars||0)-(e.stars||0)),t},[B,e,f,b]),U=e=>b&&e.contentZh?e.contentZh:e.content,O=(0,r.useMemo)(()=>{if(!l)return"";let e=b&&l.contentZh?l.contentZh:l.content;try{return eJ.marked.parse(e)}catch{return e}},[l,b]),H=e=>{(0,eX.default)(e),eV.message.success("复制成功")},G=async e=>{let t=`${window.location.origin}/skills?skill=${encodeURIComponent(JSON.stringify({name:e.name,content:e.content}))}`;try{let n=await eQ.default.toDataURL(t);u(n),c(e),m(!0)}catch{eV.message.error("生成二维码失败")}},F=e=>{e.installCommand&&((0,eX.default)(e.installCommand),eV.message.success(`安装命令已复制: ${e.installCommand}`))},Z=async()=>{if(!A){eV.message.warning("请先设置 API Key"),I(!0);return}N(!0);try{let e=L.description.trim(),t=L.content.trim(),n=L.category.trim(),i=L.name.trim(),s={};if(i&&e4(i)){let e=await fetch("/api/translate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:i,targetLang:"en",apiKey:A,model:P})}),t=await e.json();t.translatedText&&(s.nameZh=t.translatedText)}else if(i&&!e4(i)){let e=await fetch("/api/translate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:i,targetLang:"zh",apiKey:A,model:P})}),t=await e.json();t.translatedText&&(s.nameZh=t.translatedText)}if(e&&e4(e)){let t=await fetch("/api/translate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:e,targetLang:"en",apiKey:A,model:P})}),n=await t.json();n.translatedText&&(s.descriptionZh=n.translatedText)}else if(e&&!e4(e)){let t=await fetch("/api/translate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:e,targetLang:"zh",apiKey:A,model:P})}),n=await t.json();n.translatedText&&(s.descriptionZh=n.translatedText)}if(t&&e4(t)){let e=await fetch("/api/translate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:t,targetLang:"en",apiKey:A,model:P})}),n=await e.json();n.translatedText&&(s.contentZh=n.translatedText)}else if(t&&!e4(t)){let e=await fetch("/api/translate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:t,targetLang:"zh",apiKey:A,model:P})}),n=await e.json();n.translatedText&&(s.contentZh=n.translatedText)}if(n&&e4(n)){let e=await fetch("/api/translate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:n,targetLang:"en",apiKey:A,model:P})}),t=await e.json();t.translatedText&&(s.categoryZh=t.translatedText)}else if(n&&!e4(n)){let e=await fetch("/api/translate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:n,targetLang:"zh",apiKey:A,model:P})}),t=await e.json();t.translatedText&&(s.categoryZh=t.translatedText)}$(e=>({...e,...s})),eV.message.success("翻译完成")}catch(e){eV.message.error(`翻译失败: ${e.message}`)}finally{N(!1)}},W=e=>{let t=e.split("\n"),n=[],i=!1;for(let e of t){let t=e.trim();if(t.startsWith("```")){i=!i,n.push(t);continue}if(i)n.push(t);else{if(""===t&&""===n[n.length-1])continue;if(t.startsWith("#")&&t.match(/^(#+)\s*(.*)/)){n.push(""),n.push(t),n.push("");continue}if(t.match(/^[-*]\s/)||t.match(/^\d+\.\s/)){""!==n[n.length-1]&&n.push(""),n.push(t);continue}if(t.match(/^\|/)){n.push(t);continue}n.push(t)}}for(;""===n[n.length-1];)n.pop();return n.join("\n").replace(/\n{3,}/g,"\n\n")};return(0,n.jsxs)("div",{children:[(0,n.jsxs)("div",{className:"flex items-center justify-between mb-6",children:[(0,n.jsx)("h1",{className:"text-2xl font-bold text-gray-900",children:"AI Skills"}),(0,n.jsxs)("div",{className:"flex items-center gap-2",children:[(0,n.jsx)("button",{type:"button",onClick:()=>I(!0),className:"px-3 py-1.5 text-sm font-medium bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors cursor-pointer",children:"⚙️"}),(0,n.jsx)("button",{type:"button",onClick:()=>v(!b),className:"px-3 py-1.5 text-sm font-medium bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors cursor-pointer",children:b?"English":"中文"}),(0,n.jsx)("button",{type:"button",onClick:()=>w(!0),className:"px-3 py-1.5 text-sm font-medium bg-indigo-600 text-white hover:bg-indigo-700 rounded-lg transition-colors cursor-pointer",children:b?"+ 添加":"+ Add"})]})]}),(0,n.jsx)(a.Input,{placeholder:b?"搜索 Skills...":"Search Skills...",value:e,onChange:e=>t(e.target.value),className:"mb-6",size:"large"}),(0,n.jsx)("div",{className:"grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4",children:M.map(e=>(0,n.jsxs)("div",{className:"group relative bg-white rounded-xl border border-gray-200 p-5 hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-100/50 transition-all duration-300 cursor-pointer overflow-hidden",onClick:()=>{c(e),D("markdown"),h(!0)},children:[(0,n.jsx)("div",{className:"absolute inset-0 bg-gradient-to-br from-indigo-50/0 via-purple-50/0 to-pink-50/0 group-hover:from-indigo-50/50 group-hover:via-purple-50/30 group-hover:to-pink-50/20 transition-all duration-300"}),(0,n.jsxs)("div",{className:"relative",children:[(0,n.jsxs)("div",{className:"flex items-start justify-between mb-3",children:[(0,n.jsx)("h3",{className:"font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors pr-2",children:b&&e.nameZh||e.name}),(0,n.jsx)("button",{type:"button",onClick:t=>{var n;let i;t.stopPropagation(),n=e.id,y(i=f.includes(n)?f.filter(e=>e!==n):[...f,n]),localStorage.setItem(e1,JSON.stringify(i)),eV.message.success(f.includes(n)?"已取消收藏":"已添加收藏")},className:"shrink-0 p-1 hover:scale-110 transition-transform cursor-pointer","aria-label":e.isFavorite?b?"取消收藏":"Remove from favorites":b?"添加收藏":"Add to favorites",children:(0,n.jsx)("svg",{className:`w-5 h-5 ${e.isFavorite?"text-red-500 fill-current":"text-gray-400"}`,viewBox:"0 0 24 24",fill:e.isFavorite?"currentColor":"none",stroke:"currentColor",strokeWidth:2,"aria-hidden":"true",children:(0,n.jsx)("path",{d:"M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"})})})]}),(0,n.jsx)("p",{className:"text-sm text-gray-500 mb-3 line-clamp-2 h-10",children:b&&e.descriptionZh||e.description}),(0,n.jsxs)("div",{className:"flex items-center gap-3 text-xs text-gray-400 mb-3",children:[void 0!==e.stars&&e.stars>0&&(0,n.jsxs)("span",{className:"flex items-center gap-1",children:[(0,n.jsx)("svg",{className:"w-3.5 h-3.5",viewBox:"0 0 24 24",fill:"currentColor","aria-hidden":"true",children:(0,n.jsx)("path",{d:"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"})}),e7(e.stars)]}),e.dateAdded&&(0,n.jsx)("span",{children:e8(e.dateAdded)})]}),(0,n.jsxs)("div",{className:"flex items-center justify-between pt-3 border-t border-gray-100",children:[e.installCommand?(0,n.jsx)("button",{type:"button",className:"px-4 py-1.5 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors cursor-pointer",onClick:t=>{t.stopPropagation(),F(e)},children:b?"一键安装":"Install"}):(0,n.jsx)("div",{className:"w-20"}),(0,n.jsx)("button",{type:"button",className:"px-4 py-1.5 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors cursor-pointer",onClick:t=>{t.stopPropagation(),H(e.content)},children:b?"复制内容":"Copy"})]})]})]},e.id))}),(0,n.jsx)(o.Drawer,{title:b&&l?.nameZh||l?.name,placement:"right",size:"large",onClose:()=>h(!1),open:g,children:l&&(0,n.jsxs)("div",{children:[(0,n.jsx)("p",{className:"text-gray-600 mb-4",children:b&&l.descriptionZh||l.description}),(0,n.jsxs)("div",{className:"mb-4 flex flex-wrap items-center gap-2",children:[(0,n.jsx)(e_.Tag,{color:"blue",children:b&&l.categoryZh||l.category}),(0,n.jsx)(e_.Tag,{children:l.source}),void 0!==l.stars&&l.stars>0&&(0,n.jsxs)("span",{className:"flex items-center gap-1 text-sm text-gray-500",children:[(0,n.jsx)("svg",{className:"w-4 h-4 text-yellow-500",viewBox:"0 0 24 24",fill:"currentColor","aria-label":"stars",children:(0,n.jsx)("path",{d:"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"})}),e7(l.stars)]}),l.dateAdded&&(0,n.jsx)("span",{className:"text-sm text-gray-400",children:e8(l.dateAdded)}),(0,n.jsx)("div",{className:"flex-1"}),(0,n.jsx)("button",{type:"button",className:"px-3 py-1 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors cursor-pointer",onClick:()=>H(U(l)),children:b?"复制内容":"Copy"}),(0,n.jsx)("button",{type:"button",className:"px-3 py-1 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors cursor-pointer",onClick:()=>G(l),children:b?"分享":"Share"})]}),l.installCommand&&(0,n.jsxs)("div",{className:"mb-4 p-3 bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg border border-indigo-200",children:[(0,n.jsx)("div",{className:"text-sm text-indigo-600 mb-2 font-medium",children:b?"安装命令":"Install Command"}),(0,n.jsxs)("div",{className:"flex items-center gap-2",children:[(0,n.jsx)("code",{className:"flex-1 text-sm bg-white px-3 py-2 rounded border border-indigo-200 font-mono overflow-x-auto",children:l.installCommand}),(0,n.jsx)("button",{type:"button",className:"px-3 py-1.5 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors cursor-pointer",onClick:()=>F(l),children:b?"复制":"Copy"})]})]}),(0,n.jsxs)("div",{className:"mb-2 flex items-center justify-between",children:[(0,n.jsx)("span",{className:"text-sm text-gray-500",children:b?"内容预览":"Content Preview"}),(0,n.jsx)("button",{type:"button",className:`px-3 py-1 text-sm font-medium rounded-lg transition-colors cursor-pointer ${"markdown"===j?"bg-indigo-600 text-white":"bg-gray-100 text-gray-700 hover:bg-gray-200"}`,onClick:()=>D("markdown"===j?"raw":"markdown"),children:"markdown"===j?b?"📄 原始":"📄 Raw":b?"🎨 渲染":"🎨 Render"})]}),(0,n.jsx)("div",{className:"bg-gray-50 p-4 rounded-lg max-h-[60vh] overflow-y-auto",children:"markdown"===j?(0,n.jsx)("div",{className:"prose prose-sm max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-blue-600 prose-code:text-pink-600 prose-code:bg-gray-200 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-gray-800 prose-pre:text-gray-100",dangerouslySetInnerHTML:{__html:O}}):(0,n.jsx)("pre",{className:"whitespace-pre-wrap font-mono text-sm text-gray-700",children:U(l)})})]})}),(0,n.jsx)(o.Drawer,{title:b?"分享 Skill":"Share Skill",placement:"bottom",height:"300px",onClose:()=>m(!1),open:p,children:d&&(0,n.jsxs)("div",{className:"text-center",children:[(0,n.jsx)("img",{src:d,alt:"QR Code",className:"mx-auto mb-4"}),(0,n.jsx)("p",{className:"text-gray-500 text-sm",children:b?"扫描二维码查看 Skill":"Scan QR code to view Skill"})]})}),(0,n.jsx)(eA,{title:(0,n.jsxs)("div",{className:"flex items-center gap-2",children:[(0,n.jsx)("svg",{className:"w-5 h-5 text-indigo-600",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2","aria-label":"add",children:(0,n.jsx)("path",{d:"M12 5v14M5 12h14",strokeLinecap:"round",strokeLinejoin:"round"})}),(0,n.jsx)("span",{children:b?"添加 Skill":"Add Skill"})]}),open:C,onCancel:()=>w(!1),footer:(0,n.jsxs)("div",{className:"flex justify-end gap-2 pt-2",children:[(0,n.jsx)(i.Button,{onClick:Z,loading:R,children:b?"🔄 自动翻译缺失字段":"🔄 Auto Translate"}),(0,n.jsx)(i.Button,{type:"primary",onClick:()=>{if(!L.name||!L.description||!L.content)return void eV.message.warning("请填写名称、描述和内容");let e=W(L.content),t=L.contentZh?W(L.contentZh):"",n=[...x,{id:`custom-${Date.now()}`,name:L.name.trim(),nameZh:L.nameZh?.trim()||void 0,description:L.description.trim(),descriptionZh:L.descriptionZh?.trim()||void 0,content:e,contentZh:t||void 0,category:L.category.trim(),categoryZh:L.categoryZh?.trim()||void 0,source:L.source.trim()||"custom",installCommand:L.installCommand?.trim()||void 0,stars:L.stars||void 0,dateAdded:L.dateAdded}];k(n),localStorage.setItem(e2,JSON.stringify(n)),w(!1),$({name:"",nameZh:"",description:"",descriptionZh:"",content:"",contentZh:"",category:"",categoryZh:"",source:"",installCommand:"",stars:0,dateAdded:(0,eY.default)().format("YYYY-MM-DD")}),eV.message.success("添加成功")},children:b?"保存":"Save"})]}),width:700,className:"add-skill-modal",children:(0,n.jsxs)("div",{className:"space-y-4 pr-2",style:{maxHeight:"70vh",overflowY:"auto"},children:[(0,n.jsxs)("div",{children:[(0,n.jsxs)("label",{className:"block text-sm font-medium mb-1",children:[(0,n.jsx)("span",{className:"text-red-500",children:"*"})," 名称 (Name)"]}),(0,n.jsx)(a.Input,{value:L.name,onChange:e=>$({...L,name:e.target.value}),placeholder:b?"如: frontend-design":"e.g., frontend-design"})]}),(0,n.jsxs)("div",{children:[(0,n.jsxs)("label",{className:"block text-sm font-medium mb-1",children:[(0,n.jsx)("span",{className:"text-red-500",children:"*"})," 描述 (Description)"]}),(0,n.jsx)(a.Input.TextArea,{value:L.description,onChange:e=>$({...L,description:e.target.value}),placeholder:b?"英文描述":"English description",rows:2})]}),(0,n.jsxs)("div",{children:[(0,n.jsx)("label",{className:"block text-sm font-medium mb-1",children:"描述中文"}),(0,n.jsx)(a.Input.TextArea,{value:L.descriptionZh,onChange:e=>$({...L,descriptionZh:e.target.value}),placeholder:b?"自动翻译":"Chinese description",rows:2})]}),(0,n.jsxs)("div",{children:[(0,n.jsx)("label",{className:"block text-sm font-medium mb-1",children:"分类 (Category)"}),(0,n.jsx)(a.Input,{value:L.category,onChange:e=>$({...L,category:e.target.value}),placeholder:b?"如: Development":"e.g., Development"})]}),(0,n.jsxs)("div",{children:[(0,n.jsxs)("label",{className:"block text-sm font-medium mb-1",children:[(0,n.jsx)("span",{className:"text-red-500",children:"*"})," 内容 (Content)"]}),(0,n.jsx)(a.Input.TextArea,{value:L.content,onChange:e=>$({...L,content:e.target.value}),placeholder:b?"英文内容":"English content",rows:6})]}),(0,n.jsxs)("div",{children:[(0,n.jsx)("label",{className:"block text-sm font-medium mb-1",children:"内容中文"}),(0,n.jsx)(a.Input.TextArea,{value:L.contentZh,onChange:e=>$({...L,contentZh:e.target.value}),placeholder:b?"自动翻译":"Chinese content",rows:6})]}),(0,n.jsxs)("div",{className:"grid grid-cols-2 gap-4",children:[(0,n.jsxs)("div",{children:[(0,n.jsx)("label",{className:"block text-sm font-medium mb-1",children:"来源 (Source)"}),(0,n.jsx)(a.Input,{value:L.source,onChange:e=>$({...L,source:e.target.value}),placeholder:"github/username"})]}),(0,n.jsxs)("div",{children:[(0,n.jsx)("label",{className:"block text-sm font-medium mb-1",children:"安装命令"}),(0,n.jsx)(a.Input,{value:L.installCommand,onChange:e=>$({...L,installCommand:e.target.value}),placeholder:"npx skills add ..."})]})]}),(0,n.jsxs)("div",{className:"grid grid-cols-2 gap-4",children:[(0,n.jsxs)("div",{children:[(0,n.jsx)("label",{className:"block text-sm font-medium mb-1",children:"GitHub Stars"}),(0,n.jsx)(a.Input,{type:"number",value:L.stars,onChange:e=>$({...L,stars:parseInt(e.target.value,10)||0})})]}),(0,n.jsxs)("div",{children:[(0,n.jsx)("label",{className:"block text-sm font-medium mb-1",children:"添加日期"}),(0,n.jsx)(s.DatePicker,{value:L.dateAdded?(0,eY.default)(L.dateAdded):void 0,onChange:e=>$({...L,dateAdded:e?.format("YYYY-MM-DD")||""}),className:"w-full"})]})]})]})}),(0,n.jsx)(eA,{title:b?"API 设置":"API Settings",open:S,onCancel:()=>I(!1),onOk:()=>{localStorage.setItem(e5,A),localStorage.setItem(e3,P),I(!1),eV.message.success("设置已保存")},okText:b?"保存":"Save",children:(0,n.jsxs)("div",{className:"space-y-4",children:[(0,n.jsxs)("div",{children:[(0,n.jsx)("label",{className:"block text-sm font-medium mb-1",children:"翻译 API Key"}),(0,n.jsx)(a.Input,{value:A,onChange:e=>T(e.target.value),placeholder:b?"输入 Google/Gemini/OpenAI API Key":"Enter API Key",type:"password"}),(0,n.jsx)("p",{className:"text-xs text-gray-500 mt-1",children:b?"支持 Google Translate, Gemini, OpenAI, 智谱 GLM":"Supports Google Translate, Gemini, OpenAI, Zhipu GLM"})]}),(0,n.jsxs)("div",{children:[(0,n.jsx)("label",{className:"block text-sm font-medium mb-1",children:"API Model"}),(0,n.jsx)(eK.Select,{value:P,onChange:E,className:"w-full",options:[{value:"gemini",label:"Google Gemini (推荐)"},{value:"google",label:"Google Translate"},{value:"openai",label:"OpenAI"},{value:"bigmodel",label:"智谱 GLM"}]})]})]})})]})}e.s(["default",()=>e6],30815)}]);

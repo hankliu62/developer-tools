@@ -4355,4 +4355,932 @@ Create content for social media platforms.
     stars: 8600,
     dateAdded: '2024-01-28',
   },
+  {
+    id: 'nextjs-github-actions',
+    name: 'nextjs-github-actions',
+    description: 'Set up CI/CD for Next.js with GitHub Actions',
+    descriptionZh: '使用 GitHub Actions 为 Next.js 设置 CI/CD',
+    content: `# Next.js + GitHub Actions CI/CD
+
+Set up automated CI/CD pipelines for Next.js applications using GitHub Actions.
+
+## Workflow Structure
+
+\`\`\`yaml
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+      
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      
+      - name: Lint
+        run: pnpm lint
+      
+      - name: Type check
+        run: pnpm typecheck
+      
+      - name: Build
+        run: pnpm build
+      
+      - name: Test
+        run: pnpm test --coverage
+\`\`\`
+
+## Key Points
+
+1. Use pnpm for faster installs
+2. Cache node_modules and pnpm store
+3. Run lint before typecheck for faster feedback
+4. Build to verify no compilation errors
+5. Run tests with coverage
+
+## Deployment
+
+For Vercel deployment:
+- Use Vercel Git Integration
+- No additional action needed
+
+For GitHub Pages:
+- Use actions/upload-pages-artifact
+- Configure gh-pages branch deployment`,
+    contentZh: `# Next.js + GitHub Actions CI/CD
+
+使用 GitHub Actions 为 Next.js 应用程序设置自动化 CI/CD 流水线。
+
+## 工作流结构
+
+\`\`\`yaml
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+      
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      
+      - name: Lint
+        run: pnpm lint
+      
+      - name: Type check
+        run: pnpm typecheck
+      
+      - name: Build
+        run: pnpm build
+      
+      - name: Test
+        run: pnpm test --coverage
+\`\`\`
+
+## 关键点
+
+1. 使用 pnpm 更快安装
+2. 缓存 node_modules 和 pnpm store
+3. 先运行 lint 再运行 typecheck 获取更快反馈
+4. Build 验证无编译错误
+5. 运行带覆盖率的测试
+
+## 部署
+
+Vercel 部署：
+- 使用 Vercel Git 集成
+- 无需额外操作
+
+GitHub Pages 部署：
+- 使用 actions/upload-pages-artifact
+- 配置 gh-pages 分支部署`,
+    category: 'DevOps',
+    categoryZh: 'DevOps',
+    source: 'nextjs-github',
+    stars: 24500,
+    dateAdded: '2024-05-01',
+  },
+  {
+    id: 'nextjs-github-oauth',
+    name: 'nextjs-github-oauth',
+    description: 'Implement GitHub OAuth login in Next.js App Router',
+    descriptionZh: '在 Next.js App Router 中实现 GitHub OAuth 登录',
+    content: `# Next.js GitHub OAuth Login
+
+Implement GitHub OAuth authentication in Next.js using NextAuth.js.
+
+## Setup
+
+1. Create GitHub OAuth App:
+   - Go to GitHub Settings > Developer settings > OAuth Apps
+   - Set callback URL: \`https://yourapp.com/api/auth/callback/github\`
+
+2. Install NextAuth:
+\`\`\`bash
+pnpm add next-auth
+\`\`\`
+
+3. Configure auth:
+\`\`\`typescript
+// auth.ts
+import NextAuth from "next-auth"
+import GitHub from "next-auth/providers/github"
+
+export const { handlers, auth, signIn, signOut } = NextAuth({
+  providers: [GitHub],
+})
+\`\`\`
+
+## API Route
+
+\`\`\`typescript
+// app/api/auth/[...nextauth]/route.ts
+import { handlers } from "@/auth"
+export const { GET, POST } = handlers
+\`\`\`
+
+## Protected Routes
+
+\`\`\`typescript
+// middleware.ts
+import { auth } from "@/auth"
+
+export default auth((req) => {
+  if (!req.auth && req.nextUrl.pathname !== "/login") {
+    return Response.redirect(new URL("/login", req.url))
+  }
+})
+
+export const config = {
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+}
+\`\`\`
+
+## Get Session
+
+\`\`\`typescript
+import { auth } from "@/auth"
+
+export default async function Page() {
+  const session = await auth()
+  return <div>{session?.user?.name}</div>
+}
+\`\`\`
+
+## Environment Variables
+
+\`\`\`env
+AUTH_SECRET=your-secret
+GITHUB_ID=your-github-client-id
+GITHUB_SECRET=your-github-client-secret
+\`\`\``,
+    contentZh: `# Next.js GitHub OAuth 登录
+
+使用 NextAuth.js 在 Next.js 中实现 GitHub OAuth 认证。
+
+## 设置
+
+1. 创建 GitHub OAuth 应用：
+   - 进入 GitHub Settings > Developer settings > OAuth Apps
+   - 设置回调 URL：\`https://yourapp.com/api/auth/callback/github\`
+
+2. 安装 NextAuth：
+\`\`\`bash
+pnpm add next-auth
+\`\`\`
+
+3. 配置认证：
+\`\`\`typescript
+// auth.ts
+import NextAuth from "next-auth"
+import GitHub from "next-auth/providers/github"
+
+export const { handlers, auth, signIn, signOut } = NextAuth({
+  providers: [GitHub],
+})
+\`\`\`
+
+## API 路由
+
+\`\`\`typescript
+// app/api/auth/[...nextauth]/route.ts
+import { handlers } from "@/auth"
+export const { GET, POST } = handlers
+\`\`\`
+
+## 保护路由
+
+\`\`\`typescript
+// middleware.ts
+import { auth } from "@/auth"
+
+export default auth((req) => {
+  if (!req.auth && req.nextUrl.pathname !== "/login") {
+    return Response.redirect(new URL("/login", req.url))
+  }
+})
+
+export const config = {
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+}
+\`\`\`
+
+## 获取会话
+
+\`\`\`typescript
+import { auth } from "@/auth"
+
+export default async function Page() {
+  const session = await auth()
+  return <div>{session?.user?.name}</div>
+}
+\`\`\`
+
+## 环境变量
+
+\`\`\`env
+AUTH_SECRET=your-secret
+GITHUB_ID=your-github-client-id
+GITHUB_SECRET=your-github-client-secret
+\`\`\``,
+    category: 'Development',
+    categoryZh: '开发',
+    source: 'nextjs-github',
+    installCommand: 'pnpm add next-auth',
+    stars: 32100,
+    dateAdded: '2024-05-02',
+  },
+  {
+    id: 'github-api-integration',
+    name: 'github-api-integration',
+    description: 'Integrate GitHub REST API in Next.js applications',
+    descriptionZh: '在 Next.js 应用中集成 GitHub REST API',
+    content: `# GitHub API Integration
+
+Integrate GitHub REST API in Next.js for fetching repositories, issues, and more.
+
+## Octokit Setup
+
+\`\`\`bash
+pnpm add octokit
+\`\`\`
+
+## Basic Usage
+
+\`\`\`typescript
+import { Octokit } from "octokit"
+
+const octokit = new Octokit({
+  auth: process.env.GITHUB_TOKEN,
+})
+
+// Get user info
+const { data: user } = await octokit.rest.users.get({
+  username: "vercel",
+})
+
+// Get repositories
+const { data: repos } = await octokit.rest.repos.listForUser({
+  username: "vercel",
+  sort: "updated",
+})
+
+// Get issues
+const { data: issues } = await octokit.rest.issues.listForRepo({
+  owner: "vercel",
+  repo: "next.js",
+  state: "open",
+})
+\`\`\`
+
+## Server-Side Fetching
+
+\`\`\`typescript
+// app/github/page.tsx
+import { Octokit } from "octokit"
+
+async function getRepos() {
+  const octokit = new Octokit({
+    auth: process.env.GITHUB_TOKEN,
+  })
+  
+  const { data } = await octokit.rest.repos.listForUser({
+    username: "vercel",
+    per_page: 10,
+  })
+  
+  return data
+}
+
+export default async function Page() {
+  const repos = await getRepos()
+  
+  return (
+    <ul>
+      {repos.map((repo) => (
+        <li key={repo.id}>{repo.name}</li>
+      ))}
+    </ul>
+  )
+}
+\`\`\`
+
+## GraphQL API
+
+\`\`\`typescript
+const { data } = await octokit.graphql(\`
+  query($owner: String!, $name: String!) {
+    repository(owner: $owner, name: $name) {
+      stargazerCount
+      description
+      issues(states: OPEN) {
+        totalCount
+      }
+    }
+  }
+\`, {
+  owner: "vercel",
+  name: "next.js",
+})
+\`\`\`
+
+## Rate Limiting
+
+- Authenticated: 5000 requests/hour
+- Unauthenticated: 60 requests/hour
+
+Use caching for better performance:
+\`\`\`typescript
+export const dynamic = 'force-dynamic'
+
+// or use Next.js caching
+const repos = await fetch('https://api.github.com/users/vercel/repos', {
+  next: { revalidate: 3600 },
+}).then(res => res.json())
+\`\`\``,
+    contentZh: `# GitHub API 集成
+
+在 Next.js 中集成 GitHub REST API 用于获取仓库、issues 等。
+
+## Octokit 设置
+
+\`\`\`bash
+pnpm add octokit
+\`\`\`
+
+## 基本用法
+
+\`\`\`typescript
+import { Octokit } from "octokit"
+
+const octokit = new Octokit({
+  auth: process.env.GITHUB_TOKEN,
+})
+
+// 获取用户信息
+const { data: user } = await octokit.rest.users.get({
+  username: "vercel",
+})
+
+// 获取仓库列表
+const { data: repos } = await octokit.rest.repos.listForUser({
+  username: "vercel",
+  sort: "updated",
+})
+
+// 获取 issues
+const { data: issues } = await octokit.rest.issues.listForRepo({
+  owner: "vercel",
+  repo: "next.js",
+  state: "open",
+})
+\`\`\`
+
+## 服务端获取
+
+\`\`\`typescript
+// app/github/page.tsx
+import { Octokit } from "octokit"
+
+async function getRepos() {
+  const octokit = new Octokit({
+    auth: process.env.GITHUB_TOKEN,
+  })
+  
+  const { data } = await octokit.rest.repos.listForUser({
+    username: "vercel",
+    per_page: 10,
+  })
+  
+  return data
+}
+
+export default async function Page() {
+  const repos = await getRepos()
+  
+  return (
+    <ul>
+      {repos.map((repo) => (
+        <li key={repo.id}>{repo.name}</li>
+      ))}
+    </ul>
+  )
+}
+\`\`\`
+
+## GraphQL API
+
+\`\`\`typescript
+const { data } = await octokit.graphql(\`
+  query($owner: String!, $name: String!) {
+    repository(owner: $owner, name: $name) {
+      stargazerCount
+      description
+      issues(states: OPEN) {
+        totalCount
+      }
+    }
+  }
+\`, {
+  owner: "vercel",
+  name: "next.js",
+})
+\`\`\`
+
+## 速率限制
+
+- 已认证：5000 请求/小时
+- 未认证：60 请求/小时
+
+使用缓存提高性能：
+\`\`\`typescript
+export const dynamic = 'force-dynamic'
+
+// 或使用 Next.js 缓存
+const repos = await fetch('https://api.github.com/users/vercel/repos', {
+  next: { revalidate: 3600 },
+}).then(res => res.json())
+\`\`\``,
+    category: 'Development',
+    categoryZh: '开发',
+    source: 'nextjs-github',
+    stars: 18700,
+    dateAdded: '2024-05-03',
+  },
+  {
+    id: 'nextjs-github-pages',
+    name: 'nextjs-github-pages',
+    description: 'Deploy Next.js to GitHub Pages with GitHub Actions',
+    descriptionZh: '使用 GitHub Actions 将 Next.js 部署到 GitHub Pages',
+    content: `# Next.js GitHub Pages Deployment
+
+Deploy Next.js static exports to GitHub Pages using GitHub Actions.
+
+## Configuration
+
+1. Set \`output: 'export'\` in next.config.js:
+\`\`\`javascript
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
+}
+
+module.exports = nextConfig
+\`\`\`
+
+2. Update package.json:
+\`\`\`json
+{
+  "scripts": {
+    "build": "next build"
+  },
+  "homepage": "https://username.github.io/repo"
+}
+\`\`\`
+
+## GitHub Actions Workflow
+
+\`\`\`yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+      
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      
+      - name: Build
+        run: pnpm build
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: \${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+\`\`\`
+
+## Enable GitHub Pages
+
+1. Go to Repository Settings > Pages
+2. Select "Deploy from a branch"
+3. Choose "gh-pages" branch and "/(root)" folder
+4. Set custom domain if needed
+
+## Notes
+
+- Use \`unoptimized: true\` for images (required for static export)
+- Each push to main triggers deployment
+- Deployment takes ~1-2 minutes`,
+    contentZh: `# Next.js GitHub Pages 部署
+
+使用 GitHub Actions 将 Next.js 静态导出部署到 GitHub Pages。
+
+## 配置
+
+1. 在 next.config.js 中设置 \`output: 'export'\`：
+\`\`\`javascript
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
+}
+
+module.exports = nextConfig
+\`\`\`
+
+2. 更新 package.json：
+\`\`\`json
+{
+  "scripts": {
+    "build": "next build"
+  },
+  "homepage": "https://username.github.io/repo"
+}
+\`\`\`
+
+## GitHub Actions 工作流
+
+\`\`\`yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+      
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      
+      - name: Build
+        run: pnpm build
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: \${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+\`\`\`
+
+## 启用 GitHub Pages
+
+1. 进入 Repository Settings > Pages
+2. 选择 "Deploy from a branch"
+3. 选择 "gh-pages" 分支和 "/(root)" 文件夹
+4. 如需要可设置自定义域名
+
+## 注意事项
+
+- 图片使用 \`unoptimized: true\`（静态导出必需）
+- 每次推送到 main 触发部署
+- 部署需要约 1-2 分钟`,
+    category: 'DevOps',
+    categoryZh: 'DevOps',
+    source: 'nextjs-github',
+    stars: 15600,
+    dateAdded: '2024-05-04',
+  },
+  {
+    id: 'github-issues-management',
+    name: 'github-issues-management',
+    description: 'Manage GitHub Issues programmatically with GitHub API',
+    descriptionZh: '使用 GitHub API 程序化管理 GitHub Issues',
+    content: `# GitHub Issues Management
+
+Programmatically manage GitHub Issues using GitHub API.
+
+## Create Issue
+
+\`\`\`typescript
+import { Octokit } from "octokit"
+
+const octokit = new Octokit({
+  auth: process.env.GITHUB_TOKEN,
+})
+
+const { data: issue } = await octokit.rest.issues.create({
+  owner: "username",
+  repo: "repository",
+  title: "Bug: Login not working",
+  body: "## Description\\nLogin button does nothing\\n\\n## Steps\\n1. Go to login page\\n2. Click login button\\n\\n## Expected\\nRedirect to dashboard",
+  labels: ["bug", "priority: high"],
+})
+\`\`\`
+
+## Add Comment
+
+\`\`\`typescript
+await octokit.rest.issues.createComment({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  body: "Thanks for reporting! Looking into this now.",
+})
+\`\`\`
+
+## Close/Open Issue
+
+\`\`\`typescript
+// Close
+await octokit.rest.issues.update({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  state: "closed",
+})
+
+// Reopen
+await octokit.rest.issues.update({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  state: "open",
+})
+\`\`\`
+
+## Add/Remove Labels
+
+\`\`\`typescript
+// Add labels
+await octokit.rest.issues.addLabels({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  labels: ["enhancement", "needs-review"],
+})
+
+// Remove label
+await octokit.rest.issues.removeLabel({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  name: "enhancement",
+})
+\`\`\`
+
+## Assign Users
+
+\`\`\`typescript
+await octokit.rest.issues.addAssignees({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  assignees: ["username1", "username2"],
+})
+\`\`\`
+
+## List Issues
+
+\`\`\`typescript
+const { data: issues } = await octokit.rest.issues.listForRepo({
+  owner: "username",
+  repo: "repository",
+  state: "open",
+  labels: "bug",
+  sort: "created",
+  direction: "desc",
+})
+\`\`\`
+
+## Best Practices
+
+1. Use issue templates
+2. Label issues consistently
+3. Assign to team members
+4. Use milestones for releases
+5. Close resolved issues promptly`,
+    contentZh: `# GitHub Issues 管理
+
+使用 GitHub API 程序化管理 GitHub Issues。
+
+## 创建 Issue
+
+\`\`\`typescript
+import { Octokit } from "octokit"
+
+const octokit = new Octokit({
+  auth: process.env.GITHUB_TOKEN,
+})
+
+const { data: issue } = await octokit.rest.issues.create({
+  owner: "username",
+  repo: "repository",
+  title: "Bug: Login not working",
+  body: "## Description\\nLogin button does nothing\\n\\n## Steps\\n1. Go to login page\\n2. Click login button\\n\\n## Expected\\nRedirect to dashboard",
+  labels: ["bug", "priority: high"],
+})
+\`\`\`
+
+## 添加评论
+
+\`\`\`typescript
+await octokit.rest.issues.createComment({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  body: "Thanks for reporting! Looking into this now.",
+})
+\`\`\`
+
+## 关闭/打开 Issue
+
+\`\`\`typescript
+// 关闭
+await octokit.rest.issues.update({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  state: "closed",
+})
+
+// 重新打开
+await octokit.rest.issues.update({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  state: "open",
+})
+\`\`\`
+
+## 添加/移除标签
+
+\`\`\`typescript
+// 添加标签
+await octokit.rest.issues.addLabels({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  labels: ["enhancement", "needs-review"],
+})
+
+// 移除标签
+await octokit.rest.issues.removeLabel({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  name: "enhancement",
+})
+\`\`\`
+
+## 分配用户
+
+\`\`\`typescript
+await octokit.rest.issues.addAssignees({
+  owner: "username",
+  repo: "repository",
+  issue_number: 1,
+  assignees: ["username1", "username2"],
+})
+\`\`\`
+
+## 列出 Issues
+
+\`\`\`typescript
+const { data: issues } = await octokit.rest.issues.listForRepo({
+  owner: "username",
+  repo: "repository",
+  state: "open",
+  labels: "bug",
+  sort: "created",
+  direction: "desc",
+})
+\`\`\`
+
+## 最佳实践
+
+1. 使用 issue 模板
+2. 一致地使用标签
+3. 分配给团队成员
+4. 使用 milestones 管理发布
+5. 及时关闭已解决的问题`,
+    category: 'DevOps',
+    categoryZh: 'DevOps',
+    source: 'nextjs-github',
+    stars: 12300,
+    dateAdded: '2024-05-05',
+  },
 ];

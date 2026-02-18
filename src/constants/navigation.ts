@@ -155,6 +155,13 @@ export const categories: Category[] = [
         status: 'normal',
       },
       {
+        name: '屏幕取色器',
+        description: '屏幕取色 + AI 颜色分析',
+        href: '/tools/color-picker',
+        icon: 'i-carbon-color-palette',
+        status: 'new',
+      },
+      {
         name: '大小写转换',
         description: '文本大小写转换',
         href: '/tools/case-converter',

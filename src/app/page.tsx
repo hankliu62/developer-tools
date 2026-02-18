@@ -1,6 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
+
 import Hero from '@/components/Hero';
 import { type Category, categories, type Tool } from '@/constants/navigation';
 
@@ -17,60 +19,110 @@ const categoryColors: Record<string, string> = {
   ai: '#f8fafc',
 };
 
+function FadeInSection({
+  children,
+  delay = 0,
+  disabled = false,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  disabled?: boolean;
+}) {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (disabled) {
+      setIsVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            setIsVisible(true);
+          }, delay);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [delay, disabled]);
+
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-700 ease-out ${
+        disabled || isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
+      {children}
+    </div>
+  );
+}
+
 export default function HomePage() {
   return (
     <div className="-m-6">
       <Hero />
       <div className="bg-gray-50">
-        {categories.map((category: Category) => (
+        {categories.map((category: Category, catIndex: number) => (
           <div
             key={category.type}
             className="px-6 py-12 md:px-12 md:py-16"
             style={{ backgroundColor: categoryColors[category.type] || '#fff' }}
           >
-            <h2 className="mb-8 text-center text-2xl md:text-3xl font-medium text-gray-800">
-              {category.name}
-            </h2>
-            <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {category.children.map((tool: Tool) => (
-                <Link
-                  key={tool.href}
-                  href={tool.href}
-                  className="group relative flex flex-col rounded-xl bg-white p-5 border border-gray-200 shadow-sm hover:shadow-lg hover:border-indigo-300 hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden"
-                >
-                  {/* Hover gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/0 to-purple-50/0 group-hover:from-indigo-50/50 group-hover:to-purple-50/30 transition-all duration-300" />
+            <FadeInSection delay={catIndex * 100} disabled={catIndex === 0}>
+              <h2 className="mb-8 text-center text-2xl md:text-3xl font-medium text-gray-800">
+                {category.name}
+              </h2>
+              <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                {category.children.map((tool: Tool) => (
+                  <Link
+                    key={tool.href}
+                    href={tool.href}
+                    className="group relative flex flex-col rounded-xl bg-white p-5 border border-gray-200 shadow-sm hover:shadow-lg hover:border-indigo-300 hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/0 to-purple-50/0 group-hover:from-indigo-50/50 group-hover:to-purple-50/30 transition-all duration-300" />
 
-                  <div className="relative flex items-start">
-                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-purple-600 to-indigo-600 text-white text-xl shadow-md group-hover:scale-110 transition-transform duration-300">
-                      {getToolEmoji(tool.icon)}
+                    <div className="relative flex items-start">
+                      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-purple-600 to-indigo-600 text-white text-xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                        {getToolEmoji(tool.icon)}
+                      </div>
+                      <div className="ml-4 flex-1 min-w-0">
+                        <p className="truncate text-base font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors">
+                          {tool.name}
+                        </p>
+                        <p
+                          className="mt-1 truncate text-xs font-medium"
+                          style={{ color: getStatusColor(tool.status) }}
+                        >
+                          {getStatusText(tool.status)}
+                        </p>
+                      </div>
                     </div>
-                    <div className="ml-4 flex-1 min-w-0">
-                      <p className="truncate text-base font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors">
-                        {tool.name}
-                      </p>
-                      <p
-                        className="mt-1 truncate text-xs font-medium"
-                        style={{ color: getStatusColor(tool.status) }}
-                      >
-                        {getStatusText(tool.status)}
+                    <div className="relative mt-4 h-12 overflow-hidden">
+                      <p className="line-clamp-2 text-sm text-gray-500 group-hover:text-gray-600 transition-colors">
+                        {tool.description}
                       </p>
                     </div>
-                  </div>
-                  <div className="relative mt-4 h-12 overflow-hidden">
-                    <p className="line-clamp-2 text-sm text-gray-500 group-hover:text-gray-600 transition-colors">
-                      {tool.description}
-                    </p>
-                  </div>
-                  <div className="relative mt-4 flex items-center justify-between overflow-hidden">
-                    <p className="truncate text-xs text-gray-400">{tool.href}</p>
-                    <span className="whitespace-nowrap text-xs font-medium text-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      立即使用 →
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
+                    <div className="relative mt-4 flex items-center justify-between overflow-hidden">
+                      <p className="truncate text-xs text-gray-400">{tool.href}</p>
+                      <span className="whitespace-nowrap text-xs font-medium text-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        立即使用 →
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </FadeInSection>
           </div>
         ))}
       </div>

@@ -1,12 +1,17 @@
 'use client';
 
 import { Breadcrumb, Input, type InputRef, Menu, type MenuProps } from 'antd';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { categories, type Tool } from '@/constants/navigation';
 import { getRoutePrefix } from '@/lib/route';
+
+const Footer = dynamic(() => import('@hankliu/rc-footer'), {
+  ssr: false,
+});
 
 interface AppLayoutProps {
   children: React.ReactNode;
@@ -321,7 +326,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
       {/* Main Layout */}
       <div className="flex-1 flex overflow-hidden">
         {/* Sidebar */}
-        <aside className="w-64 bg-white border-r border-gray-200 flex-shrink-0 overflow-y-auto">
+        <aside className="w-64 bg-white border-r border-gray-200 flex-shrink-0 overflow-y-auto scrollbar-hide">
           <Menu
             mode="inline"
             selectedKeys={[pathname]}
@@ -331,12 +336,16 @@ export default function AppLayout({ children }: AppLayoutProps) {
           />
         </aside>
 
-        {/* Main Content */}
-        <main className="flex-1 overflow-auto p-6">
-          {/* Breadcrumb */}
-          {pathname !== '/' && <Breadcrumb items={getBreadcrumbItems()} className="mb-4" />}
-          {children}
-        </main>
+        {/* Main Content with Footer */}
+        <div className="flex-1 flex flex-col overflow-hidden">
+          <main className="flex-1 overflow-y-auto p-6">
+            {/* Breadcrumb */}
+            {pathname !== '/' && <Breadcrumb items={getBreadcrumbItems()} className="mb-4" />}
+            {children}
+            {/* Footer */}
+            <Footer />
+          </main>
+        </div>
       </div>
     </div>
   );

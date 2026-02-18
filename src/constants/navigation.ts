@@ -280,6 +280,13 @@ export const categories: Category[] = [
         icon: 'i-carbon-csv',
         status: 'new',
       },
+      {
+        name: '图片压缩',
+        description: 'AI 智能图片压缩，支持批量处理和多种格式',
+        href: '/tools/image-compressor',
+        icon: 'i-carbon-image',
+        status: 'new',
+      },
     ],
   },
   {

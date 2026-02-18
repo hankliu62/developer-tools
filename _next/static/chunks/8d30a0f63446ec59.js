@@ -1,19 +1,4 @@
-(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,53359,e=>{"use strict";e.i(89171);var t=e.i(59990);let r={icon:{tag:"svg",attrs:{viewBox:"64 64 896 896",focusable:"false"},children:[{tag:"path",attrs:{d:"M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"}}]},name:"check-circle",theme:"filled"};var a=e.i(24144);function s(){return(s=Object.assign.bind()).apply(this,arguments)}let o=t.forwardRef((e,o)=>t.createElement(a.default,s({},e,{ref:o,icon:r})));e.s(["default",0,o],53359)},96385,e=>{"use strict";let t=e.i(59990).default.createContext({});e.s(["AppConfigContext",0,t])},29870,70276,e=>{"use strict";e.i(89171);var t=e.i(59990);let r={icon:{tag:"svg",attrs:{viewBox:"64 64 896 896",focusable:"false"},children:[{tag:"path",attrs:{d:"M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"}}]},name:"exclamation-circle",theme:"filled"};var a=e.i(24144);function s(){return(s=Object.assign.bind()).apply(this,arguments)}let o=t.forwardRef((e,o)=>t.createElement(a.default,s({},e,{ref:o,icon:r})));e.s(["default",0,o],29870);let n={icon:{tag:"svg",attrs:{viewBox:"64 64 896 896",focusable:"false"},children:[{tag:"path",attrs:{d:"M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"}}]},name:"info-circle",theme:"filled"};function i(){return(i=Object.assign.bind()).apply(this,arguments)}let l=t.forwardRef((e,r)=>t.createElement(a.default,i({},e,{ref:r,icon:n})));e.s(["default",0,l],70276)},59611,37248,e=>{"use strict";e.i(89171);var t=e.i(35492),r=e.i(59990),a=e.i(45605),s=e.i(96385),o=e.i(59782),n=e.i(77425),i=e.i(53359),l=e.i(557),c=e.i(29870),d=e.i(70276),u=e.i(33421),p=e.i(45512),m=e.i(7284);e.i(98178);var g=e.i(85238);e.s(["CSSMotionList",()=>g.default],37248);var g=g,f=e.i(47371),y=e.i(14828);function h(){return(h=Object.assign.bind()).apply(this,arguments)}let b=r.forwardRef((e,t)=>{let{prefixCls:a,style:s,className:o,duration:n=4.5,showProgress:i,pauseOnHover:l=!0,eventKey:c,content:d,closable:u,props:p,onClick:g,onNoticeClose:b,times:C,hovering:x}=e,[v,E]=r.useState(!1),[k,S]=r.useState(0),[w,$]=r.useState(0),R=x||v,N="number"==typeof n?n:0,T=N>0&&i,I=()=>{b(c)};r.useEffect(()=>{if(!R&&N>0){let e=Date.now()-w,t=setTimeout(()=>{I()},1e3*N-w);return()=>{l&&clearTimeout(t),$(Date.now()-e)}}},[N,R,C]),r.useEffect(()=>{if(!R&&T&&(l||0===w)){let e,t=performance.now(),r=()=>{cancelAnimationFrame(e),e=requestAnimationFrame(e=>{let a=Math.min((e+w-t)/(1e3*N),1);S(100*a),a<1&&r()})};return r(),()=>{l&&cancelAnimationFrame(e)}}},[N,w,R,T,C]);let A=r.useMemo(()=>"object"==typeof u&&null!==u?u:{},[u]),P=(0,y.default)(A,!0),D=100-(!k||k<0?0:k>100?100:k),M=`${a}-notice`;return r.createElement("div",h({},p,{ref:t,className:(0,m.clsx)(M,o,{[`${M}-closable`]:u}),style:s,onMouseEnter:e=>{E(!0),p?.onMouseEnter?.(e)},onMouseLeave:e=>{E(!1),p?.onMouseLeave?.(e)},onClick:g}),r.createElement("div",{className:`${M}-content`},d),u&&r.createElement("button",h({className:`${M}-close`,onKeyDown:e=>{("Enter"===e.key||"Enter"===e.code||e.keyCode===f.default.ENTER)&&I()},"aria-label":"Close"},P,{onClick:e=>{e.preventDefault(),e.stopPropagation(),I()}}),A.closeIcon??"x"),T&&r.createElement("progress",{className:`${M}-progress`,max:"100",value:D},D+"%"))}),C=r.default.createContext({}),x=({children:e,classNames:t})=>r.default.createElement(C.Provider,{value:{classNames:t}},e);function v(){return(v=Object.assign.bind()).apply(this,arguments)}let E=e=>{let t,{configList:a,placement:s,prefixCls:o,className:n,style:i,motion:l,onAllNoticeRemoved:c,onNoticeClose:d,stack:u}=e,{classNames:p}=(0,r.useContext)(C),f=(0,r.useRef)({}),[y,h]=(0,r.useState)(null),[x,E]=(0,r.useState)([]),k=a.map(e=>({config:e,key:String(e.key)})),[S,{offset:w,threshold:$,gap:R}]=(t={offset:8,threshold:3,gap:16},u&&"object"==typeof u&&(t.offset=u.offset??8,t.threshold=u.threshold??3,t.gap=u.gap??16),[!!u,t]),N=S&&(x.length>0||k.length<=$),T="function"==typeof l?l(s):l;return(0,r.useEffect)(()=>{S&&x.length>1&&E(e=>e.filter(e=>k.some(({key:t})=>e===t)))},[x,k,S]),(0,r.useEffect)(()=>{S&&f.current[k[k.length-1]?.key]&&h(f.current[k[k.length-1]?.key])},[k,S]),r.default.createElement(g.default,v({key:s,className:(0,m.clsx)(o,`${o}-${s}`,p?.list,n,{[`${o}-stack`]:!!S,[`${o}-stack-expanded`]:N}),style:i,keys:k,motionAppear:!0},T,{onAllRemoved:()=>{c(s)}}),({config:e,className:t,style:a,index:n},i)=>{let{key:l,times:c}=e,u=String(l),{className:g,style:h,classNames:C,styles:$,...T}=e,I=k.findIndex(e=>e.key===u),A={};if(S){let e=k.length-1-(I>-1?I:n-1),t="top"===s||"bottom"===s?"-50%":"0";if(e>0){A.height=N?f.current[u]?.offsetHeight:y?.offsetHeight;let r=0;for(let t=0;t<e;t++)r+=f.current[k[k.length-1-t].key]?.offsetHeight+R;let a=(N?r:e*w)*(s.startsWith("top")?1:-1),o=!N&&y?.offsetWidth&&f.current[u]?.offsetWidth?(y?.offsetWidth-2*w*(e<3?e:3))/f.current[u]?.offsetWidth:1;A.transform=`translate3d(${t}, ${a}px, 0) scaleX(${o})`}else A.transform=`translate3d(${t}, 0, 0)`}return r.default.createElement("div",{ref:i,className:(0,m.clsx)(`${o}-notice-wrapper`,t,C?.wrapper),style:{...a,...A,...$?.wrapper},onMouseEnter:()=>E(e=>e.includes(u)?e:[...e,u]),onMouseLeave:()=>E(e=>e.filter(e=>e!==u))},r.default.createElement(b,v({},T,{ref:e=>{I>-1?f.current[u]=e:delete f.current[u]},prefixCls:o,classNames:C,styles:$,className:(0,m.clsx)(g,p?.notice),style:h,times:c,key:l,eventKey:l,onNoticeClose:d,hovering:S&&x.length>0})))})},k=r.forwardRef((e,t)=>{let{prefixCls:a="rc-notification",container:s,motion:o,maxCount:n,className:i,style:l,onAllRemoved:c,stack:d,renderNotifications:u}=e,[m,g]=r.useState([]),f=e=>{let t=m.find(t=>t.key===e),r=t?.closable,{onClose:a}=r&&"object"==typeof r?r:{};a?.(),t?.onClose?.(),g(t=>t.filter(t=>t.key!==e))};r.useImperativeHandle(t,()=>({open:e=>{g(t=>{let r=[...t],a=r.findIndex(t=>t.key===e.key),s={...e};return a>=0?(s.times=(t[a]?.times||0)+1,r[a]=s):(s.times=0,r.push(s)),n>0&&r.length>n&&(r=r.slice(-n)),r})},close:e=>{f(e)},destroy:()=>{g([])}}));let[y,h]=r.useState({});r.useEffect(()=>{let e={};m.forEach(t=>{let{placement:r="topRight"}=t;r&&(e[r]=e[r]||[],e[r].push(t))}),Object.keys(y).forEach(t=>{e[t]=e[t]||[]}),h(e)},[m]);let b=e=>{h(t=>{let r={...t};return(r[e]||[]).length||delete r[e],r})},C=r.useRef(!1);if(r.useEffect(()=>{Object.keys(y).length>0?C.current=!0:C.current&&(c?.(),C.current=!1)},[y]),!s)return null;let x=Object.keys(y);return(0,p.createPortal)(r.createElement(r.Fragment,null,x.map(e=>{let t=y[e],s=r.createElement(E,{key:e,configList:t,placement:e,prefixCls:a,className:i?.(e),style:l?.(e),motion:o,onNoticeClose:f,onAllNoticeRemoved:b,stack:d});return u?u(s,{prefixCls:a,key:e}):s})),s)});e.i(51235);var S=e.i(26600);let w=()=>document.body,$=0;var R=e.i(31861),N=e.i(1975),T=e.i(31328);e.i(99838);var I=e.i(34471),A=e.i(81221),P=e.i(97638),D=e.i(4999),M=e.i(21746);let j=(0,D.genStyleHooks)("Message",e=>(e=>{let{componentCls:t,iconCls:r,boxShadow:a,colorText:s,colorSuccess:o,colorError:n,colorWarning:i,colorInfo:l,fontSizeLG:c,motionEaseInOutCirc:d,motionDurationSlow:u,marginXS:p,paddingXS:m,borderRadiusLG:g,zIndexPopup:f,contentPadding:y,contentBg:h}=e,b=`${t}-notice`,C=new I.Keyframes("MessageMoveIn",{"0%":{padding:0,transform:"translateY(-100%)",opacity:0},"100%":{padding:m,transform:"translateY(0)",opacity:1}}),x=new I.Keyframes("MessageMoveOut",{"0%":{maxHeight:e.height,padding:m,opacity:1},"100%":{maxHeight:0,padding:0,opacity:0}}),v={padding:m,textAlign:"center",[`${t}-custom-content`]:{display:"flex",alignItems:"center"},[`${t}-custom-content > ${r}`]:{marginInlineEnd:p,fontSize:c},[`${b}-content`]:{display:"inline-block",padding:y,background:h,borderRadius:g,boxShadow:a,pointerEvents:"all"},[`${t}-success > ${r}`]:{color:o},[`${t}-error > ${r}`]:{color:n},[`${t}-warning > ${r}`]:{color:i},[`${t}-info > ${r},
-      ${t}-loading > ${r}`]:{color:l}};return[{[t]:{...(0,P.resetComponent)(e),color:s,position:"fixed",top:p,width:"100%",pointerEvents:"none",zIndex:f,[`${t}-move-up`]:{animationFillMode:"forwards"},[`
-        ${t}-move-up-appear,
-        ${t}-move-up-enter
-      `]:{animationName:C,animationDuration:u,animationPlayState:"paused",animationTimingFunction:d},[`
-        ${t}-move-up-appear${t}-move-up-appear-active,
-        ${t}-move-up-enter${t}-move-up-enter-active
-      `]:{animationPlayState:"running"},[`${t}-move-up-leave`]:{animationName:x,animationDuration:u,animationPlayState:"paused",animationTimingFunction:d},[`${t}-move-up-leave${t}-move-up-leave-active`]:{animationPlayState:"running"},"&-rtl":{direction:"rtl",span:{direction:"rtl"}}}},{[t]:{[`${b}-wrapper`]:{...v}}},{[`${t}-notice-pure-panel`]:{...v,padding:0,textAlign:"start"}}]})((0,M.mergeToken)(e,{height:150})),e=>({zIndexPopup:e.zIndexPopupBase+A.CONTAINER_MAX_OFFSET+10,contentBg:e.colorBgElevated,contentPadding:`${(e.controlHeightLG-e.fontSize*e.lineHeight)/2}px ${e.paddingSM}px`})),U={info:r.createElement(d.default,null),success:r.createElement(i.default,null),error:r.createElement(l.default,null),warning:r.createElement(c.default,null),loading:r.createElement(u.default,null)},L=e=>{let{prefixCls:t,type:a,icon:s,children:o,classNames:n,styles:i}=e,l=s||a&&U[a],c=(0,N.cloneElement)(l,e=>{let t={...e?.style,...i?.icon};return{className:(0,m.clsx)(e.className,n?.icon),style:t}});return r.createElement("div",{className:(0,m.clsx)(`${t}-custom-content`,`${t}-${a}`)},c,r.createElement("span",{className:n?.content,style:i?.content},o))};var O=e.i(92233),B=e.i(39266);function H(e){let t,r=new Promise(r=>{t=e(()=>{r(!0)})}),a=()=>{t?.()};return a.then=(e,t)=>r.then(e,t),a.promise=r,a}let _=({children:e,prefixCls:t})=>{let a=(0,T.default)(t),[s,o]=j(t,a);return r.createElement(x,{classNames:{list:(0,m.clsx)(s,o,a)}},e)},q=(e,{prefixCls:t,key:a})=>r.createElement(_,{prefixCls:t,key:a},e),F=r.forwardRef((e,t)=>{let{top:a,prefixCls:s,getContainer:o,maxCount:i,duration:l=3,rtl:c,transitionName:d,onAllRemoved:u,pauseOnHover:p=!0}=e,{getPrefixCls:g,direction:f,getPopupContainer:y}=(0,n.useComponentConfig)("message"),{message:h}=r.useContext(n.ConfigContext),b=s||g("message"),[C,x]=(0,R.useMergeSemantic)([e?.classNames,h?.classNames],[e?.styles,h?.styles],{props:e}),[v,E]=function(e={}){let{getContainer:t=w,motion:a,prefixCls:s,maxCount:o,className:n,style:i,onAllRemoved:l,stack:c,renderNotifications:d,...u}=e,[p,m]=r.useState(),g=r.useRef(),f=r.createElement(k,{container:p,ref:g,prefixCls:s,motion:a,maxCount:o,className:n,style:i,onAllRemoved:l,stack:c,renderNotifications:d}),[y,h]=r.useState([]),b=(0,S.useEvent)(e=>{let t=function(...e){let t={};return e.forEach(e=>{e&&Object.keys(e).forEach(r=>{let a=e[r];void 0!==a&&(t[r]=a)})}),t}(u,e);(null===t.key||void 0===t.key)&&(t.key=`rc-notification-${$}`,$+=1),h(e=>[...e,{type:"open",config:t}])}),C=r.useMemo(()=>({open:b,close:e=>{h(t=>[...t,{type:"close",key:e}])},destroy:()=>{h(e=>[...e,{type:"destroy"}])}}),[]);return r.useEffect(()=>{m(t())}),r.useEffect(()=>{if(g.current&&y.length){let e,t;y.forEach(e=>{switch(e.type){case"open":g.current.open(e.config);break;case"close":g.current.close(e.key);break;case"destroy":g.current.destroy()}}),h(r=>(e===r&&t||(e=r,t=r.filter(e=>!y.includes(e))),t))}},[y]),[C,f]}({prefixCls:b,style:()=>({left:"50%",transform:"translateX(-50%)",top:a??8}),className:()=>(0,m.clsx)({[`${b}-rtl`]:c??"rtl"===f}),motion:()=>({motionName:d??`${b}-move-up`}),closable:!1,duration:l,getContainer:()=>o?.()||y?.()||document.body,maxCount:i,onAllRemoved:u,renderNotifications:q,pauseOnHover:p});return r.useImperativeHandle(t,()=>({...v,prefixCls:b,message:h,classNames:C,styles:x})),E}),z=0;function G(e){let t=r.useRef(null);return(0,B.devUseWarning)("Message"),[r.useMemo(()=>{let a=e=>{t.current?.close(e)},s=s=>{if(!t.current){let e=()=>{};return e.then=()=>{},e}let{open:o,prefixCls:n,message:i,classNames:l,styles:c}=t.current,d=i?.className||{},u=i?.style||{},p=i?.classNames||{},g=i?.styles||{},f=`${n}-notice`,{content:y,icon:h,type:b,key:C,className:x,style:v,onClose:E,classNames:k={},styles:S={},...w}=s,$=C;(0,O.default)($)||(z+=1,$=`antd-message-${z}`);let N={...e,...s},T=(0,R.resolveStyleOrClass)(p,{props:N}),I=(0,R.resolveStyleOrClass)(k,{props:N}),A=(0,R.resolveStyleOrClass)(g,{props:N}),P=(0,R.resolveStyleOrClass)(S,{props:N}),D=(0,R.mergeClassNames)(void 0,T,I,l),M=(0,R.mergeStyles)(A,P,c);return H(e=>(o({...w,key:$,content:r.createElement(L,{prefixCls:n,type:b,icon:h,classNames:D,styles:M},y),placement:"top",className:(0,m.clsx)({[`${f}-${b}`]:b},x,d,D.root),style:{...M.root,...u,...v},onClose:()=>{E?.(),e()}}),()=>{a($)}))},o={open:s,destroy:e=>{void 0!==e?a(e):t.current?.destroy()}};return["info","success","warning","error","loading"].forEach(e=>{o[e]=(t,r,a)=>{let o,n,i;return o=t&&"object"==typeof t&&"content"in t?t:{content:t},"function"==typeof r?i=r:(n=r,i=a),s({onClose:i,duration:n,...o,type:e})}}),o},[]),r.createElement(F,{key:"message-holder",...e,ref:t})]}let W=null,K=[],V={};function X(){let{getContainer:e,duration:t,rtl:r,maxCount:a,top:s}=V,o=e?.()||document.body;return{getContainer:()=>o,duration:t,rtl:r,maxCount:a,top:s}}let Y=r.default.forwardRef((e,t)=>{let{messageConfig:a,sync:o}=e,{getPrefixCls:i}=(0,r.useContext)(n.ConfigContext),l=V.prefixCls||i("message"),c=(0,r.useContext)(s.AppConfigContext),[d,u]=G({...a,prefixCls:l,...c.message});return r.default.useImperativeHandle(t,()=>{let e={...d};return Object.keys(e).forEach(t=>{e[t]=(...e)=>(o(),d[t].apply(d,e))}),{instance:e,sync:o}}),u}),Q=r.default.forwardRef((e,t)=>{let[a,s]=r.default.useState(X),n=()=>{s(X)};r.default.useEffect(n,[]);let i=(0,o.globalConfig)(),l=i.getRootPrefixCls(),c=i.getIconPrefixCls(),d=i.getTheme(),u=r.default.createElement(Y,{ref:t,sync:n,messageConfig:a});return r.default.createElement(o.default,{prefixCls:l,iconPrefixCls:c,theme:d},i.holderRender?i.holderRender(u):u)}),J=()=>{if(!W){let e=document.createDocumentFragment(),t={fragment:e};W=t,(()=>{(0,a.render)(r.default.createElement(Q,{ref:e=>{let{instance:r,sync:a}=e||{};Promise.resolve().then(()=>{!t.instance&&r&&(t.instance=r,t.sync=a,J())})}}),e)})();return}W.instance&&(K.forEach(e=>{let{type:r,skipped:a}=e;if(!a)switch(r){case"open":{let t=W.instance.open({...V,...e.config});t?.then(e.resolve),e.setCloseFn(t)}break;case"destroy":W?.instance.destroy(e.key);break;default:{var s;let a=(s=W.instance)[r].apply(s,(0,t.default)(e.args));a?.then(e.resolve),e.setCloseFn(a)}}}),K=[])},Z={open:function(e){let t=H(t=>{let r,a={type:"open",config:e,resolve:t,setCloseFn:e=>{r=e}};return K.push(a),()=>{r?(()=>{r()})():a.skipped=!0}});return J(),t},destroy:e=>{K.push({type:"destroy",key:e}),J()},config:function(e){V={...V,...e},(()=>{W?.sync?.()})()},useMessage:function(e){return G(e)},_InternalPanelDoNotUseOrYouWillBeFired:e=>{let{prefixCls:t,className:a,style:s,type:o,icon:i,content:l,classNames:c,styles:d,...u}=e,{getPrefixCls:p,className:g,style:f,classNames:y,styles:h}=(0,n.useComponentConfig)("message"),C=t||p("message"),x=(0,T.default)(C),[v,E]=j(C,x),[k,S]=(0,R.useMergeSemantic)([y,c],[h,d],{props:e});return r.createElement(b,{...u,prefixCls:C,className:(0,m.clsx)(g,k.root,a,v,`${C}-notice-pure-panel`,E,x),style:{...S.root,...f,...s},eventKey:"pure",duration:null,content:r.createElement(L,{prefixCls:C,type:o,icon:i,classNames:k,styles:S},l)})}};["success","info","warning","error","loading"].forEach(e=>{Z[e]=(...t)=>{let r;return(0,o.globalConfig)(),r=H(r=>{let a,s={type:e,args:t,resolve:r,setCloseFn:e=>{a=e}};return K.push(s),()=>{a?(()=>{a()})():s.skipped=!0}}),J(),r}});e.s(["message",0,Z],59611)},21583,(e,t,r)=>{t.exports=function(){var e=document.getSelection();if(!e.rangeCount)return function(){};for(var t=document.activeElement,r=[],a=0;a<e.rangeCount;a++)r.push(e.getRangeAt(a));switch(t.tagName.toUpperCase()){case"INPUT":case"TEXTAREA":t.blur();break;default:t=null}return e.removeAllRanges(),function(){"Caret"===e.type&&e.removeAllRanges(),e.rangeCount||r.forEach(function(t){e.addRange(t)}),t&&t.focus()}}},26012,(e,t,r)=>{"use strict";var a=e.r(21583),s={"text/plain":"Text","text/html":"Url",default:"Text"};t.exports=function(e,t){var r,o,n,i,l,c,d,u,p=!1;t||(t={}),n=t.debug||!1;try{if(l=a(),c=document.createRange(),d=document.getSelection(),(u=document.createElement("span")).textContent=e,u.ariaHidden="true",u.style.all="unset",u.style.position="fixed",u.style.top=0,u.style.clip="rect(0, 0, 0, 0)",u.style.whiteSpace="pre",u.style.webkitUserSelect="text",u.style.MozUserSelect="text",u.style.msUserSelect="text",u.style.userSelect="text",u.addEventListener("copy",function(r){if(r.stopPropagation(),t.format)if(r.preventDefault(),void 0===r.clipboardData){n&&console.warn("unable to use e.clipboardData"),n&&console.warn("trying IE specific stuff"),window.clipboardData.clearData();var a=s[t.format]||s.default;window.clipboardData.setData(a,e)}else r.clipboardData.clearData(),r.clipboardData.setData(t.format,e);t.onCopy&&(r.preventDefault(),t.onCopy(r.clipboardData))}),document.body.appendChild(u),c.selectNodeContents(u),d.addRange(c),!document.execCommand("copy"))throw Error("copy command was unsuccessful");p=!0}catch(a){n&&console.error("unable to copy using execCommand: ",a),n&&console.warn("trying IE specific stuff");try{window.clipboardData.setData(t.format||"text",e),t.onCopy&&t.onCopy(window.clipboardData),p=!0}catch(a){n&&console.error("unable to copy using clipboardData: ",a),n&&console.error("falling back to prompt"),r="message"in t?t.message:"Copy to clipboard: #{key}, Enter",o=(/mac os x/i.test(navigator.userAgent)?"⌘":"Ctrl")+"+C",i=r.replace(/#{\s*key\s*}/g,o),window.prompt(i,e)}}finally{d&&("function"==typeof d.removeRange?d.removeRange(c):d.removeAllRanges()),u&&document.body.removeChild(u),l()}return p}},74190,e=>{"use strict";e.i(89171);var t=e.i(59990);let r={icon:{tag:"svg",attrs:{"fill-rule":"evenodd",viewBox:"64 64 896 896",focusable:"false"},children:[{tag:"path",attrs:{d:"M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"}}]},name:"close",theme:"outlined"};var a=e.i(24144);function s(){return(s=Object.assign.bind()).apply(this,arguments)}let o=t.forwardRef((e,o)=>t.createElement(a.default,s({},e,{ref:o,icon:r})));e.s(["default",0,o],74190)},81485,e=>{"use strict";e.i(89171);var t=e.i(59990),r=e.i(7284),a=e.i(31861),s=e.i(77425);let o=e=>{let{prefixCls:a,className:s,style:o,size:n,shape:i}=e,l=(0,r.clsx)({[`${a}-lg`]:"large"===n,[`${a}-sm`]:"small"===n}),c=(0,r.clsx)({[`${a}-circle`]:"circle"===i,[`${a}-square`]:"square"===i,[`${a}-round`]:"round"===i}),d=t.useMemo(()=>"number"==typeof n?{width:n,height:n,lineHeight:`${n}px`}:{},[n]);return t.createElement("span",{className:(0,r.clsx)(a,l,c,s),style:{...d,...o}})};e.i(99838);var n=e.i(34471),i=e.i(32556),l=e.i(4999),c=e.i(21746);let d=new n.Keyframes("ant-skeleton-loading",{"0%":{backgroundPosition:"100% 50%"},"100%":{backgroundPosition:"0 50%"}}),u=e=>({height:e,lineHeight:(0,i.unit)(e)}),p=e=>({width:e,...u(e)}),m=(e,t)=>({width:t(e).mul(5).equal(),minWidth:t(e).mul(5).equal(),...u(e)}),g=e=>{let{gradientFromColor:t,borderRadiusSM:r,imageSizeBase:a,calc:s}=e;return{display:"inline-flex",alignItems:"center",justifyContent:"center",verticalAlign:"middle",background:t,borderRadius:r,...p(s(a).mul(2).equal())}},f=(e,t,r)=>{let{skeletonButtonCls:a}=e;return{[`${r}${a}-circle`]:{width:t,minWidth:t,borderRadius:"50%"},[`${r}${a}-round`]:{borderRadius:t}}},y=(e,t)=>({width:t(e).mul(2).equal(),minWidth:t(e).mul(2).equal(),...u(e)}),h=(0,l.genStyleHooks)("Skeleton",e=>{let{componentCls:t,calc:r}=e;return(e=>{let{componentCls:t,skeletonAvatarCls:r,skeletonTitleCls:a,skeletonParagraphCls:s,skeletonButtonCls:o,skeletonInputCls:n,skeletonNodeCls:i,skeletonImageCls:l,controlHeight:c,controlHeightLG:u,controlHeightSM:h,gradientFromColor:b,padding:C,marginSM:x,borderRadius:v,titleHeight:E,blockRadius:k,paragraphLiHeight:S,controlHeightXS:w,paragraphMarginTop:$}=e;return{[t]:{display:"table",width:"100%",[`${t}-header`]:{display:"table-cell",paddingInlineEnd:C,verticalAlign:"top",[r]:{display:"inline-block",verticalAlign:"top",background:b,...p(c)},[`${r}-circle`]:{borderRadius:"50%"},[`${r}-lg`]:{...p(u)},[`${r}-sm`]:{...p(h)}},[`${t}-section`]:{display:"table-cell",width:"100%",verticalAlign:"top",[a]:{width:"100%",height:E,background:b,borderRadius:k,[`+ ${s}`]:{marginBlockStart:h}},[s]:{padding:0,"> li":{width:"100%",height:S,listStyle:"none",background:b,borderRadius:k,"+ li":{marginBlockStart:w}}},[`${s}> li:last-child:not(:first-child):not(:nth-child(2))`]:{width:"61%"}},[`&-round ${t}-section`]:{[`${a}, ${s} > li`]:{borderRadius:v}}},[`${t}-with-avatar ${t}-section`]:{[a]:{marginBlockStart:x,[`+ ${s}`]:{marginBlockStart:$}}},[`${t}${t}-element`]:{display:"inline-block",width:"auto",...(e=>{let{borderRadiusSM:t,skeletonButtonCls:r,controlHeight:a,controlHeightLG:s,controlHeightSM:o,gradientFromColor:n,calc:i}=e;return{[r]:{display:"inline-block",verticalAlign:"top",background:n,borderRadius:t,width:i(a).mul(2).equal(),minWidth:i(a).mul(2).equal(),...y(a,i)},...f(e,a,r),[`${r}-lg`]:{...y(s,i)},...f(e,s,`${r}-lg`),[`${r}-sm`]:{...y(o,i)},...f(e,o,`${r}-sm`)}})(e),...(e=>{let{skeletonAvatarCls:t,gradientFromColor:r,controlHeight:a,controlHeightLG:s,controlHeightSM:o}=e;return{[t]:{display:"inline-block",verticalAlign:"top",background:r,...p(a)},[`${t}${t}-circle`]:{borderRadius:"50%"},[`${t}${t}-lg`]:{...p(s)},[`${t}${t}-sm`]:{...p(o)}}})(e),...(e=>{let{controlHeight:t,borderRadiusSM:r,skeletonInputCls:a,controlHeightLG:s,controlHeightSM:o,gradientFromColor:n,calc:i}=e;return{[a]:{display:"inline-block",verticalAlign:"top",background:n,borderRadius:r,...m(t,i)},[`${a}-lg`]:{...m(s,i)},[`${a}-sm`]:{...m(o,i)}}})(e),...{[e.skeletonNodeCls]:{...g(e)}},...(e=>{let{skeletonImageCls:t,imageSizeBase:r,calc:a}=e;return{[t]:{...g(e),[`${t}-path`]:{fill:"#bfbfbf"},[`${t}-svg`]:{...p(r),maxWidth:a(r).mul(4).equal(),maxHeight:a(r).mul(4).equal()},[`${t}-svg${t}-svg-circle`]:{borderRadius:"50%"}},[`${t}${t}-circle`]:{borderRadius:"50%"}}})(e)},[`${t}${t}-block`]:{width:"100%",[o]:{width:"100%"},[n]:{width:"100%"}},[`${t}${t}-active`]:{[`
-        ${a},
-        ${s} > li,
-        ${r},
-        ${o},
-        ${n},
-        ${i},
-        ${l}
-      `]:{...{background:e.skeletonLoadingBackground,backgroundSize:"400% 100%",animationName:d,animationDuration:e.skeletonLoadingMotionDuration,animationTimingFunction:"ease",animationIterationCount:"infinite"}}}}})((0,c.mergeToken)(e,{skeletonAvatarCls:`${t}-avatar`,skeletonTitleCls:`${t}-title`,skeletonParagraphCls:`${t}-paragraph`,skeletonButtonCls:`${t}-button`,skeletonInputCls:`${t}-input`,skeletonNodeCls:`${t}-node`,skeletonImageCls:`${t}-image`,imageSizeBase:r(e.controlHeight).mul(1.5).equal(),borderRadius:100,skeletonLoadingBackground:`linear-gradient(90deg, ${e.gradientFromColor} 25%, ${e.gradientToColor} 37%, ${e.gradientFromColor} 63%)`,skeletonLoadingMotionDuration:"1.4s"}))},e=>{let{colorFillContent:t,colorFill:r}=e;return{color:t,colorGradientEnd:r,gradientFromColor:t,gradientToColor:r,titleHeight:e.controlHeight/2,blockRadius:e.borderRadiusSM,paragraphMarginTop:e.marginLG+e.marginXXS,paragraphLiHeight:e.controlHeight/2}},{deprecatedTokens:[["color","gradientFromColor"],["colorGradientEnd","gradientToColor"]]}),b=e=>{let{prefixCls:a,className:o,classNames:n,rootClassName:i,internalClassName:l,style:c,styles:d,active:u,children:p}=e,{getPrefixCls:m}=t.useContext(s.ConfigContext),g=m("skeleton",a),[f,y]=h(g),b=(0,r.clsx)(g,`${g}-element`,{[`${g}-active`]:u},f,n?.root,o,i,y);return t.createElement("div",{className:b,style:d?.root},t.createElement("div",{className:(0,r.clsx)(n?.content,l||`${g}-node`),style:{...d?.content,...c}},p))},C=e=>{let{prefixCls:a,className:s,style:o,rows:n=0}=e,i=Array.from({length:n}).map((r,a)=>t.createElement("li",{key:a,style:{width:((e,t)=>{let{width:r,rows:a=2}=t;return Array.isArray(r)?r[e]:a-1===e?r:void 0})(a,e)}}));return t.createElement("ul",{className:(0,r.clsx)(a,s),style:o},i)},x=({prefixCls:e,className:a,width:s,style:o})=>t.createElement("h3",{className:(0,r.clsx)(e,a),style:{width:s,...o}});function v(e){return e&&"object"==typeof e?e:{}}let E=e=>{let{prefixCls:n,loading:i,className:l,rootClassName:c,classNames:d,style:u,styles:p,children:m,avatar:g=!1,title:f=!0,paragraph:y=!0,active:b,round:E}=e,{getPrefixCls:k,direction:S,className:w,style:$,classNames:R,styles:N}=(0,s.useComponentConfig)("skeleton"),T=k("skeleton",n),[I,A]=h(T),P={...e,avatar:g,title:f,paragraph:y},[D,M]=(0,a.useMergeSemantic)([R,d],[N,p],{props:P});if(i||!("loading"in e)){let e,a,s=!!g,n=!!f,i=!!y;if(s){let a={className:D.avatar,prefixCls:`${T}-avatar`,...n&&!i?{size:"large",shape:"square"}:{size:"large",shape:"circle"},...v(g),style:M.avatar};e=t.createElement("div",{className:(0,r.clsx)(D.header,`${T}-header`),style:M.header},t.createElement(o,{...a}))}if(n||i){let e,o;if(n){let r={className:D.title,prefixCls:`${T}-title`,...!s&&i?{width:"38%"}:s&&i?{width:"50%"}:{},...v(f),style:M.title};e=t.createElement(x,{...r})}if(i){let e,r={className:D.paragraph,prefixCls:`${T}-paragraph`,...(e={},(!s||!n)&&(e.width="61%"),!s&&n?e.rows=3:e.rows=2,e),...v(y),style:M.paragraph};o=t.createElement(C,{...r})}a=t.createElement("div",{className:(0,r.clsx)(D.section,`${T}-section`),style:M.section},e,o)}let d=(0,r.clsx)(T,{[`${T}-with-avatar`]:s,[`${T}-active`]:b,[`${T}-rtl`]:"rtl"===S,[`${T}-round`]:E},D.root,w,l,c,I,A);return t.createElement("div",{className:d,style:{...M.root,...$,...u}},e,a)}return m??null};E.Button=e=>{let{prefixCls:a,className:n,rootClassName:i,classNames:l,active:c,style:d,styles:u,block:p=!1,size:m="default",...g}=e,{getPrefixCls:f}=t.useContext(s.ConfigContext),y=f("skeleton",a),[b,C]=h(y),x=(0,r.clsx)(y,`${y}-element`,{[`${y}-active`]:c,[`${y}-block`]:p},l?.root,n,i,b,C);return t.createElement("div",{className:x,style:u?.root},t.createElement(o,{prefixCls:`${y}-button`,className:l?.content,style:{...u?.content,...d},size:m,...g}))},E.Avatar=e=>{let{prefixCls:a,className:n,classNames:i,rootClassName:l,active:c,style:d,styles:u,shape:p="circle",size:m="default",...g}=e,{getPrefixCls:f}=t.useContext(s.ConfigContext),y=f("skeleton",a),[b,C]=h(y),x=(0,r.clsx)(y,`${y}-element`,{[`${y}-active`]:c},i?.root,n,l,b,C);return t.createElement("div",{className:x,style:u?.root},t.createElement(o,{prefixCls:`${y}-avatar`,className:i?.content,style:{...u?.content,...d},shape:p,size:m,...g}))},E.Input=e=>{let{prefixCls:a,className:n,classNames:i,rootClassName:l,active:c,block:d,style:u,styles:p,size:m="default",...g}=e,{getPrefixCls:f}=t.useContext(s.ConfigContext),y=f("skeleton",a),[b,C]=h(y),x=(0,r.clsx)(y,`${y}-element`,{[`${y}-active`]:c,[`${y}-block`]:d},i?.root,n,l,b,C);return t.createElement("div",{className:x,style:p?.root},t.createElement(o,{prefixCls:`${y}-input`,className:i?.content,style:{...p?.content,...u},size:m,...g}))},E.Image=e=>{let{getPrefixCls:r}=t.useContext(s.ConfigContext),a=r("skeleton",e.prefixCls);return t.createElement(b,{...e,internalClassName:`${a}-image`},t.createElement("svg",{viewBox:"0 0 1098 1024",xmlns:"http://www.w3.org/2000/svg",className:`${a}-image-svg`},t.createElement("title",null,"Image placeholder"),t.createElement("path",{d:"M365.7 329.1q0 45.8-32 77.7t-77.7 32-77.7-32-32-77.7 32-77.6 77.7-32 77.7 32 32 77.6M951 548.6v256H146.3V694.9L329 512l91.5 91.4L713 311zm54.8-402.3H91.4q-7.4 0-12.8 5.4T73 164.6v694.8q0 7.5 5.5 12.9t12.8 5.4h914.3q7.5 0 12.9-5.4t5.4-12.9V164.6q0-7.5-5.4-12.9t-12.9-5.4m91.4 18.3v694.8q0 37.8-26.8 64.6t-64.6 26.9H91.4q-37.7 0-64.6-26.9T0 859.4V164.6q0-37.8 26.8-64.6T91.4 73h914.3q37.8 0 64.6 26.9t26.8 64.6",className:`${a}-image-path`})))},E.Node=b,e.s(["default",0,E],81485)},57737,84323,e=>{"use strict";e.i(89171);var t=e.i(59990);e.i(51235);var r=e.i(23267),a=e.i(7284),s=e.i(74190),o=e.i(14828),n=e.i(59894),i=e.i(18218);let l=function(...e){let t={};return e.forEach(e=>{e&&Object.keys(e).forEach(r=>{void 0!==e[r]&&(t[r]=e[r])})}),t};var c=e.i(92233);let d=e=>{if(!e)return;let{closable:t,closeIcon:r}=e;return{closable:t,closeIcon:r}},u={},p=(e,t)=>{if(!e&&(!1===e||!1===t||null===t))return!1;if(void 0===e&&void 0===t)return null;let r={closeIcon:"boolean"!=typeof t&&null!==t?t:void 0};return e&&"object"==typeof e&&(r={...r,...e}),r},m=(e,r,a=u)=>{let[d]=(0,n.useLocale)("global",i.default.global);return t.default.useMemo(()=>((e,r,a=u,n="Close")=>{let i=p(e?.closable,e?.closeIcon),d=p(r?.closable,r?.closeIcon),m={closeIcon:t.default.createElement(s.default,null),...a},g=!1!==i&&(i?l(m,d,i):!1!==d&&(d?l(m,d):!!m.closable&&m)),f="boolean"!=typeof g&&!!g?.disabled;if(!1===g)return[!1,null,f,{}];let[y,h]=((e,r,a)=>{let{closeIconRender:s}=r,{closeIcon:n,...i}=e,l=n,d=(0,o.default)(i,!0);return(0,c.default)(l)&&(s&&(l=s(l)),l=t.default.isValidElement(l)?t.default.cloneElement(l,{"aria-label":a,...l.props,...d}):t.default.createElement("span",{"aria-label":a,...d},l)),[l,d]})(g,m,n);return[!0,y,f,h]})(e,r,{closeIcon:t.default.createElement(s.default,null),...a},d.close),[e,r,a,d.close])};e.s(["pickClosable",0,d,"useClosable",0,m],84323);var g=e.i(31861),f=e.i(1975),y=e.i(94776),h=e.i(77425),b=e.i(82614);e.i(99838);var C=e.i(32556);e.i(13567);var x=e.i(43932),v=e.i(79251),E=e.i(10338),k=e.i(97638),S=e.i(4999),w=e.i(21746);let $=e=>{let{lineWidth:t,fontSizeIcon:r,calc:a}=e,s=e.fontSizeSM;return(0,w.mergeToken)(e,{tagFontSize:s,tagLineHeight:(0,C.unit)(a(e.lineHeightSM).mul(s).equal()),tagIconSize:a(r).sub(a(t).mul(2)).equal(),tagPaddingHorizontal:8,tagBorderlessBg:e.defaultBg})},R=e=>{let t=(0,E.isBright)(new v.AggregationColor(e.colorBgSolid),"#fff")?"#000":"#fff";return{defaultBg:new x.FastColor(e.colorFillTertiary).onBackground(e.colorBgContainer).toHexString(),defaultColor:e.colorText,solidTextColor:t}},N=(0,S.genStyleHooks)("Tag",e=>(e=>{let{paddingXXS:t,lineWidth:r,tagPaddingHorizontal:a,componentCls:s,calc:o}=e,n=o(a).sub(r).equal(),i=o(t).sub(r).equal();return{[s]:{...(0,k.resetComponent)(e),display:"inline-block",height:"auto",paddingInline:n,fontSize:e.tagFontSize,lineHeight:e.tagLineHeight,whiteSpace:"nowrap",backgroundColor:e.defaultBg,border:`${(0,C.unit)(e.lineWidth)} ${e.lineType} ${e.colorBorder}`,borderRadius:e.borderRadiusSM,opacity:1,transition:`all ${e.motionDurationMid}`,textAlign:"start",position:"relative",[`&${s}-rtl`]:{direction:"rtl"},"&, a, a:hover":{color:e.defaultColor},[`${s}-close-icon`]:{marginInlineStart:i,fontSize:e.tagIconSize,color:e.colorIcon,cursor:"pointer",transition:`all ${e.motionDurationMid}`,"&:hover":{color:e.colorTextHeading}},"&-checkable":{backgroundColor:"transparent",borderColor:"transparent",cursor:"pointer",[`&:not(${s}-checkable-checked):hover`]:{color:e.colorPrimary,backgroundColor:e.colorFillSecondary},"&:active, &-checked":{color:e.colorTextLightSolid},"&-checked":{backgroundColor:e.colorPrimary,"&:hover":{backgroundColor:e.colorPrimaryHover}},"&:active":{backgroundColor:e.colorPrimaryActive},"&-disabled":{cursor:"not-allowed",[`&:not(${s}-checkable-checked)`]:{color:e.colorTextDisabled,"&:hover":{backgroundColor:"transparent"}},[`&${s}-checkable-checked`]:{color:e.colorTextDisabled,backgroundColor:e.colorBgContainerDisabled},"&:hover, &:active":{backgroundColor:e.colorBgContainerDisabled,color:e.colorTextDisabled},[`&:not(${s}-checkable-checked):hover`]:{color:e.colorTextDisabled}},"&-group":{display:"flex",flexWrap:"wrap",gap:e.paddingXS}},"&-hidden":{display:"none"},[`> ${e.iconCls} + span, > span + ${e.iconCls}`]:{marginInlineStart:n}},[`&${e.componentCls}-solid`]:{borderColor:"transparent",color:e.colorTextLightSolid,backgroundColor:e.colorBgSolid,[`&${s}-default`]:{color:e.solidTextColor}},[`${s}-filled`]:{borderColor:"transparent",backgroundColor:e.tagBorderlessBg},[`&${s}-disabled`]:{color:e.colorTextDisabled,cursor:"not-allowed",backgroundColor:e.colorBgContainerDisabled,a:{cursor:"not-allowed",pointerEvents:"none",color:e.colorTextDisabled,"&:hover":{color:e.colorTextDisabled}},"a&":{"&:hover, &:active":{color:e.colorTextDisabled}},[`&${s}-outlined`]:{borderColor:e.colorBorderDisabled},[`&${s}-solid, &${s}-filled`]:{color:e.colorTextDisabled,[`${s}-close-icon`]:{color:e.colorTextDisabled}},[`${s}-close-icon`]:{cursor:"not-allowed",color:e.colorTextDisabled,"&:hover":{color:e.colorTextDisabled}}}}})($(e)),R),T=t.forwardRef((e,r)=>{let{prefixCls:s,style:o,className:n,checked:i,children:l,icon:c,onChange:d,onClick:u,disabled:p,...m}=e,{getPrefixCls:g,tag:f}=t.useContext(h.ConfigContext),y=t.useContext(b.default),C=p??y,x=g("tag",s),[v,E]=N(x),k=(0,a.clsx)(x,`${x}-checkable`,{[`${x}-checkable-checked`]:i,[`${x}-checkable-disabled`]:C},f?.className,n,v,E);return t.createElement("span",{...m,ref:r,style:{...o,...f?.style},className:k,onClick:e=>{C||(d?.(!i),u?.(e))}},c,t.createElement("span",null,l))});var I=e.i(35492),A=e.i(89118),P=e.i(31328);let D=t.default.forwardRef(function(e,r){let{id:s,prefixCls:n,rootClassName:i,className:l,style:c,classNames:d,styles:u,disabled:p,options:m,value:f,defaultValue:y,onChange:b,multiple:C,...x}=e,{getPrefixCls:v,direction:E,className:k,style:S,classNames:w,styles:$}=(0,h.useComponentConfig)("tag"),R=v("tag",n),D=`${R}-checkable-group`,M=(0,P.default)(R),[j,U]=N(R,M),[L,O]=(0,g.useMergeSemantic)([w,d],[$,u],{props:e}),B=(0,t.useMemo)(()=>(m||[]).map(e=>e&&"object"==typeof e?e:{value:e,label:e}),[m]),[H,_]=(0,A.useControlledState)(y,f),q=t.default.useRef(null);(0,t.useImperativeHandle)(r,()=>({nativeElement:q.current}));let F=(0,o.default)(x,{aria:!0,data:!0});return t.default.createElement("div",{...F,className:(0,a.clsx)(D,k,i,{[`${D}-disabled`]:p,[`${D}-rtl`]:"rtl"===E},j,U,l,L.root),style:{...S,...O.root,...c},id:s,ref:q},B.map(e=>t.default.createElement(T,{key:e.value,className:(0,a.clsx)(`${D}-item`,L.item),style:O.item,checked:C?(H||[]).includes(e.value):H===e.value,onChange:t=>((e,t)=>{let r=null;if(C){let a=H||[];r=e?[].concat((0,I.default)(a),[t.value]):a.filter(e=>e!==t.value)}else r=e?t.value:null;_(r),b?.(r)})(t,e),disabled:p},e.label)))});var M=e.i(57079),j=e.i(39931);let U=(0,S.genSubStyleComponent)(["Tag","preset"],e=>{let t;return t=$(e),(0,j.genPresetColor)(t,(e,{textColor:r,lightBorderColor:a,lightColor:s,darkColor:o})=>({[`${t.componentCls}${t.componentCls}-${e}:not(${t.componentCls}-disabled)`]:{[`&${t.componentCls}-outlined`]:{backgroundColor:s,borderColor:a,color:r},[`&${t.componentCls}-solid`]:{backgroundColor:o,borderColor:o,color:t.colorTextLightSolid},[`&${t.componentCls}-filled`]:{backgroundColor:s,color:r}}}))},R),L=(e,t,r)=>{let a="string"!=typeof r?r:r.charAt(0).toUpperCase()+r.slice(1);return{[`${e.componentCls}${e.componentCls}-${t}:not(${e.componentCls}-disabled)`]:{[`&${e.componentCls}-outlined`]:{backgroundColor:e[`color${a}Bg`],borderColor:e[`color${a}Border`],color:e[`color${r}`]},[`&${e.componentCls}-solid`]:{backgroundColor:e[`color${r}`],borderColor:e[`color${r}`]},[`&${e.componentCls}-filled`]:{backgroundColor:e[`color${a}Bg`],color:e[`color${r}`]}}}},O=(0,S.genSubStyleComponent)(["Tag","status"],e=>{let t=$(e);return[L(t,"success","Success"),L(t,"processing","Info"),L(t,"error","Error"),L(t,"warning","Warning")]},R),B=t.forwardRef((e,s)=>{let{prefixCls:o,className:n,rootClassName:i,style:l,children:c,icon:u,color:p,variant:C,onClose:v,bordered:E,disabled:k,href:S,target:w,styles:$,classNames:R,...T}=e,{getPrefixCls:I,direction:A,className:P,variant:D,style:j,classNames:L,styles:B}=(0,h.useComponentConfig)("tag"),[H,_,q,F,z]=function(e,r){let{color:a,variant:s,bordered:o}=e;return t.useMemo(()=>{let e,t=a?.endsWith("-inverse");e=s||(t?"solid":!1===o?"filled":r||"filled");let n=t?a?.replace("-inverse",""):a,i=(0,M.isPresetColor)(a),l=(0,M.isPresetStatusColor)(a),c={};if(!i&&!l&&n)if("solid"===e)c.backgroundColor=a;else{let t=new x.FastColor(n).toHsl();t.l=.95,c.backgroundColor=new x.FastColor(t).toHexString(),c.color=a,"outlined"===e&&(c.borderColor=a)}return[e,n,i,l,c]},[a,s,o,r])}(e,D),G=q||F,W=t.useContext(b.default),K=k??W,{tag:V}=t.useContext(h.ConfigContext),[X,Y]=t.useState(!0),Q=(0,r.omit)(T,["closeIcon","closable"]),J={...e,color:_,variant:H,disabled:K,href:S,target:w,icon:u},[Z,ee]=(0,g.useMergeSemantic)([L,R],[B,$],{props:J}),et=t.useMemo(()=>{let e={...ee.root,...j,...l};return K||(e={...z,...e}),e},[ee.root,j,l,z,K]),er=I("tag",o),[ea,es]=N(er),eo=(0,a.clsx)(er,P,Z.root,`${er}-${H}`,{[`${er}-${_}`]:G,[`${er}-hidden`]:!X,[`${er}-rtl`]:"rtl"===A,[`${er}-disabled`]:K},n,i,ea,es),en=e=>{K||(e.stopPropagation(),v?.(e),e.defaultPrevented||Y(!1))},[,ei]=m(d(e),d(V),{closable:!1,closeIconRender:e=>{let r=t.createElement("span",{className:`${er}-close-icon`,onClick:en},e);return(0,f.replaceElement)(e,r,e=>({onClick:t=>{e?.onClick?.(t),en(t)},className:(0,a.clsx)(e?.className,`${er}-close-icon`)}))}}),el="function"==typeof T.onClick||c&&"a"===c.type,ec=(0,f.cloneElement)(u,{className:(0,a.clsx)(t.isValidElement(u)?u.props?.className:"",Z.icon),style:ee.icon}),ed=ec?t.createElement(t.Fragment,null,ec,c&&t.createElement("span",{className:Z.content,style:ee.content},c)):c,eu=t.createElement(S?"a":"span",{...Q,ref:s,className:eo,style:et,href:K?void 0:S,target:w,onClick:K?void 0:Q.onClick,...S&&K?{"aria-disabled":!0}:{}},ed,ei,q&&t.createElement(U,{key:"preset",prefixCls:er}),F&&t.createElement(O,{key:"status",prefixCls:er}));return el?t.createElement(y.default,{component:"Tag"},eu):eu});B.CheckableTag=T,B.CheckableTagGroup=D,e.s(["Tag",0,B],57737)},93857,e=>{"use strict";var t=e.i(65408),r=e.i(77674),a=e.i(33086),s=e.i(59611),o=e.i(57737),n=e.i(26012),i=e.i(73182),l=e.i(98870),c=e.i(59990);let d=[{id:"1",title:"Git 提交规范",description:"使用 Conventional Commits 格式规范 Git 提交信息",content:`# Git 提交规范
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,93857,e=>{"use strict";var t=e.i(65408),r=e.i(77674),s=e.i(33086),a=e.i(59611),i=e.i(57737),o=e.i(26012),n=e.i(73182),c=e.i(98870),d=e.i(59990);let l=[{id:"1",title:"Git 提交规范",description:"使用 Conventional Commits 格式规范 Git 提交信息",content:`# Git 提交规范
 
 ## 格式
 \`\`\`
@@ -2384,4 +2369,640 @@ async function placeOrder(order) {
 5. 分布式追踪
 6. 熔断降级
 7. 配置中心
-8. 监控告警`,category:"架构",tags:["微服务","分布式","架构"],dateAdded:"2024-04-04",stars:9200}],u="rules-favorites";function p(){let[e,p]=(0,c.useState)(""),[m,g]=(0,c.useState)(null),[f,y]=(0,c.useState)(""),[h,b]=(0,c.useState)(!1),[C,x]=(0,c.useState)(!1),[v,E]=(0,c.useState)("markdown"),[k,S]=(0,c.useState)([]);(0,c.useEffect)(()=>{let e;S((e=localStorage.getItem(u))?JSON.parse(e):[])},[]);let w=(0,c.useMemo)(()=>{let t=d.filter(t=>t.title.toLowerCase().includes(e.toLowerCase())||t.description.toLowerCase().includes(e.toLowerCase())||t.tags.some(t=>t.toLowerCase().includes(e.toLowerCase()))).map(e=>({...e,isFavorite:k.includes(e.id)}));return t.sort((e,t)=>e.isFavorite&&!t.isFavorite?-1:!e.isFavorite&&t.isFavorite?1:(t.stars||0)-(e.stars||0)),t},[e,k]),$=(0,c.useMemo)(()=>{if(!m)return"";try{return i.marked.parse(m.content)}catch{return m.content}},[m]),R=e=>{(0,n.default)(e),s.message.success("复制成功")},N=async e=>{let t=`${window.location.origin}/rules?rule=${encodeURIComponent(JSON.stringify({title:e.title,content:e.content}))}`;try{let r=await l.default.toDataURL(t);y(r),g(e),b(!0)}catch{s.message.error("生成二维码失败")}};return(0,t.jsxs)("div",{children:[(0,t.jsx)("div",{className:"flex items-center justify-between mb-6",children:(0,t.jsx)("h1",{className:"text-2xl font-bold text-gray-900",children:"Rules"})}),(0,t.jsx)(a.Input,{placeholder:"搜索 Rules...",value:e,onChange:e=>p(e.target.value),className:"mb-6",size:"large"}),(0,t.jsx)("div",{className:"grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4",children:w.map(e=>{var r,a;return(0,t.jsxs)("div",{className:"group relative flex flex-col bg-white rounded-xl border border-gray-200 p-5 hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-100/50 transition-all duration-300 cursor-pointer overflow-hidden",onClick:()=>{g(e),E("markdown"),x(!0)},children:[(0,t.jsx)("div",{className:"absolute inset-0 bg-gradient-to-br from-indigo-50/0 via-purple-50/0 to-pink-50/0 group-hover:from-indigo-50/50 group-hover:via-purple-50/30 group-hover:to-pink-50/20 transition-all duration-300"}),(0,t.jsxs)("div",{className:"relative flex flex-1 flex-col justify-between",children:[(0,t.jsxs)("div",{className:"relative",children:[(0,t.jsxs)("div",{className:"flex items-center gap-2 mb-2",children:[(0,t.jsx)(o.Tag,{color:"blue",className:"shrink-0 text-xs",children:e.category}),(0,t.jsx)("h3",{className:"font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors flex-1 line-clamp-1",children:e.title}),(0,t.jsx)("button",{type:"button",onClick:t=>{var r;let a;t.stopPropagation(),r=e.id,S(a=k.includes(r)?k.filter(e=>e!==r):[...k,r]),localStorage.setItem(u,JSON.stringify(a)),s.message.success(k.includes(r)?"已取消收藏":"已添加收藏")},className:"shrink-0 p-1 hover:scale-110 transition-transform cursor-pointer","aria-label":e.isFavorite?"取消收藏":"添加收藏",children:(0,t.jsx)("svg",{className:`w-5 h-5 ${e.isFavorite?"text-red-500 fill-current":"text-gray-400"}`,viewBox:"0 0 24 24",fill:e.isFavorite?"currentColor":"none",stroke:"currentColor",strokeWidth:2,"aria-label":e.isFavorite?"已收藏":"未收藏",children:(0,t.jsx)("path",{d:"M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"})})})]}),(0,t.jsx)("p",{className:"text-sm text-gray-500 mb-3 line-clamp-2",children:e.description}),(0,t.jsx)("div",{className:"flex flex-wrap gap-1 mb-3",children:e.tags.slice(0,3).map(e=>(0,t.jsx)(o.Tag,{color:"orange",children:e},e))}),(0,t.jsxs)("div",{className:"flex items-center gap-3 text-xs text-gray-400 mb-3",children:[void 0!==e.stars&&e.stars>0&&(0,t.jsxs)("span",{className:"flex items-center gap-1",children:[(0,t.jsx)("svg",{className:"w-3.5 h-3.5",viewBox:"0 0 24 24",fill:"currentColor","aria-label":"stars",children:(0,t.jsx)("path",{d:"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"})}),(r=e.stars)?r>=1e3?`${(r/1e3).toFixed(1)}k`:r.toString():"0"]}),e.dateAdded&&(0,t.jsx)("span",{children:(a=e.dateAdded)?new Date(a).toLocaleDateString("zh-CN",{year:"numeric",month:"short",day:"numeric"}):""})]})]}),(0,t.jsxs)("div",{className:"flex items-center justify-between pt-3 border-t border-gray-100 mt-auto",children:[(0,t.jsx)("button",{type:"button",className:"px-4 py-1.5 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors cursor-pointer w-20",onClick:t=>{t.stopPropagation(),R(e.content)},children:"复制"}),(0,t.jsx)("button",{type:"button",className:"px-4 py-1.5 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors cursor-pointer w-20",onClick:t=>{t.stopPropagation(),N(e)},children:"分享"})]})]})]},e.id)})}),(0,t.jsx)(r.Drawer,{title:m?.title,placement:"right",size:"large",onClose:()=>x(!1),open:C,children:m&&(0,t.jsxs)("div",{children:[(0,t.jsx)("p",{className:"text-gray-600 mb-4",children:m.description}),(0,t.jsxs)("div",{className:"mb-4 flex flex-wrap items-center gap-2",children:[(0,t.jsx)(o.Tag,{color:"blue",children:m.category}),m.tags.map(e=>(0,t.jsx)(o.Tag,{children:e},e)),(0,t.jsx)("div",{className:"flex-1"}),(0,t.jsx)("button",{type:"button",className:"px-4 py-1.5 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors cursor-pointer",onClick:()=>R(m.content),children:"复制"}),(0,t.jsx)("button",{type:"button",className:"px-4 py-1.5 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors cursor-pointer",onClick:()=>N(m),children:"分享"})]}),(0,t.jsxs)("div",{className:"mb-2 flex items-center justify-between",children:[(0,t.jsx)("span",{className:"text-sm text-gray-500",children:"内容预览"}),(0,t.jsx)("button",{type:"button",className:`px-3 py-1 text-sm font-medium rounded-lg transition-colors cursor-pointer ${"markdown"===v?"bg-indigo-600 text-white":"bg-gray-100 text-gray-700 hover:bg-gray-200"}`,onClick:()=>E("markdown"===v?"raw":"markdown"),children:"markdown"===v?"📄 原始":"🎨 渲染"})]}),(0,t.jsx)("div",{className:"bg-gray-50 p-4 rounded-lg max-h-[70vh] overflow-y-auto",children:"markdown"===v?(0,t.jsx)("div",{className:"prose prose-sm max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-blue-600 prose-code:text-pink-600 prose-code:bg-gray-200 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-gray-800 prose-pre:text-gray-100",dangerouslySetInnerHTML:{__html:$}}):(0,t.jsx)("pre",{className:"whitespace-pre-wrap font-mono text-sm text-gray-700",children:m.content})})]})}),(0,t.jsx)(r.Drawer,{title:"分享 Rule",placement:"bottom",height:"300px",onClose:()=>b(!1),open:h,children:f&&(0,t.jsxs)("div",{className:"text-center",children:[(0,t.jsx)("img",{src:f,alt:"QR Code",className:"mx-auto mb-4"}),(0,t.jsx)("p",{className:"text-gray-500 text-sm",children:"扫描二维码查看 Rule"})]})})]})}e.s(["default",()=>p],93857)}]);
+8. 监控告警`,category:"架构",tags:["微服务","分布式","架构"],dateAdded:"2024-04-04",stars:9200},{id:"31",title:"时间管理法则",description:"提高效率和专注力的时间管理方法",content:`# 时间管理法则
+
+## 重要 vs 紧急
+
+### 艾森豪威尔矩阵
+- **重要且紧急**：立即处理
+- **重要不紧急**：计划处理
+- **紧急不重要**：委托他人
+- **不紧急不重要**：尽量避免
+
+### 时间分配
+- 每天 2-3 小时处理最重要的事
+- 留出缓冲时间应对意外
+- 避免过度计划
+
+## 专注力管理
+
+### 番茄工作法
+- 25 分钟专注工作
+- 5 分钟休息
+- 每 4 个番茄钟长休息 15-30 分钟
+
+### 单任务原则
+- 一次只做一件事
+- 减少任务切换
+- 深度工作 > 碎片工作
+
+## 能量管理
+
+### 生理节律
+- 上午：处理复杂任务
+- 下午：处理常规任务
+- 晚间：复盘和计划
+
+### 休息质量
+- 每小时起身活动
+- 每天 7-8 小时睡眠
+- 定期运动保持精力
+
+## 最佳实践
+
+1. 每天早晨吃掉最大的青蛙（最难的事）
+2. 重要的事要留出整块时间
+3. 定期复盘时间使用情况
+4. 学会说"不"保护时间
+5. 善用工具提高效率`,category:"个人成长",tags:["时间管理","效率","自我提升"],dateAdded:"2024-04-05",stars:15e3},{id:"32",title:"健康生活指南",description:"保持身心健康的日常习惯",content:`# 健康生活指南
+
+## 睡眠质量
+
+### 睡眠时长
+- 成年人 7-9 小时
+- 保持规律作息
+- 周末不要大幅补觉
+
+### 睡眠环境
+- 黑暗、安静、凉爽
+- 睡前 1 小时远离电子设备
+- 固定时间就寝和起床
+
+## 饮食习惯
+
+### 均衡营养
+- 蛋白质：每餐适量
+- 碳水：选择复杂碳水
+- 脂肪：优质脂肪为主
+- 蔬菜：占餐盘一半
+
+### 饮水习惯
+- 每天 1.5-2L 水
+- 运动前后补充水分
+- 少喝含糖饮料
+
+## 运动习惯
+
+### 每周运动
+- 150 分钟中等强度
+- 或 75 分钟高强度
+- 包含力量训练
+
+### 日常活动
+- 站立式办公
+- 走楼梯代替电梯
+- 站立或走动休息
+
+## 心理健康
+
+### 压力管理
+- 定期冥想或深呼吸
+- 培养兴趣爱好
+- 保持社交联系
+
+### 情绪调节
+- 接纳负面情绪
+- 及时表达和释放
+- 寻求专业帮助
+
+## 最佳实践
+
+1. 定期体检
+2. 保持体重在健康范围
+3. 戒烟限酒
+4. 保护视力
+5. 定期运动`,category:"健康",tags:["健康","养生","生活方式"],dateAdded:"2024-04-06",stars:12800},{id:"33",title:"财务自由之路",description:"个人理财和财富积累原则",content:`# 财务自由之路
+
+## 预算管理
+
+### 50/30/20 法则
+- 50% 必要支出（房租、食物、交通）
+- 30% 可选支出（娱乐、购物）
+- 20% 储蓄和投资
+
+### 追踪支出
+- 记录每一笔支出
+- 每月分析消费习惯
+- 识别并削减不必要开支
+
+## 储蓄策略
+
+### 紧急基金
+- 3-6 个月生活费用
+- 存放在流动性好的账户
+- 不用于投资或消费
+
+### 自动储蓄
+- 工资到账自动转账
+- 先存后花
+- 定期检查储蓄进度
+
+## 投资原则
+
+### 分散风险
+- 资产配置多元化
+- 不把鸡蛋放一个篮子
+- 定期平衡配置
+
+### 长期投资
+- 坚持定投
+- 忽略短期波动
+- 复利效应
+
+### 投资自己
+- 提升技能增加收入
+- 保持竞争力
+- 投资健康
+
+## 债务管理
+
+### 债务优先级
+- 高息债务优先偿还
+- 避免新增消费债务
+- 善用低息贷款
+
+### 信用卡使用
+- 全额还款避免利息
+- 警惕过度消费
+- 善用免息期
+
+## 最佳实践
+
+1. 尽早开始理财
+2. 保持理性消费
+3. 持续学习投资知识
+4. 定期检视财务状况
+5. 规划退休储蓄`,category:"理财",tags:["理财","财务","投资"],dateAdded:"2024-04-07",stars:14500},{id:"34",title:"人际关系法则",description:"建立和维护健康的人际关系",content:`# 人际关系法则
+
+## 沟通原则
+
+### 倾听优先
+- 真正听懂对方意思
+- 不打断他人说话
+- 复述确认理解
+
+### 表达技巧
+- 使用"我"开头的句子
+- 具体而非抽象
+- 避免指责和攻击
+
+### 非语言沟通
+- 保持眼神接触
+- 注意肢体语言
+- 适当微笑和点头
+
+## 边界设定
+
+### 个人边界
+- 明确自己的底线
+- 学会拒绝
+- 尊重他人边界
+
+### 亲密关系
+- 保持独立人格
+- 尊重私人空间
+- 给予信任和支持
+
+## 关系维护
+
+### 亲情
+- 定期联系家人
+- 主动表达关心
+- 珍惜相处时光
+
+### 友情
+- 主动维护友谊
+- 真诚相待
+- 适度保持联系
+
+### 爱情
+- 相互尊重理解
+- 保持独立空间
+- 共同成长
+
+## 社交礼仪
+
+### 基本礼节
+- 守时守信
+- 尊重他人隐私
+- 感谢他人帮助
+
+### 线上礼仪
+- 尊重他人时间
+- 避免群发打扰
+- 保护他人隐私
+
+## 最佳实践
+
+1. 真诚待人
+2. 换位思考
+3. 学会原谅
+4. 适度付出
+5. 定期检视关系`,category:"人际关系",tags:["社交","沟通","人脉"],dateAdded:"2024-04-08",stars:11200},{id:"35",title:"学习成长法则",description:"持续学习和个人成长的方法",content:`# 学习成长法则
+
+## 学习方法
+
+### 主动学习
+- 带着问题学习
+- 实践出真知
+- 教是最好的学
+
+### 刻意练习
+- 专注薄弱环节
+- 及时反馈改进
+- 持续突破舒适区
+
+### 知识体系
+- 建立知识网络
+- 定期复盘总结
+- 输出倒逼输入
+
+## 阅读习惯
+
+### 选书原则
+- 经典优先
+- 主题阅读
+- 适合自己的难度
+
+### 阅读方法
+- 速读把握框架
+- 精读核心内容
+- 做笔记和思考
+
+### 阅读量
+- 每周 1-2 本
+- 保持阅读习惯
+- 多元化阅读
+
+## 技能提升
+
+### 核心技能
+- 写作能力
+- 表达能力
+- 思考能力
+- 学习能力
+
+### 跨界能力
+- 了解其他领域
+- 培养创造力
+- 保持好奇心
+
+## 习惯养成
+
+### 微习惯
+- 从小开始
+- 保持连续
+- 逐步增量
+
+### 习惯回路
+- 触发：明确提示
+- 行为：具体动作
+- 奖励：正向反馈
+
+## 最佳实践
+
+1. 设定明确目标
+2. 保持好奇心
+3. 拥抱失败
+4. 定期自省
+5. 终身学习`,category:"个人成长",tags:["学习","成长","习惯"],dateAdded:"2024-04-09",stars:13500},{id:"36",title:"情绪管理指南",description:"认识和管理情绪的方法",content:`# 情绪管理指南
+
+## 情绪认知
+
+### 情绪类型
+- 基本情绪：喜、怒、哀、惧
+- 复合情绪：焦虑、愧疚、羡慕
+- 识别自身情绪模式
+
+### 情绪来源
+- 触发事件
+- 认知解读
+- 身体状态
+- 过往经历
+
+## 情绪表达
+
+### 健康表达
+- 识别并命名情绪
+- 适度表达情绪
+- 不压抑不爆发
+
+### 表达方式
+- 语言表达
+- 写作表达
+- 艺术表达
+- 运动释放
+
+## 情绪调节
+
+### 即时调节
+- 深呼吸 4-7-8 法
+- 暂停离开现场
+- 冷水洗脸或握拳
+
+### 长期调节
+- 规律运动
+- 正念冥想
+- 充足睡眠
+
+### 认知调整
+- 换角度看问题
+- 区分事实和想象
+- 接受不可改变
+
+## 心理弹性
+
+### 挫折应对
+- 允许情绪出现
+- 寻找支持系统
+- 从中学习成长
+
+### 压力管理
+- 识别压力源
+- 分解压力任务
+- 寻求帮助
+
+## 最佳实践
+
+1. 情绪日记
+2. 定期运动
+3. 保持社交
+4. 充足睡眠
+5. 培养爱好`,category:"心理健康",tags:["情绪","心理健康","自我调节"],dateAdded:"2024-04-10",stars:11800},{id:"37",title:"职业发展指南",description:"职业规划和职场成长策略",content:`# 职业发展指南
+
+## 职业规划
+
+### 自我认知
+- 了解自己的优势
+- 明确职业兴趣
+- 设定长期目标
+
+### 职业路径
+- 制定 3-5 年规划
+- 每年设定目标
+- 定期评估调整
+
+## 职场技能
+
+### 核心能力
+- 专业能力
+- 沟通能力
+- 解决问题的能力
+- 学习能力
+
+### 软技能
+- 时间管理
+- 情绪管理
+- 人际交往
+- 演讲展示
+
+## 工作习惯
+
+### 高效工作
+- 重要优先
+- 深度工作
+- 定期复盘
+
+### 向上管理
+- 了解老板目标
+- 主动汇报进展
+- 寻求反馈指导
+
+### 跨部门协作
+- 清晰表达需求
+- 理解他人立场
+- 双赢思维
+
+## 职业发展
+
+### 晋升策略
+- 超预期完成工作
+- 主动承担项目
+- 建立影响力
+
+### 职业转型
+- 提前准备
+- 积累新技能
+- 善用网络资源
+
+## 最佳实践
+
+1. 持续学习
+2. 建立个人品牌
+3. 拓展人脉
+4. 保持好奇心
+5. 平衡工作生活`,category:"职业发展",tags:["职业","职场","成长"],dateAdded:"2024-04-11",stars:12800},{id:"38",title:"决策方法论",description:"科学决策的框架和原则",content:`# 决策方法论
+
+## 决策流程
+
+### 问题定义
+- 明确决策目标
+- 界定决策范围
+- 识别关键因素
+
+### 信息收集
+- 收集必要信息
+- 辨别信息真伪
+- 避免信息过载
+
+### 方案生成
+- 头脑风暴多个方案
+- 考虑创新选项
+- 不急于否定
+
+## 决策框架
+
+### 利益相关者分析
+- 谁受影响
+- 关注什么
+- 如何满足
+
+### 成本收益分析
+- 量化可计算成本
+- 评估无形收益
+- 考虑机会成本
+
+### 决策矩阵
+| 方案 | 优点 | 缺点 | 风险 | 成本 |
+
+## 常见陷阱
+
+### 认知偏差
+- 确认偏误
+- 过度自信
+- 损失厌恶
+- 锚定效应
+
+### 决策疲劳
+- 重要决策早做
+- 减少日常决策
+- 适当休息
+
+## 决策执行
+
+### 行动计划
+- 明确具体步骤
+- 设定时间节点
+- 分配责任
+
+### 风险预案
+- 识别潜在风险
+- 准备应对方案
+- 及时调整
+
+## 最佳实践
+
+1. 二阶思考
+2. 设定决策时限
+3. 记录决策过程
+4. 定期复盘决策
+5. 接受不完美`,category:"思维方法",tags:["决策","思考","方法论"],dateAdded:"2024-04-12",stars:10500},{id:"39",title:"极简生活指南",description:"简化生活的方法和原则",content:`# 极简生活指南
+
+## 物质极简
+
+### 物品原则
+- 需要再买
+- 一进一出
+- 定期清理
+
+### 整理方法
+- 分类存放
+- 标签标记
+- 归位还原
+
+### 购物原则
+- 质量优先
+- 拒绝冲动
+- 考虑真实需求
+
+## 信息极简
+
+### 信息摄入
+- 限定信息源
+- 固定获取时间
+- 避免信息焦虑
+
+### 数字整理
+- 定期清理文件
+- 整理相册
+- 清理订阅
+
+### 社交媒体
+- 减少无效社交
+- 设定使用时间
+- 关注优质内容
+
+## 精力极简
+
+### 事务简化
+- 减少选择
+- 建立例程
+- 委托他人
+
+### 关系简化
+- 珍惜重要的人
+- 减少无效社交
+- 学会说不
+
+### 目标简化
+- 每年 1-3 个目标
+- 专注重要的事
+- 接受不完美
+
+## 极简财务
+
+### 支出简化
+- 区分需要和想要
+- 记录支出
+- 减少浪费
+
+### 投资简化
+- 长期投资
+- 指数基金
+- 少即是多
+
+## 最佳实践
+
+1. 每日一扔
+2. 30 天不买新东西
+3. 数字断舍离
+4. 定期回顾
+5. 关注当下`,category:"生活方式",tags:["极简","断舍离","生活"],dateAdded:"2024-04-13",stars:9800},{id:"40",title:"写作表达法则",description:"提升写作和表达能力",content:`# 写作表达法则
+
+## 写作原则
+
+### 清晰简洁
+- 观点明确
+- 语言简练
+- 逻辑连贯
+
+### 读者导向
+- 考虑读者是谁
+- 满足读者需求
+- 使用读者语言
+
+### 结构化
+- 结论先行
+- 层级清晰
+- 适当分段
+
+## 写作技巧
+
+### 开头方法
+- 引用数据
+- 讲述故事
+- 提出问题
+- 亮出观点
+
+### 中间展开
+- 分类说明
+- 举例说明
+- 对比说明
+- 原因分析
+
+### 结尾总结
+- 重申观点
+- 行动建议
+- 展望未来
+
+## 表达能力
+
+### 语言组织
+- 先想后说
+- 简明扼要
+- 善用例子
+
+### 肢体语言
+- 眼神交流
+- 手势配合
+- 表情自然
+
+### 演示技巧
+- 视觉辅助
+- 节奏控制
+- 互动参与
+
+## 写作习惯
+
+### 日常练习
+- 每日写作
+- 记录灵感
+- 定期复盘
+
+### 素材积累
+- 读书笔记
+- 案例收集
+- 观点整理
+
+### 修改完善
+- 冷却后再改
+- 请他人点评
+- 多次修改
+
+## 最佳实践
+
+1. 每天写 500 字
+2. 建立素材库
+3. 模仿优秀作品
+4. 接受反馈
+5. 持续输出`,category:"个人成长",tags:["写作","表达","沟通"],dateAdded:"2024-04-14",stars:9200}],p="rules-favorites";function u(){let[e,u]=(0,d.useState)(""),[m,g]=(0,d.useState)(null),[y,h]=(0,d.useState)(""),[f,x]=(0,d.useState)(!1),[b,S]=(0,d.useState)(!1),[C,v]=(0,d.useState)("markdown"),[E,w]=(0,d.useState)([]);(0,d.useEffect)(()=>{let e;w((e=localStorage.getItem(p))?JSON.parse(e):[])},[]);let R=(0,d.useMemo)(()=>{let t=l.filter(t=>t.title.toLowerCase().includes(e.toLowerCase())||t.description.toLowerCase().includes(e.toLowerCase())||t.tags.some(t=>t.toLowerCase().includes(e.toLowerCase()))).map(e=>({...e,isFavorite:E.includes(e.id)}));return t.sort((e,t)=>e.isFavorite&&!t.isFavorite?-1:!e.isFavorite&&t.isFavorite?1:(t.stars||0)-(e.stars||0)),t},[e,E]),A=(0,d.useMemo)(()=>{if(!m)return"";try{return n.marked.parse(m.content)}catch{return m.content}},[m]),I=e=>{(0,o.default)(e),a.message.success("复制成功")},T=async e=>{let t=`${window.location.origin}/rules?rule=${encodeURIComponent(JSON.stringify({title:e.title,content:e.content}))}`;try{let r=await c.default.toDataURL(t);h(r),g(e),x(!0)}catch{a.message.error("生成二维码失败")}};return(0,t.jsxs)("div",{children:[(0,t.jsx)("div",{className:"flex items-center justify-between mb-6",children:(0,t.jsx)("h1",{className:"text-2xl font-bold text-gray-900",children:"Rules"})}),(0,t.jsx)(s.Input,{placeholder:"搜索 Rules...",value:e,onChange:e=>u(e.target.value),className:"mb-6",size:"large"}),(0,t.jsx)("div",{className:"grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4",children:R.map(e=>{var r,s;return(0,t.jsxs)("div",{className:"group relative flex flex-col bg-white rounded-xl border border-gray-200 p-5 hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-100/50 transition-all duration-300 cursor-pointer overflow-hidden",onClick:()=>{g(e),v("markdown"),S(!0)},children:[(0,t.jsx)("div",{className:"absolute inset-0 bg-gradient-to-br from-indigo-50/0 via-purple-50/0 to-pink-50/0 group-hover:from-indigo-50/50 group-hover:via-purple-50/30 group-hover:to-pink-50/20 transition-all duration-300"}),(0,t.jsxs)("div",{className:"relative flex flex-1 flex-col justify-between",children:[(0,t.jsxs)("div",{className:"relative",children:[(0,t.jsxs)("div",{className:"flex items-center gap-2 mb-2",children:[(0,t.jsx)(i.Tag,{color:"blue",className:"shrink-0 text-xs",children:e.category}),(0,t.jsx)("h3",{className:"font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors flex-1 line-clamp-1",children:e.title}),(0,t.jsx)("button",{type:"button",onClick:t=>{var r;let s;t.stopPropagation(),r=e.id,w(s=E.includes(r)?E.filter(e=>e!==r):[...E,r]),localStorage.setItem(p,JSON.stringify(s)),a.message.success(E.includes(r)?"已取消收藏":"已添加收藏")},className:"shrink-0 p-1 hover:scale-110 transition-transform cursor-pointer","aria-label":e.isFavorite?"取消收藏":"添加收藏",children:(0,t.jsx)("svg",{className:`w-5 h-5 ${e.isFavorite?"text-red-500 fill-current":"text-gray-400"}`,viewBox:"0 0 24 24",fill:e.isFavorite?"currentColor":"none",stroke:"currentColor",strokeWidth:2,"aria-label":e.isFavorite?"已收藏":"未收藏",children:(0,t.jsx)("path",{d:"M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"})})})]}),(0,t.jsx)("p",{className:"text-sm text-gray-500 mb-3 line-clamp-2",children:e.description}),(0,t.jsx)("div",{className:"flex flex-wrap gap-1 mb-3",children:e.tags.slice(0,3).map(e=>(0,t.jsx)(i.Tag,{color:"orange",children:e},e))}),(0,t.jsxs)("div",{className:"flex items-center gap-3 text-xs text-gray-400 mb-3",children:[void 0!==e.stars&&e.stars>0&&(0,t.jsxs)("span",{className:"flex items-center gap-1",children:[(0,t.jsx)("svg",{className:"w-3.5 h-3.5",viewBox:"0 0 24 24",fill:"currentColor","aria-label":"stars",children:(0,t.jsx)("path",{d:"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"})}),(r=e.stars)?r>=1e3?`${(r/1e3).toFixed(1)}k`:r.toString():"0"]}),e.dateAdded&&(0,t.jsx)("span",{children:(s=e.dateAdded)?new Date(s).toLocaleDateString("zh-CN",{year:"numeric",month:"short",day:"numeric"}):""})]})]}),(0,t.jsxs)("div",{className:"flex items-center justify-between pt-3 border-t border-gray-100 mt-auto",children:[(0,t.jsx)("button",{type:"button",className:"px-4 py-1.5 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors cursor-pointer w-20",onClick:t=>{t.stopPropagation(),I(e.content)},children:"复制"}),(0,t.jsx)("button",{type:"button",className:"px-4 py-1.5 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors cursor-pointer w-20",onClick:t=>{t.stopPropagation(),T(e)},children:"分享"})]})]})]},e.id)})}),(0,t.jsx)(r.Drawer,{title:m?.title,placement:"right",size:"large",onClose:()=>S(!1),open:b,children:m&&(0,t.jsxs)("div",{children:[(0,t.jsx)("p",{className:"text-gray-600 mb-4",children:m.description}),(0,t.jsxs)("div",{className:"mb-4 flex flex-wrap items-center gap-2",children:[(0,t.jsx)(i.Tag,{color:"blue",children:m.category}),m.tags.map(e=>(0,t.jsx)(i.Tag,{children:e},e)),(0,t.jsx)("div",{className:"flex-1"}),(0,t.jsx)("button",{type:"button",className:"px-4 py-1.5 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors cursor-pointer",onClick:()=>I(m.content),children:"复制"}),(0,t.jsx)("button",{type:"button",className:"px-4 py-1.5 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors cursor-pointer",onClick:()=>T(m),children:"分享"})]}),(0,t.jsxs)("div",{className:"mb-2 flex items-center justify-between",children:[(0,t.jsx)("span",{className:"text-sm text-gray-500",children:"内容预览"}),(0,t.jsx)("button",{type:"button",className:`px-3 py-1 text-sm font-medium rounded-lg transition-colors cursor-pointer ${"markdown"===C?"bg-indigo-600 text-white":"bg-gray-100 text-gray-700 hover:bg-gray-200"}`,onClick:()=>v("markdown"===C?"raw":"markdown"),children:"markdown"===C?"📄 原始":"🎨 渲染"})]}),(0,t.jsx)("div",{className:"bg-gray-50 p-4 rounded-lg max-h-[70vh] overflow-y-auto",children:"markdown"===C?(0,t.jsx)("div",{className:"prose prose-sm max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-blue-600 prose-code:text-pink-600 prose-code:bg-gray-200 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-gray-800 prose-pre:text-gray-100",dangerouslySetInnerHTML:{__html:A}}):(0,t.jsx)("pre",{className:"whitespace-pre-wrap font-mono text-sm text-gray-700",children:m.content})})]})}),(0,t.jsx)(r.Drawer,{title:"分享 Rule",placement:"bottom",height:"300px",onClose:()=>x(!1),open:f,children:y&&(0,t.jsxs)("div",{className:"text-center",children:[(0,t.jsx)("img",{src:y,alt:"QR Code",className:"mx-auto mb-4"}),(0,t.jsx)("p",{className:"text-gray-500 text-sm",children:"扫描二维码查看 Rule"})]})})]})}e.s(["default",()=>u],93857)}]);

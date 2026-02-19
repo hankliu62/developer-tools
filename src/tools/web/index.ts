@@ -37,6 +37,8 @@ export function unescapeHtml(html: string): string {
 export interface UrlParts {
   href: string;
   protocol: string;
+  username: string;
+  password: string;
   host: string;
   hostname: string;
   port: string;
@@ -52,6 +54,8 @@ export function parseUrl(url: string): UrlParts {
     return {
       href: urlObj.href,
       protocol: urlObj.protocol,
+      username: urlObj.username,
+      password: urlObj.password,
       host: urlObj.host,
       hostname: urlObj.hostname,
       port: urlObj.port,

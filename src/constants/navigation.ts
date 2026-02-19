@@ -736,6 +736,13 @@ export const categories: Category[] = [
     icon: 'i-carbon-home',
     children: [
       {
+        name: '历史上的今天',
+        description: '查看历史上今天发生的重要事件，AI智能解读',
+        href: '/tools/life/today-in-history',
+        icon: 'i-carbon-events',
+        status: 'new',
+      },
+      {
         name: '万年历',
         description: '公历农历对照、节假日查询、宜忌信息',
         href: '/tools/life/calendar',

@@ -9,6 +9,8 @@ const { TextArea } = Input;
 interface ToolPageProps {
   title: string;
   description: string;
+  emoji?: string;
+  emojiBg?: string;
   inputLabel?: string;
   outputLabel?: string;
   defaultInput?: string;
@@ -23,6 +25,8 @@ interface ToolPageProps {
 export default function ToolPage({
   title,
   description,
+  emoji,
+  emojiBg = 'bg-blue-100',
   inputLabel = '输入',
   outputLabel = '输出',
   defaultInput = '',
@@ -65,10 +69,19 @@ export default function ToolPage({
   }, []);
 
   return (
-    <div className="max-w-4xl">
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
-        <p className="text-gray-600 mt-1">{description}</p>
+    <div className="max-w-4xl mx-auto">
+      <div className="mb-8 text-center">
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          {emoji && (
+            <span
+              className={`inline-flex items-center justify-center w-10 h-10 ${emojiBg} rounded-lg mr-2`}
+            >
+              {emoji}
+            </span>
+          )}
+          {title}
+        </h1>
+        <p className="text-gray-600">{description}</p>
       </div>
 
       {tips.length > 0 && (

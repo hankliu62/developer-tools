@@ -386,32 +386,39 @@ export default function SkillsPage() {
   };
 
   return (
-    <div>
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">AI Skills</h1>
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => setSettingsModalOpen(true)}
-            className="px-3 py-1.5 text-sm font-medium bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors cursor-pointer"
-          >
-            ⚙️
-          </button>
-          <button
-            type="button"
-            onClick={() => setIsZh(!isZh)}
-            className="px-3 py-1.5 text-sm font-medium bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors cursor-pointer"
-          >
-            {isZh ? 'English' : '中文'}
-          </button>
-          <button
-            type="button"
-            onClick={() => setAddModalOpen(true)}
-            className="px-3 py-1.5 text-sm font-medium bg-indigo-600 text-white hover:bg-indigo-700 rounded-lg transition-colors cursor-pointer"
-          >
-            {isZh ? '+ 添加' : '+ Add'}
-          </button>
-        </div>
+    <div className="max-w-7xl mx-auto">
+      <div className="mb-8 text-center">
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          <span className="inline-flex items-center justify-center w-10 h-10 bg-amber-100 rounded-lg mr-2">
+            🛠️
+          </span>
+          Skills 库
+        </h1>
+        <p className="text-gray-600">AI Skills 库</p>
+      </div>
+
+      <div className="flex items-center justify-center gap-2 mb-6">
+        <button
+          type="button"
+          onClick={() => setSettingsModalOpen(true)}
+          className="px-3 py-1.5 text-sm font-medium bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors cursor-pointer"
+        >
+          ⚙️
+        </button>
+        <button
+          type="button"
+          onClick={() => setIsZh(!isZh)}
+          className="px-3 py-1.5 text-sm font-medium bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors cursor-pointer"
+        >
+          {isZh ? 'English' : '中文'}
+        </button>
+        <button
+          type="button"
+          onClick={() => setAddModalOpen(true)}
+          className="px-3 py-1.5 text-sm font-medium bg-indigo-600 text-white hover:bg-indigo-700 rounded-lg transition-colors cursor-pointer"
+        >
+          {isZh ? '+ 添加' : '+ Add'}
+        </button>
       </div>
 
       <Input

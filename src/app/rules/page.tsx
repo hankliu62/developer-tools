@@ -109,9 +109,15 @@ export default function RulesPage() {
   };
 
   return (
-    <div>
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Rules</h1>
+    <div className="max-w-7xl mx-auto">
+      <div className="mb-8 text-center">
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          <span className="inline-flex items-center justify-center w-10 h-10 bg-teal-100 rounded-lg mr-2">
+            📋
+          </span>
+          Rules 库
+        </h1>
+        <p className="text-gray-600">AI Rules 库</p>
       </div>
 
       <Input

@@ -70,6 +70,7 @@ const toolEmojis: Record<string, string> = {
   'i-carbon-text-annotation-toggle': '🖊️',
   'i-carbon-network-4': '🌐',
   'i-carbon-image': '🖼️',
+  'i-carbon-calendar': '📅',
   // Network
   'i-carbon-network-enterprise': '🏢',
   'i-carbon-search': '🔍',

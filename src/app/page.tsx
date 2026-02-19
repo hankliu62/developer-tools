@@ -168,6 +168,7 @@ function getToolEmoji(icon: string): string {
     'i-carbon-text-annotation-toggle': '🖊️',
     'i-carbon-network-4': '🌐',
     'i-carbon-image': '🖼️',
+    'i-carbon-calendar': '📅',
     'i-carbon-network-enterprise': '🏢',
     'i-carbon-search': '🔍',
     'i-carbon-subnet': '🕸️',

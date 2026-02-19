@@ -158,7 +158,7 @@ export default function CalendarPage() {
       cached.forEach((item) => {
         dataMap[item.date] = item;
       });
-      setMonthData(dataMap);
+      setMonthData((prev) => ({ ...dataMap, ...prev }));
       return;
     }
 
@@ -173,7 +173,7 @@ export default function CalendarPage() {
         result.data.forEach((item: CalendarData) => {
           dataMap[item.date] = item;
         });
-        setMonthData(dataMap);
+        setMonthData((prev) => ({ ...dataMap, ...prev }));
       }
     } catch (error) {
       console.error('Failed to fetch month data:', error);
@@ -196,6 +196,15 @@ export default function CalendarPage() {
 
   const handleDateClick = (date: string) => {
     setSelectedDate(date);
+
+    // 检查日期是否在当前月份，如果不在则切换月份
+    const clickedDate = new Date(date);
+    const clickedYear = clickedDate.getFullYear();
+    const clickedMonth = clickedDate.getMonth();
+
+    if (clickedYear !== year || clickedMonth !== month) {
+      setCurrentDate(new Date(clickedYear, clickedMonth, 1));
+    }
   };
 
   const handleToday = () => {
@@ -312,7 +321,7 @@ export default function CalendarPage() {
                       onClick={() => handleDateClick(day.date)}
                       className={`
                         relative p-2 rounded-lg text-center transition-all min-h-[80px] flex flex-col items-center justify-center cursor-pointer
-                        ${!day.isCurrentMonth ? 'text-gray-300' : 'text-gray-700'}
+                        ${!day.isCurrentMonth ? 'text-gray-400 opacity-50' : 'text-gray-700'}
                         ${day.isToday ? 'ring-2 ring-indigo-500 ring-offset-2' : ''}
                         ${isSelected ? 'bg-indigo-600 text-white hover:bg-indigo-700' : 'hover:bg-gray-100'}
                         ${typeClass && !isSelected ? typeClass : ''}

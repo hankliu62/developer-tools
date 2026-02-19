@@ -736,6 +736,13 @@ export const categories: Category[] = [
     icon: 'i-carbon-home',
     children: [
       {
+        name: '故事会',
+        description: '儿童故事浏览、搜索、AI朗读、续写、总结',
+        href: '/tools/life/story-collection',
+        icon: 'i-carbon-book',
+        status: 'new',
+      },
+      {
         name: '历史上的今天',
         description: '查看历史上今天发生的重要事件，AI智能解读',
         href: '/tools/life/today-in-history',

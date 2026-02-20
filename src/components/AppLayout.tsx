@@ -28,6 +28,7 @@ const categoryIcons: Record<string, React.ReactNode> = {
   dev: '🛠️',
   validator: '✅',
   ai: '🤖',
+  toolkits: '🧰',
 };
 
 const toolEmojis: Record<string, string> = {
@@ -106,6 +107,23 @@ const toolEmojis: Record<string, string> = {
   'i-carbon-chat': '💬',
   'i-carbon-tool-kit': '🧰',
   'i-carbon-rule': '📏',
+  // Toolkits
+  'i-carbon-tool-box': '🧰',
+  'i-carbon-data-table': '🗃️',
+  'i-carbon-markdown': '📝',
+  'i-carbon-transform': '🔄',
+  'i-carbon-json': '📋',
+  'i-carbon-types': '📐',
+  'i-carbon-css': '🎨',
+  'i-carbon-video': '🎬',
+  'i-carbon-video-add': '📹',
+  'i-carbon-text-extract': '📝',
+  'i-carbon-id-card': '🪪',
+  'i-carbon-credit-card': '💳',
+  'i-carbon-cloud': '☁️',
+  'i-carbon-food': '🍽️',
+  'i-carbon-checkmark-filled': '✅',
+  'i-carbon-paint-brush': '🖌️',
 };
 
 export function getToolIcon(icon: string): string {
@@ -149,8 +167,12 @@ export default function AppLayout({ children }: AppLayoutProps) {
     [allTools]
   );
 
-  const handleToolClick = (href: string) => {
-    router.push(href);
+  const handleToolClick = (tool: Tool) => {
+    if (tool.target === '_blank') {
+      window.open(tool.href, '_blank');
+    } else {
+      router.push(tool.href);
+    }
     setSearchQuery('');
     setShowSearchResults(false);
     setSearchExpanded(false);
@@ -219,12 +241,23 @@ export default function AppLayout({ children }: AppLayoutProps) {
       ),
       children: category.children.map((tool: Tool) => ({
         key: tool.href,
-        label: (
-          <Link href={tool.href} className="flex items-center gap-2">
-            <span>{getToolIcon(tool.icon)}</span>
-            <span>{tool.name}</span>
-          </Link>
-        ),
+        label:
+          tool.target === '_blank' ? (
+            <a
+              href={tool.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2"
+            >
+              <span>{getToolIcon(tool.icon)}</span>
+              <span>{tool.name}</span>
+            </a>
+          ) : (
+            <Link href={tool.href} className="flex items-center gap-2">
+              <span>{getToolIcon(tool.icon)}</span>
+              <span>{tool.name}</span>
+            </Link>
+          ),
       })),
     })),
   ];
@@ -322,7 +355,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
                         <div
                           key={tool.href + tool.name}
                           className="px-4 py-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
-                          onMouseDown={() => handleToolClick(tool.href)}
+                          onMouseDown={() => handleToolClick(tool)}
                         >
                           <div className="font-medium text-gray-900">{tool.name}</div>
                           <div className="text-sm text-gray-500">{tool.description}</div>

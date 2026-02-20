@@ -20,18 +20,12 @@ interface ApiResponse {
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const type = searchParams.get('type') || '1';
-  const month = searchParams.get('month');
-  const day = searchParams.get('day');
 
   try {
     const appId = process.env.NEXT_PUBLIC_MXNZP_APP_ID;
     const appSecret = process.env.NEXT_PUBLIC_MXNZP_APP_SECRET;
 
-    let url = `${HISTORY_API_BASE}?type=${type}&app_id=${appId}&app_secret=${appSecret}`;
-
-    if (month && day) {
-      url += `&month=${month}&day=${day}`;
-    }
+    const url = `${HISTORY_API_BASE}?type=${type}&app_id=${appId}&app_secret=${appSecret}`;
 
     const response = await fetch(url, {
       headers: {

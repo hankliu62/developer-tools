@@ -369,8 +369,8 @@ export default function StoryCollectionPage() {
                   onClick={() =>
                     window.open(`/tools/life/story-collection/${story.storyId}`, '_blank')
                   }
-                  bodyStyle={{ padding: '16px' }}
-                  bordered
+                  styles={{ body: { padding: '16px' } }}
+                  variant="borderless"
                 >
                   <div className="flex items-center gap-4">
                     {/* 类型图标 */}

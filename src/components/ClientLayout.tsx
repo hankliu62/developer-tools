@@ -9,8 +9,8 @@ interface ClientLayoutProps {
 export default function ClientLayout({ children }: ClientLayoutProps) {
   return (
     <Watermark
-      content="H.L Developer Tools"
-      font={{ color: 'rgba(0, 0, 0, 0.02)' }}
+      content="H.L 开发者小工具集"
+      font={{ color: 'rgba(0, 0, 0, 0.08)' }}
       className="flex min-h-screen flex-col"
     >
       {children}

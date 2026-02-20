@@ -18,18 +18,22 @@ interface AIInterpretation {
   fun_fact: string[];
 }
 
-const CACHE_KEY = 'history_events_cache';
+const CACHE_KEY_PREFIX = 'history_events_cache_';
 const API_KEY_STORAGE = 'zhipu_api_key';
-const CACHE_EXPIRE_DAYS = 30;
+const CACHE_EXPIRE_DAYS = 1;
+
+function getCacheKey(year: number, month: number, day: number) {
+  return `${CACHE_KEY_PREFIX}${year}_${month}_${day}`;
+}
 
 interface CacheData {
   data: HistoryEvent[];
   timestamp: number;
 }
 
-function loadCache(): CacheData | null {
+function loadCache(year: number, month: number, day: number): CacheData | null {
   try {
-    const cached = localStorage.getItem(CACHE_KEY);
+    const cached = localStorage.getItem(getCacheKey(year, month, day));
     if (cached) {
       const parsed: CacheData = JSON.parse(cached);
       const now = Date.now();
@@ -44,10 +48,10 @@ function loadCache(): CacheData | null {
   return null;
 }
 
-function saveCache(data: HistoryEvent[]) {
+function saveCache(year: number, month: number, day: number, data: HistoryEvent[]) {
   try {
     localStorage.setItem(
-      CACHE_KEY,
+      getCacheKey(year, month, day),
       JSON.stringify({
         data,
         timestamp: Date.now(),
@@ -58,19 +62,22 @@ function saveCache(data: HistoryEvent[]) {
   }
 }
 
-function getCachedData(): HistoryEvent[] | null {
-  const cached = loadCache();
+function getCachedData(year: number, month: number, day: number): HistoryEvent[] | null {
+  const cached = loadCache(year, month, day);
   return cached ? cached.data : null;
 }
 
-function setCachedData(data: HistoryEvent[]) {
-  saveCache(data);
+function setCachedData(year: number, month: number, day: number, data: HistoryEvent[]) {
+  saveCache(year, month, day, data);
 }
 
 export default function TodayInHistoryPage() {
   const today = new Date();
-  const [currentMonth, setCurrentMonth] = useState(today.getMonth() + 1);
-  const [currentDay, setCurrentDay] = useState(today.getDate());
+  const initialYear = today.getFullYear();
+  const initialMonth = today.getMonth() + 1;
+  const initialDay = today.getDate();
+  const [currentMonth, setCurrentMonth] = useState(initialMonth);
+  const [currentDay, setCurrentDay] = useState(initialDay);
   const [events, setEvents] = useState<HistoryEvent[]>([]);
   const [loading, setLoading] = useState(false);
   const [aiLoading, setAiLoading] = useState<number | null>(null);
@@ -92,8 +99,8 @@ export default function TodayInHistoryPage() {
     message.success('API Key 已保存');
   }, []);
 
-  const fetchHistoryEvents = useCallback(async () => {
-    const cached = getCachedData();
+  const fetchHistoryEvents = useCallback(async (year: number, month: number, day: number) => {
+    const cached = getCachedData(year, month, day);
     if (cached) {
       setEvents(cached);
       return;
@@ -101,12 +108,12 @@ export default function TodayInHistoryPage() {
 
     setLoading(true);
     try {
-      const response = await fetch('/api/history-today');
+      const response = await fetch(`/api/history-today?type=1`);
       const result = await response.json();
 
       if (result.code === 1 && result.data) {
         setEvents(result.data);
-        setCachedData(result.data);
+        setCachedData(year, month, day, result.data);
       } else {
         setEvents([]);
         message.error(result.msg || '获取历史事件失败');
@@ -120,11 +127,11 @@ export default function TodayInHistoryPage() {
   }, []);
 
   const [expandedEvents, setExpandedEvents] = useState<Set<number>>(new Set());
-  const [currentYear, setCurrentYear] = useState(today.getFullYear());
+  const [currentYear, setCurrentYear] = useState(initialYear);
 
   useEffect(() => {
-    fetchHistoryEvents();
-  }, [fetchHistoryEvents]);
+    fetchHistoryEvents(initialYear, initialMonth, initialDay);
+  }, [fetchHistoryEvents, initialYear, initialMonth, initialDay]);
 
   const handlePrevDay = useCallback(() => {
     const newDate = new Date(currentYear, currentMonth - 1, currentDay - 1);

@@ -246,7 +246,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
             height={32}
             className="rounded-lg"
           />
-          <span className="text-lg font-semibold text-gray-900">Developer Tools</span>
+          <span className="text-lg font-semibold text-gray-900">开发者小工具集</span>
         </Link>
 
         {/* Search - aligned with main content */}

@@ -2,7 +2,8 @@
 
 import { message, Spin } from 'antd';
 import { useParams } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import AudioPlayerController from '@/components/AudioPlayerController';
 
 interface StoryDetail {
   storyId: number;
@@ -40,10 +41,29 @@ export default function StoryDetailPage() {
   const [summaryContent, setSummaryContent] = useState<AISummary | null>(null);
 
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
   const [currentAudio, setCurrentAudio] = useState<HTMLAudioElement | null>(null);
   const [loopCount, setLoopCount] = useState(1);
   const [isLooping, setIsLooping] = useState(false);
   const [playProgress, setPlayProgress] = useState(0);
+  const [totalDuration, setTotalDuration] = useState(0);
+  const [elapsedTime, setElapsedTime] = useState(0);
+  const [playbackRate, setPlaybackRate] = useState(1);
+  const [progressInterval, setProgressInterval] = useState<ReturnType<typeof setInterval> | null>(
+    null
+  );
+  const [utteranceRef, setUtteranceRef] = useState<SpeechSynthesisUtterance | null>(null);
+
+  const loopCountRef = useRef(loopCount);
+  const isLoopingRef = useRef(isLooping);
+
+  useEffect(() => {
+    loopCountRef.current = loopCount;
+  }, [loopCount]);
+
+  useEffect(() => {
+    isLoopingRef.current = isLooping;
+  }, [isLooping]);
 
   const fetchStoryDetail = useCallback(async () => {
     setLoading(true);
@@ -70,6 +90,27 @@ export default function StoryDetailPage() {
     fetchStoryDetail();
   }, [fetchStoryDetail]);
 
+  useEffect(() => {
+    if (totalDuration > 0) {
+      setPlayProgress((elapsedTime / totalDuration) * 100);
+    }
+  }, [elapsedTime, totalDuration]);
+
+  useEffect(() => {
+    const cleanup = () => {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+    };
+    window.addEventListener('beforeunload', cleanup);
+    return () => {
+      window.removeEventListener('beforeunload', cleanup);
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, []);
+
   const handleSaveApiKey = useCallback((key: string) => {
     setApiKey(key);
     localStorage.setItem(API_KEY_STORAGE, key);
@@ -81,46 +122,186 @@ export default function StoryDetailPage() {
     if (!story?.content) return;
 
     if (isPlaying) {
-      if (currentAudio) {
-        currentAudio.pause();
+      if (isPaused) {
+        window.speechSynthesis.resume();
+        setIsPaused(false);
+        const interval = setInterval(() => {
+          setElapsedTime((prev) => {
+            const newTime = prev + 0.1;
+            return Math.min(newTime, totalDuration);
+          });
+        }, 100);
+        setProgressInterval(interval);
+      } else {
+        window.speechSynthesis.pause();
+        setIsPaused(true);
+        if (progressInterval) {
+          clearInterval(progressInterval);
+          setProgressInterval(null);
+        }
       }
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-      }
-      setIsPlaying(false);
       return;
     }
 
-    if ('speechSynthesis' in window) {
-      const utterance = new SpeechSynthesisUtterance(story.content);
-      utterance.lang = 'zh-CN';
-      utterance.rate = 0.9;
+    const content = story.content;
+    if (!content) return;
 
-      utterance.onstart = () => setIsPlaying(true);
-      utterance.onend = () => {
-        if (isLooping || loopCount > 1) {
-          const newCount = loopCount - 1;
-          if (newCount > 0 || isLooping) {
-            if (!isLooping) setLoopCount(newCount);
-            window.speechSynthesis.speak(utterance);
-          } else {
-            setIsPlaying(false);
-          }
-        } else {
-          setIsPlaying(false);
-        }
+    if (!('speechSynthesis' in window)) {
+      message.error('您的浏览器不支持语音播放');
+      return;
+    }
+
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+    if (window.speechSynthesis.speaking) {
+      window.speechSynthesis.cancel();
+    }
+
+    const delay = isSafari ? 500 : 100;
+    setTimeout(() => {
+      const utterance = new SpeechSynthesisUtterance(content);
+      utterance.lang = 'zh-CN';
+      utterance.rate = playbackRate;
+
+      const estimatedDuration = (content.length * 0.15) / playbackRate;
+      setTotalDuration(estimatedDuration);
+      setElapsedTime(0);
+      setPlayProgress(0);
+      setUtteranceRef(utterance);
+
+      utterance.onstart = () => {
+        console.log('TTS started');
+        setIsPlaying(true);
+        setIsPaused(false);
+        const interval = setInterval(() => {
+          setElapsedTime((prev) => {
+            const newTime = prev + 0.1;
+            return Math.min(newTime, estimatedDuration);
+          });
+        }, 100);
+        setProgressInterval(interval);
       };
-      utterance.onerror = () => {
+
+      utterance.onend = () => {
+        if (progressInterval) {
+          clearInterval(progressInterval);
+          setProgressInterval(null);
+        }
+        setIsPlaying(false);
+        setIsPaused(false);
+        setPlayProgress(0);
+        setElapsedTime(0);
+      };
+
+      utterance.onerror = (event) => {
+        console.log('TTS error:', event.error);
+        if (event.error === 'canceled' || event.error === 'interrupted') {
+          if (progressInterval) {
+            clearInterval(progressInterval);
+            setProgressInterval(null);
+          }
+          setIsPlaying(false);
+          setIsPaused(false);
+          return;
+        }
+        if (progressInterval) {
+          clearInterval(progressInterval);
+          setProgressInterval(null);
+        }
         message.error('播放失败');
         setIsPlaying(false);
+        setIsPaused(false);
       };
 
       window.speechSynthesis.speak(utterance);
-      setCurrentAudio({ pause: () => window.speechSynthesis.cancel() } as HTMLAudioElement);
-    } else {
-      message.error('您的浏览器不支持语音播放');
+    }, delay);
+  }, [story, isPlaying, isPaused, progressInterval, totalDuration, playbackRate]);
+
+  const handlePlay = useCallback(() => {
+    handleTTS();
+  }, [handleTTS]);
+
+  const handlePause = useCallback(() => {
+    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+      window.speechSynthesis.pause();
+      setIsPaused(true);
+      if (progressInterval) {
+        clearInterval(progressInterval);
+        setProgressInterval(null);
+      }
     }
-  }, [story, isPlaying, currentAudio, loopCount, isLooping]);
+  }, [progressInterval]);
+
+  const handleSeek = useCallback(
+    (time: number) => {
+      setElapsedTime(time);
+      setPlayProgress(totalDuration > 0 ? (time / totalDuration) * 100 : 0);
+    },
+    [totalDuration]
+  );
+
+  const handlePlaybackRateChange = useCallback(
+    (rate: number) => {
+      setPlaybackRate(rate);
+      if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+      }
+      if (progressInterval) {
+        clearInterval(progressInterval);
+        setProgressInterval(null);
+      }
+
+      if (!story?.content) return;
+
+      const content = story.content;
+      const utterance = new SpeechSynthesisUtterance(content);
+      utterance.lang = 'zh-CN';
+      utterance.rate = rate;
+
+      const estimatedDuration = (content.length * 0.15) / rate;
+      setTotalDuration(estimatedDuration);
+      setElapsedTime(0);
+      setPlayProgress(0);
+
+      utterance.onstart = () => {
+        setIsPlaying(true);
+        setIsPaused(false);
+        const interval = setInterval(() => {
+          setElapsedTime((prev) => {
+            const newTime = prev + 0.1;
+            return Math.min(newTime, estimatedDuration);
+          });
+        }, 100);
+        setProgressInterval(interval);
+      };
+
+      utterance.onend = () => {
+        if (progressInterval) {
+          clearInterval(progressInterval);
+          setProgressInterval(null);
+        }
+        setIsPlaying(false);
+        setIsPaused(false);
+        setPlayProgress(0);
+        setElapsedTime(0);
+      };
+
+      utterance.onerror = (event) => {
+        if (event.error === 'canceled' || event.error === 'interrupted') {
+          return;
+        }
+        if (progressInterval) {
+          clearInterval(progressInterval);
+          setProgressInterval(null);
+        }
+        setIsPlaying(false);
+        setIsPaused(false);
+      };
+
+      window.speechSynthesis.speak(utterance);
+    },
+    [story, progressInterval]
+  );
 
   const handleContinue = useCallback(async () => {
     if (!apiKey) {
@@ -312,14 +493,34 @@ export default function StoryDetailPage() {
             {ttsLoading ? (
               <Spin size="small" />
             ) : isPlaying ? (
-              <>
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <title>暂停</title>
-                  <rect x="6" y="4" width="4" height="16" />
-                  <rect x="14" y="4" width="4" height="16" />
-                </svg>
-                暂停
-              </>
+              isPaused ? (
+                <>
+                  <svg
+                    className="w-4 h-4"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <title>继续</title>
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  继续
+                </>
+              ) : (
+                <>
+                  <svg
+                    className="w-4 h-4"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <title>暂停</title>
+                    <rect x="6" y="4" width="4" height="16" />
+                    <rect x="14" y="4" width="4" height="16" />
+                  </svg>
+                  暂停
+                </>
+              )
             ) : (
               <>
                 <svg
@@ -445,45 +646,15 @@ export default function StoryDetailPage() {
 
         {isPlaying && (
           <div className="max-w-4xl mx-auto px-4 pb-3">
-            <div className="flex items-center gap-3 bg-white rounded-full px-4 py-2 shadow-sm">
-              <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-green-500 transition-all"
-                  style={{ width: `${playProgress}%` }}
-                />
-              </div>
-              <button
-                type="button"
-                onClick={() => setIsLooping(!isLooping)}
-                className={`p-1 rounded ${isLooping ? 'text-green-600' : 'text-gray-400'}`}
-                title={isLooping ? '关闭循环' : '开启循环'}
-              >
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <title>{isLooping ? '关闭循环' : '开启循环'}</title>
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                  />
-                </svg>
-              </button>
-              <select
-                value={loopCount}
-                onChange={(e) => setLoopCount(Number(e.target.value))}
-                className="text-sm border rounded px-2 py-1"
-              >
-                <option value={1}>1次</option>
-                <option value={2}>2次</option>
-                <option value={3}>3次</option>
-              </select>
-            </div>
+            <AudioPlayerController
+              isPlaying={isPlaying}
+              isPaused={isPaused}
+              currentTime={elapsedTime}
+              duration={totalDuration}
+              playbackRate={playbackRate}
+              onSeek={handleSeek}
+              onPlaybackRateChange={handlePlaybackRateChange}
+            />
           </div>
         )}
       </header>

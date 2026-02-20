@@ -280,7 +280,7 @@ export default function StoryCollectionPage() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto min-h-screen px-4 py-8 bg-gray-50">
+    <div className="max-w-7xl mx-auto min-h-screen px-4 py-8 bg-gray-50">
       {/* 标题区域 */}
       <div className="mb-8 text-center">
         <div className="inline-flex items-center justify-center w-14 h-14 bg-indigo-500 rounded-2xl mb-4 shadow-lg">
@@ -361,7 +361,7 @@ export default function StoryCollectionPage() {
           </Card>
         ) : (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
               {stories.map((story) => (
                 <Card
                   key={story.storyId}

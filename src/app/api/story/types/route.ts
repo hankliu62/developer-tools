@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
 const STORY_API_BASE = 'https://www.mxnzp.com/api/story/types';
 

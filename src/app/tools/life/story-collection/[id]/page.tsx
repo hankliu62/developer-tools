@@ -33,7 +33,7 @@ export default function StoryDetailPage() {
   const [apiKey, setApiKey] = useState('');
   const [settingsVisible, setSettingsVisible] = useState(false);
 
-  const [ttsLoading, setTtsLoading] = useState(false);
+  const [ttsLoading, _setTtsLoading] = useState(false);
   const [continueLoading, setContinueLoading] = useState(false);
   const [summaryLoading, setSummaryLoading] = useState(false);
 
@@ -42,17 +42,17 @@ export default function StoryDetailPage() {
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  const [currentAudio, setCurrentAudio] = useState<HTMLAudioElement | null>(null);
-  const [loopCount, setLoopCount] = useState(1);
-  const [isLooping, setIsLooping] = useState(false);
-  const [playProgress, setPlayProgress] = useState(0);
+  const [_currentAudio, _setCurrentAudio] = useState<HTMLAudioElement | null>(null);
+  const [loopCount, _setLoopCount] = useState(1);
+  const [isLooping, _setIsLooping] = useState(false);
+  const [_playProgress, setPlayProgress] = useState(0);
   const [totalDuration, setTotalDuration] = useState(0);
   const [elapsedTime, setElapsedTime] = useState(0);
   const [playbackRate, setPlaybackRate] = useState(1);
   const [progressInterval, setProgressInterval] = useState<ReturnType<typeof setInterval> | null>(
     null
   );
-  const [utteranceRef, setUtteranceRef] = useState<SpeechSynthesisUtterance | null>(null);
+  const [_utteranceRef, setUtteranceRef] = useState<SpeechSynthesisUtterance | null>(null);
 
   const loopCountRef = useRef(loopCount);
   const isLoopingRef = useRef(isLooping);
@@ -217,11 +217,11 @@ export default function StoryDetailPage() {
     }, delay);
   }, [story, isPlaying, isPaused, progressInterval, totalDuration, playbackRate]);
 
-  const handlePlay = useCallback(() => {
+  const _handlePlay = useCallback(() => {
     handleTTS();
   }, [handleTTS]);
 
-  const handlePause = useCallback(() => {
+  const _handlePause = useCallback(() => {
     if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
       window.speechSynthesis.pause();
       setIsPaused(true);

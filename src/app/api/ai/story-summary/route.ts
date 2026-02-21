@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
 
     const result = await response.json();
 
-    if (result.choices && result.choices[0]) {
+    if (result.choices?.[0]) {
       const content = result.choices[0].message.content;
       return NextResponse.json({
         code: 1,

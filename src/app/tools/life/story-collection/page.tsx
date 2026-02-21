@@ -211,7 +211,7 @@ export default function StoryCollectionPage() {
           }
           setHasMore(false);
 
-          if (result.msg && result.msg.includes('QPS')) {
+          if (result.msg?.includes('QPS')) {
             message.warning('请求太频繁，请稍后再试');
           }
         }
@@ -229,7 +229,7 @@ export default function StoryCollectionPage() {
     [selectedType, keyword]
   );
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: reset page when filters change
   useEffect(() => {
     setPage(1);
     setStories([]);

@@ -2,11 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const STORY_API_BASE = 'https://www.mxnzp.com/api/story';
 
-interface StoryType {
-  name: string;
-  type_id: number;
-}
-
 interface ApiResponse<T> {
   code: number;
   msg: string;

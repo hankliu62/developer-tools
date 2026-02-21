@@ -288,6 +288,13 @@ export const categories: Category[] = [
         icon: 'i-carbon-image',
         status: 'new',
       },
+      {
+        name: '图片转 ICO',
+        description: '图片转换为 ICO/PNG Favicon 格式',
+        href: '/tools/converter/image-to-ico',
+        icon: 'i-carbon-image',
+        status: 'new',
+      },
     ],
   },
   {

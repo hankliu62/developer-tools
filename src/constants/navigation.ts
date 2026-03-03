@@ -295,6 +295,13 @@ export const categories: Category[] = [
         icon: 'i-carbon-image',
         status: 'new',
       },
+      {
+        name: '在线抠图',
+        description: 'AI 自动抠图，支持手动调整和换背景',
+        href: '/tools/converter/remove-background',
+        icon: 'i-carbon-image',
+        status: 'new',
+      },
     ],
   },
   {

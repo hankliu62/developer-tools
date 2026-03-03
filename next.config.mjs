@@ -17,6 +17,13 @@ if (isGithubActions) {
   nextConfig.env = {
     ROUTE_PREFIX: `/${repo}`,
   };
+
+  const {
+    env: { TIANAPI_KEY, MXNZPAPI_KEY, MXNZPAPI_SECRET, ...envs },
+    ...conf
+  } = nextConfig;
+
+  console.log('next config is:', { ...conf, env: { ...envs } });
 }
 
 export default nextConfig;

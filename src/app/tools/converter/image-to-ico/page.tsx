@@ -3,6 +3,7 @@
 import { Button, Input, Modal, message, Progress, Tag } from 'antd';
 import { saveAs } from 'file-saver';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { API_BASE_URL } from '@/config/api';
 
 const ICO_SIZES = [16, 24, 32, 48, 64, 128, 256];
 const PNG_SIZES = [16, 32, 48, 64, 128, 192, 512];
@@ -350,7 +351,7 @@ export default function ImageToIcoPage() {
           enhance: '请提升这张图片的清晰度和质量，进行超分辨率重建，使其更适合作为图标使用。',
         };
 
-        const response = await fetch('/api/ai/image-process', {
+        const response = await fetch(`${API_BASE_URL}/api/ai?action=image-process`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

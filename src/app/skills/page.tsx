@@ -6,6 +6,7 @@ import dayjs from 'dayjs';
 import { marked } from 'marked';
 import QRCode from 'qrcode';
 import { useEffect, useMemo, useState } from 'react';
+import { API_BASE_URL } from '@/config/api';
 import { skills as defaultSkills, type Skill } from '@/data/skills';
 
 const FAVORITES_KEY = 'skills-favorites';
@@ -199,7 +200,7 @@ export default function SkillsPage() {
       const results: Partial<typeof newSkill> = {};
 
       if (name && isChinese(name)) {
-        const res = await fetch('/api/translate', {
+        const res = await fetch(`${API_BASE_URL}/api/tools?action=translate`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ text: name, targetLang: 'en', apiKey, model: apiModel }),
@@ -207,7 +208,7 @@ export default function SkillsPage() {
         const data = await res.json();
         if (data.translatedText) results.nameZh = data.translatedText;
       } else if (name && !isChinese(name)) {
-        const res = await fetch('/api/translate', {
+        const res = await fetch(`${API_BASE_URL}/api/tools?action=translate`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ text: name, targetLang: 'zh', apiKey, model: apiModel }),
@@ -217,7 +218,7 @@ export default function SkillsPage() {
       }
 
       if (desc && isChinese(desc)) {
-        const res = await fetch('/api/translate', {
+        const res = await fetch(`${API_BASE_URL}/api/tools?action=translate`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ text: desc, targetLang: 'en', apiKey, model: apiModel }),
@@ -225,7 +226,7 @@ export default function SkillsPage() {
         const data = await res.json();
         if (data.translatedText) results.descriptionZh = data.translatedText;
       } else if (desc && !isChinese(desc)) {
-        const res = await fetch('/api/translate', {
+        const res = await fetch(`${API_BASE_URL}/api/tools?action=translate`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ text: desc, targetLang: 'zh', apiKey, model: apiModel }),
@@ -235,7 +236,7 @@ export default function SkillsPage() {
       }
 
       if (content && isChinese(content)) {
-        const res = await fetch('/api/translate', {
+        const res = await fetch(`${API_BASE_URL}/api/tools?action=translate`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ text: content, targetLang: 'en', apiKey, model: apiModel }),
@@ -243,7 +244,7 @@ export default function SkillsPage() {
         const data = await res.json();
         if (data.translatedText) results.contentZh = data.translatedText;
       } else if (content && !isChinese(content)) {
-        const res = await fetch('/api/translate', {
+        const res = await fetch(`${API_BASE_URL}/api/tools?action=translate`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ text: content, targetLang: 'zh', apiKey, model: apiModel }),
@@ -253,7 +254,7 @@ export default function SkillsPage() {
       }
 
       if (category && isChinese(category)) {
-        const res = await fetch('/api/translate', {
+        const res = await fetch(`${API_BASE_URL}/api/tools?action=translate`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ text: category, targetLang: 'en', apiKey, model: apiModel }),
@@ -261,7 +262,7 @@ export default function SkillsPage() {
         const data = await res.json();
         if (data.translatedText) results.categoryZh = data.translatedText;
       } else if (category && !isChinese(category)) {
-        const res = await fetch('/api/translate', {
+        const res = await fetch(`${API_BASE_URL}/api/tools?action=translate`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ text: category, targetLang: 'zh', apiKey, model: apiModel }),

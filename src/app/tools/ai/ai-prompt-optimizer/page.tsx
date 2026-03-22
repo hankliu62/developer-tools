@@ -2,6 +2,7 @@
 import { Button, Divider, Input, message, Select, Slider, Switch } from 'antd';
 import copy from 'copy-to-clipboard';
 import { useCallback, useEffect, useState } from 'react';
+import { API_BASE_URL } from '@/config/api';
 
 const { TextArea } = Input;
 
@@ -89,7 +90,7 @@ export default function AIPromptOptimizerPage() {
     setLoading(true);
 
     try {
-      const res = await fetch('/api/ai-prompt-optimizer', {
+      const res = await fetch(`${API_BASE_URL}/api/tools?action=ai-prompt-optimizer`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

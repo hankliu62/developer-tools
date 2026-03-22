@@ -4,6 +4,7 @@ import { message, Spin } from 'antd';
 import { useParams } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import AudioPlayerController from '@/components/AudioPlayerController';
+import { API_BASE_URL } from '@/config/api';
 
 interface StoryDetail {
   storyId: number;
@@ -68,7 +69,7 @@ export default function StoryDetailPage() {
   const fetchStoryDetail = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/story/details?story_id=${storyId}`);
+      const response = await fetch(`${API_BASE_URL}/api/story?action=details&story_id=${storyId}`);
       const result = await response.json();
       if (result.code === 1 && result.data) {
         setStory(result.data);
@@ -314,7 +315,7 @@ export default function StoryDetailPage() {
 
     setContinueLoading(true);
     try {
-      const response = await fetch('/api/ai/story-continue', {
+      const response = await fetch(`${API_BASE_URL}/api/ai?action=story-continue`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -347,7 +348,7 @@ export default function StoryDetailPage() {
 
     setSummaryLoading(true);
     try {
-      const response = await fetch('/api/ai/story-summary', {
+      const response = await fetch(`${API_BASE_URL}/api/ai?action=story-summary`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

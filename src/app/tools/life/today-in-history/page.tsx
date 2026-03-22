@@ -2,6 +2,7 @@
 
 import { Input, Modal, message, Spin } from 'antd';
 import { useCallback, useEffect, useState } from 'react';
+import { API_BASE_URL } from '@/config/api';
 
 interface HistoryEvent {
   picUrl: string;
@@ -108,7 +109,7 @@ export default function TodayInHistoryPage() {
 
     setLoading(true);
     try {
-      const response = await fetch(`/api/history-today?type=1`);
+      const response = await fetch(`${API_BASE_URL}/api/tools?action=history-today&type=1`);
       const result = await response.json();
 
       if (result.code === 1 && result.data) {
@@ -174,7 +175,7 @@ export default function TodayInHistoryPage() {
 
       setAiLoading(index);
       try {
-        const response = await fetch('/api/ai/history-interpretation', {
+        const response = await fetch(`${API_BASE_URL}/api/ai?action=history-interpretation`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

@@ -4,6 +4,7 @@ import { Button, Dropdown, Modal, message, Progress, Select, Slider, Switch } fr
 import { saveAs } from 'file-saver';
 import JSZip from 'jszip';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { API_BASE_URL } from '@/config/api';
 
 interface ImageFile {
   id: string;
@@ -1343,7 +1344,7 @@ export default function ImageCompressorPage() {
                       };
                     });
                     const base64 = canvas.toDataURL('image/jpeg', 0.8);
-                    const res = await fetch('/api/image-analyze', {
+                    const res = await fetch(`${API_BASE_URL}/api/tools?action=image-analyze`, {
                       method: 'POST',
                       headers: { 'Content-Type': 'application/json' },
                       body: JSON.stringify({ apiKey, model: apiModel, imageBase64: base64 }),

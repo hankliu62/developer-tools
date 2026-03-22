@@ -12,6 +12,7 @@ import {
 import { Button, Modal, message, Popconfirm, Radio, Slider, Spin } from 'antd';
 import { saveAs } from 'file-saver';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { API_BASE_URL } from '@/config/api';
 
 interface StoredImage {
   id: string;
@@ -383,7 +384,7 @@ export default function RemoveBackgroundPage() {
       formData.append('image_file', selectedImage.file);
       formData.append('api_key', apiKey);
 
-      const response = await fetch('/api/ai/remove-background', {
+      const response = await fetch(`${API_BASE_URL}/api/ai?action=remove-background`, {
         method: 'POST',
         body: formData,
       });

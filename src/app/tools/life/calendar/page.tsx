@@ -2,6 +2,7 @@
 
 import { Spin } from 'antd';
 import { useCallback, useEffect, useState } from 'react';
+import { API_BASE_URL } from '@/config/api';
 
 interface CalendarData {
   date: string;
@@ -165,7 +166,7 @@ export default function CalendarPage() {
     setMonthLoading(true);
     try {
       const dateStr = `${y}${String(m + 1).padStart(2, '0')}`;
-      const res = await fetch(`/api/calendar?date=${dateStr}`);
+      const res = await fetch(`${API_BASE_URL}/api/tools?action=calendar&date=${dateStr}`);
       const result = await res.json();
       if (result.code === 1 && result.data) {
         setCachedMonthData(y, m, result.data);

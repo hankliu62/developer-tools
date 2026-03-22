@@ -21,6 +21,7 @@ import {
 } from '@ant-design/icons';
 import { Badge, Button, Card, Input, message, Spin, Tag } from 'antd';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { API_BASE_URL } from '@/config/api';
 
 interface StoryType {
   name: string;
@@ -119,7 +120,7 @@ export default function StoryCollectionPage() {
     }
 
     try {
-      const response = await fetch('/api/story/types');
+      const response = await fetch(`${API_BASE_URL}/api/story`);
       const result = await response.json();
       if (result.code === 1 && result.data) {
         setTypes(result.data);
@@ -185,7 +186,7 @@ export default function StoryCollectionPage() {
       }
 
       try {
-        let url = `/api/story?page=${pageNum}`;
+        let url = `${API_BASE_URL}/api/story?action=list&page=${pageNum}`;
         if (selectedType !== null) {
           url += `&type_id=${selectedType}`;
         }

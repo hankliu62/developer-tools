@@ -368,7 +368,7 @@ export default function StoryCollectionPage() {
                   key={story.storyId}
                   className="story-card cursor-pointer hover:shadow-md transition-shadow"
                   onClick={() =>
-                    window.open(`/tools/life/story-collection/${story.storyId}`, '_blank')
+                    window.open(`/tools/life/story-collection/detail?id=${story.storyId}`, '_blank')
                   }
                   styles={{ body: { padding: '16px' } }}
                   variant="borderless"

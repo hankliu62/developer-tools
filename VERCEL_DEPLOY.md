@@ -131,17 +131,6 @@ export default nextConfig;
 
 在 Vercel 控制台的 Deployments 页面，可以找到历史部署记录，点击任意一条即可回滚。
 
-### Q: npm publish 403 错误（Two-factor authentication required）
-
-如果在 GitHub Actions 中遇到以下错误：
-
-```
-npm error 403 403 Forbidden - PUT https://registry.npmjs.org/@xxx/xxx
-Two-factor authentication or granular access token with bypass 2fa enabled is required to publish packages.
-```
-
-这是因为你的 npm 账户启用了 2FA，需要创建 **Granular Access Token**。
-
 ---
 
 ## GitHub Actions 部署配置
@@ -155,32 +144,17 @@ Two-factor authentication or granular access token with bypass 2fa enabled is re
 5. 设置 Token 名称和过期时间
 6. 复制生成的 Token
 
-### 二、创建 npm Granular Access Token（解决 2FA 问题）
-
-如果你的 npm 包启用了 2FA，在 CI/CD 环境中发布需要特殊 Token：
-
-1. 登录 npm：https://www.npmjs.com
-2. 点击头像 → **Access Tokens**
-3. 点击 **Generate New Token** → **Granular Access Token**
-4. 配置 Token 权限：
-   - **Package Registries**: `https://registry.npmjs.org/`
-   - **Organizations**: 选择你的组织（如 `@hankliu`）
-   - **Permissions**: 勾选 ✅ **Bypass 2FA for 'npm publish'**
-5. 设置过期时间，点击 **Generate Token**
-6. 复制生成的 Token
-
-### 三、添加 Secrets 到 GitHub
+### 二、添加 Secrets 到 GitHub
 
 1. 进入 GitHub 仓库
 2. 点击 **Settings** → **Secrets and variables** → **Actions**
-3. 点击 **New repository secret** 添加以下 Secrets：
+3. 点击 **New repository secret** 添加 Secrets：
 
 | Secret 名称 | 说明 | 必填 |
 |------------|------|------|
-| `VERCEL_TOKEN` | Vercel 访问 Token | ✅ Vercel 部署必填 |
-| `NPM_TOKEN` | npm Granular Token（含 publish 权限） | 仅发布 npm 包时需要 |
+| `VERCEL_TOKEN` | Vercel 访问 Token | ✅ 必填 |
 
-### 四、Workflow 配置示例
+### 三、Workflow 配置示例
 
 #### Vercel 部署（vercel.yml）
 
@@ -267,12 +241,11 @@ jobs:
           clean: true
 ```
 
-### 五、常见问题排查
+### 四、常见问题排查
 
 | 错误信息 | 解决方案 |
 |---------|---------|
 | `VERCEL_TOKEN` is not set | 在 GitHub Secrets 中添加 `VERCEL_TOKEN` |
-| `npm publish 403` | 创建 npm Granular Token 并添加到 `NPM_TOKEN` |
 | `Module not found` | 检查 `package.json` 依赖和 pnpm lock 文件 |
 | Build timeout | 增加 `timeout-minutes` 或检查构建日志 |
 

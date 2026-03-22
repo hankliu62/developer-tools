@@ -25,16 +25,16 @@ const DIALECT_OPTIONS = [
 
 // Keyword case options
 const KEYWORD_CASE_OPTIONS = [
-  { value: 'upper', label: 'UPPERCASE' },
-  { value: 'lower', label: 'lowercase' },
-  { value: 'preserve', label: 'Preserve' },
+  { value: 'upper', label: '大写' },
+  { value: 'lower', label: '小写' },
+  { value: 'preserve', label: '保持原样' },
 ];
 
 // Indent style options
 const INDENT_STYLE_OPTIONS = [
-  { value: 'standard', label: 'Standard' },
-  { value: 'tabularLeft', label: 'Tabular Left' },
-  { value: 'tabularRight', label: 'Tabular Right' },
+  { value: 'standard', label: '标准' },
+  { value: 'tabularLeft', label: '左对齐' },
+  { value: 'tabularRight', label: '右对齐' },
 ];
 
 export default function SqlFormatterPage() {

@@ -14,6 +14,7 @@
 4. **智能错误处理** - 格式化失败时显示友好警告而非直接报错
 5. **保留按钮操作** - 保留"格式化"、"压缩"、"复制"按钮作为快捷操作
 6. **移除废弃配置** - 移除 `sql-formatter` 15.x 中已废弃的 `tabulateAlias` 配置
+7. **UI/UX 优化设计** - 使用 `/ui-ux-pro-max` skill 进行专业的 UI 交互设计
 
 ## Capabilities
 
@@ -41,3 +42,22 @@
 - `language`: 新增 9 种方言支持
 - `keywordCase`: 'upper' | 'lower' | 'preserve'
 - `tabWidth`: 2 | 4
+
+## UI/UX Design Requirements
+
+所有涉及 UI 交互的部分必须使用 `/ui-ux-pro-max` skill 进行专业设计：
+
+### Design Considerations
+- **Style**: Modern minimalist with clear visual hierarchy
+- **Color Palette**: Professional developer tools aesthetic (blue/gray tones)
+- **Typography**: Clear, readable monospace font for SQL display
+- **Layout**: Clean card-based layout with proper spacing
+- **Interactions**: Smooth transitions and hover states
+- **Responsive**: Mobile-friendly design
+
+### Components to Design
+1. **格式化选项面板** - 方言、缩进风格、关键字风格选择器
+2. **SQL 输入区域** - 大文本输入框，代码编辑器风格
+3. **格式化结果展示** - 语法高亮化输出区域
+4. **操作按钮组** - 格式化、压缩、复制、清空按钮
+5. **错误警告组件** - 友好错误提示框

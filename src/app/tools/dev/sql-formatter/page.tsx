@@ -1,7 +1,7 @@
 'use client';
 import { Button, Input, message, Radio, Select } from 'antd';
 import copy from 'copy-to-clipboard';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { type FormatOptionsWithLanguage, format as formatSQL } from 'sql-formatter';
 
 const { TextArea } = Input;
@@ -50,6 +50,7 @@ export default function SqlFormatterPage() {
   const [indentWidth, setIndentWidth] = useState<2 | 4>(2);
   const [input, setInput] = useState('');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const errorMessageRef = useRef<string | null>(null);
 
   // Real-time formatted SQL using useMemo
   const formattedSQL = useMemo(() => {
@@ -59,25 +60,37 @@ export default function SqlFormatterPage() {
         ...config,
         tabWidth: indentWidth,
       });
-      setErrorMessage(null);
+      errorMessageRef.current = null;
       return result;
-    } catch (error: any) {
-      setErrorMessage(error.message);
+    } catch (error: unknown) {
+      const errorMsg = error instanceof Error ? error.message : String(error);
+      errorMessageRef.current = errorMsg;
       return input; // Return original on error
     }
   }, [input, config, indentWidth]);
 
-  // Handle copy
+  // Update error message state via useEffect to avoid setState in useMemo
+  useEffect(() => {
+    setErrorMessage(errorMessageRef.current);
+  }, []);
+
+  // Handle copy - capture formattedSQL at render time
   const handleCopy = useCallback(() => {
-    if (formattedSQL) {
-      copy(formattedSQL);
-      message.success('复制成功');
+    const outputToCopy = formattedSQL;
+    if (outputToCopy) {
+      const success = copy(outputToCopy);
+      if (success) {
+        message.success('复制成功');
+      } else {
+        message.error('复制失败');
+      }
     }
   }, [formattedSQL]);
 
   // Handle clear
   const handleClear = useCallback(() => {
     setInput('');
+    errorMessageRef.current = null;
     setErrorMessage(null);
   }, []);
 
@@ -95,8 +108,12 @@ export default function SqlFormatterPage() {
         expressionWidth: 999,
         denseOperators: true,
       });
-      copy(compressed);
-      message.success('压缩成功，已复制到剪贴板');
+      const success = copy(compressed);
+      if (success) {
+        message.success('压缩成功，已复制到剪贴板');
+      } else {
+        message.error('复制失败');
+      }
     } catch (_error) {
       message.error('压缩失败');
     }
@@ -119,7 +136,7 @@ export default function SqlFormatterPage() {
     <div className="max-w-5xl mx-auto">
       {/* Header */}
       <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold text-slate-900 mb-2">💾 SQL 格式化工具</h1>
+        <h1 className="text-3xl font-bold text-slate-900 mb-2">🗃️ SQL 格式化工具</h1>
         <p className="text-slate-600">实时预览 · 多方言支持 · 智能格式化</p>
       </div>
 

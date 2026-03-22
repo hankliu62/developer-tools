@@ -39,6 +39,8 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: 打包
+        env:
+          GITHUB_PAGES_DEPLOY: true
         run: pnpm run build && touch ./out/.nojekyll
 
       - name: 部署

@@ -7,9 +7,9 @@ const nextConfig = {
   },
 };
 
-const isGithubActions = process.env.GITHUB_ACTIONS || false;
+const isGithubPagesDeploy = process.env.GITHUB_PAGES_DEPLOY || false;
 
-if (isGithubActions) {
+if (isGithubPagesDeploy) {
   nextConfig.output = 'export';
   const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '');
   nextConfig.assetPrefix = `/${repo}/`;

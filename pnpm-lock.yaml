@@ -45,8 +45,8 @@ importers:
         specifier: ^0.0.2
         version: 0.0.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@hankliu/rc-footer':
-        specifier: ^0.0.5
-        version: 0.0.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        specifier: ^0.0.6
+        version: 0.0.6(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@heroicons/react':
         specifier: ^2.2.0
         version: 2.2.0(react@19.2.4)
@@ -571,8 +571,8 @@ packages:
       react: '>=18.2.0'
       react-dom: '>=18.2.0'
 
-  '@hankliu/rc-footer@0.0.5':
-    resolution: {integrity: sha512-OHNA2IuJqyo1n/rNiS5Gr8M38Coj50wbGNdkNdW3U1xiYgG+kq1iuf7vLwUjE8WaQjDXj/SW8NegcFUFQGi/lw==}
+  '@hankliu/rc-footer@0.0.6':
+    resolution: {integrity: sha512-vK+XuiM1/Q2ciaD0aZyDnk+FPOysUlLiOolSNIYepuaZno8Fy5h7KJgccC3Goo/F/1ZJTHzJJcwNLkbrvd8TLw==}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
@@ -3093,7 +3093,7 @@ snapshots:
       react-dom: 19.2.4(react@19.2.4)
       styled-components: 6.3.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
 
-  '@hankliu/rc-footer@0.0.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@hankliu/rc-footer@0.0.6(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
       '@babel/runtime': 7.28.6
       '@rc-component/portal': 1.1.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4)

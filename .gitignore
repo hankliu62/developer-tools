@@ -31,3 +31,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 node_modules
+.opencode
+.trae
+.github
+!.github/workflows

@@ -1,2 +1,3 @@
-:HL["/developer-tools/_next/static/chunks/436aace97905d3ac.css","style"]
-0:{"buildId":"GUZkHR_tOo5sOqY2nHQ6v","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"skills","paramType":null,"paramKey":"skills","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+:HL["/developer-tools/_next/static/chunks/5ce0d679e86d2c42.css","style"]
+:HL["/developer-tools/_next/static/chunks/e19af750d5aa5854.css","style"]
+0:{"buildId":"CEuNRIN9k5kduKGWWghg5","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"skills","paramType":null,"paramKey":"skills","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

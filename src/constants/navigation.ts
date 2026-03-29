@@ -309,6 +309,13 @@ export const categories: Category[] = [
         icon: 'i-carbon-document',
         status: 'new',
       },
+      {
+        name: 'GIF 工具',
+        description: 'GIF 分解合成工具，支持 GIF 分解、合成、压缩和批量下载',
+        href: '/tools/converter/gif-tool',
+        icon: 'i-carbon-image',
+        status: 'new',
+      },
     ],
   },
   {

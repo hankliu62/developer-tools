@@ -53,6 +53,7 @@ export default function ImageToPdfPage() {
   const [filename, setFilename] = useState('image-to-pdf.pdf');
   const [pdfBlobUrl, setPdfBlobUrl] = useState<string | null>(null);
   const [previewVisible, setPreviewVisible] = useState(false);
+  const [previewImageIndex, setPreviewImageIndex] = useState<number | null>(null);
 
   // Auto-detect orientation from first image
   const detectOrientation = useCallback((imgs: ImageFile[]) => {
@@ -183,6 +184,14 @@ export default function ImageToPdfPage() {
     setPreviewVisible(false);
   }, []);
 
+  const handleImagePreview = useCallback((index: number) => {
+    setPreviewImageIndex(index);
+  }, []);
+
+  const handleCloseImagePreview = useCallback(() => {
+    setPreviewImageIndex(null);
+  }, []);
+
   const uploadProps = {
     multiple: true,
     accept: 'image/*',
@@ -228,7 +237,8 @@ export default function ImageToPdfPage() {
               {images.map((img, index) => (
                 <div
                   key={index}
-                  className="relative group aspect-square bg-gray-100 rounded overflow-hidden"
+                  className="relative group aspect-square bg-gray-100 rounded overflow-hidden cursor-pointer"
+                  onClick={() => handleImagePreview(index)}
                 >
                   <img
                     src={img.dataUrl}
@@ -252,6 +262,9 @@ export default function ImageToPdfPage() {
                       封面
                     </span>
                   )}
+                  <span className="absolute bottom-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <EyeOutlined className="text-white text-xs bg-black/50 rounded px-1" />
+                  </span>
                 </div>
               ))}
             </div>
@@ -427,6 +440,67 @@ export default function ImageToPdfPage() {
             title="PDF Preview"
             style={{ width: '100%', height: '100%', border: 'none' }}
           />
+        )}
+      </Modal>
+
+      {/* Image Preview Modal */}
+      <Modal
+        open={previewImageIndex !== null}
+        footer={null}
+        onCancel={handleCloseImagePreview}
+        width={
+          previewImageIndex !== null ? Math.min(images[previewImageIndex]?.width || 800, 1200) : 0
+        }
+        style={{ top: 20 }}
+        bodyStyle={{ padding: 0, textAlign: 'center', background: '#000' }}
+        centered
+        closable={true}
+      >
+        {previewImageIndex !== null && (
+          <div className="relative">
+            <img
+              src={images[previewImageIndex].dataUrl}
+              alt={images[previewImageIndex].file.name}
+              style={{ maxWidth: '100%', maxHeight: '80vh' }}
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white py-2 px-4 text-center">
+              <div className="font-medium">{images[previewImageIndex].file.name}</div>
+              <div className="text-sm text-gray-300">
+                {images[previewImageIndex].width} × {images[previewImageIndex].height} px
+                {previewImageIndex === 0 && <span className="ml-2 text-teal-400">(封面)</span>}
+              </div>
+            </div>
+            {/* Navigation arrows */}
+            {images.length > 1 && (
+              <>
+                {previewImageIndex > 0 && (
+                  <Button
+                    type="text"
+                    icon={<SwapOutlined className="rotate-180" />}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setPreviewImageIndex(previewImageIndex - 1);
+                    }}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 text-white bg-black/50 hover:bg-black/70 rounded-full w-12 h-12 flex items-center justify-center"
+                  />
+                )}
+                {previewImageIndex < images.length - 1 && (
+                  <Button
+                    type="text"
+                    icon={<SwapOutlined />}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setPreviewImageIndex(previewImageIndex + 1);
+                    }}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-white bg-black/50 hover:bg-black/70 rounded-full w-12 h-12 flex items-center justify-center"
+                  />
+                )}
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-black/70 text-white px-3 py-1 rounded-full text-sm">
+                  {previewImageIndex + 1} / {images.length}
+                </div>
+              </>
+            )}
+          </div>
         )}
       </Modal>
     </div>

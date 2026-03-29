@@ -75,7 +75,7 @@ export function isLandscape(width: number, height: number): boolean {
 export function getMimeType(dataUrl: string, filename?: string): string {
   // First try to get from data URL prefix
   const dataUrlMatch = dataUrl.match(/^data:([^;]+);/);
-  if (dataUrlMatch && dataUrlMatch[1]) {
+  if (dataUrlMatch?.[1]) {
     return dataUrlMatch[1];
   }
 

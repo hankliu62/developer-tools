@@ -17,7 +17,8 @@ const categoryColors: Record<string, string> = {
   dev: '#f8fafc',
   validator: '#fff',
   ai: '#f8fafc',
-  toolkits: '#fff',
+  life: '#fff',
+  toolkits: '#f8fafc',
 };
 
 function FadeInSection({

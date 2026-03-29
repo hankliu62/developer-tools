@@ -70,35 +70,80 @@ export function isLandscape(width: number, height: number): boolean {
 }
 
 /**
- * Get MIME type from filename
+ * Get MIME type from data URL or filename
  */
-export function getMimeType(filename: string): string {
-  const ext = filename.toLowerCase().split('.').pop();
-  const mimeTypes: Record<string, string> = {
-    jpg: 'image/jpeg',
-    jpeg: 'image/jpeg',
-    png: 'image/png',
-    gif: 'image/gif',
-    webp: 'image/webp',
-    bmp: 'image/bmp',
-    tiff: 'image/tiff',
-    tif: 'image/tiff',
-  };
-  return mimeTypes[ext || ''] || 'image/jpeg';
+export function getMimeType(dataUrl: string, filename?: string): string {
+  // First try to get from data URL prefix
+  const dataUrlMatch = dataUrl.match(/^data:([^;]+);/);
+  if (dataUrlMatch && dataUrlMatch[1]) {
+    return dataUrlMatch[1];
+  }
+
+  // Fallback to filename extension
+  if (filename) {
+    const ext = filename.toLowerCase().split('.').pop();
+    const mimeTypes: Record<string, string> = {
+      jpg: 'image/jpeg',
+      jpeg: 'image/jpeg',
+      png: 'image/png',
+      gif: 'image/gif',
+      webp: 'image/webp',
+      bmp: 'image/bmp',
+      tiff: 'image/tiff',
+      tif: 'image/tiff',
+    };
+    return mimeTypes[ext || ''] || 'image/jpeg';
+  }
+
+  return 'image/jpeg';
 }
 
 /**
- * Embed image into PDF based on fit mode
+ * Convert image to PNG format using canvas
+ * This is needed for formats that pdf-lib doesn't support natively (GIF, WebP, BMP)
+ */
+async function convertToPng(dataUrl: string): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) {
+        reject(new Error('Failed to get canvas context'));
+        return;
+      }
+      ctx.drawImage(img, 0, 0);
+      const pngDataUrl = canvas.toDataURL('image/png');
+      resolve(pngDataUrl);
+    };
+    img.onerror = () => reject(new Error('Failed to load image'));
+    img.src = dataUrl;
+  });
+}
+
+/**
+ * Embed image into PDF based on MIME type
+ * Converts unsupported formats to PNG before embedding
  */
 async function embedImage(
   pdfDoc: PDFDocument,
   imageData: string,
   mimeType: string
 ): Promise<ReturnType<typeof pdfDoc.embedJpg>> {
+  // pdf-lib supports: JPEG and PNG natively
+  // For other formats, convert to PNG first
   if (mimeType === 'image/png') {
     return pdfDoc.embedPng(imageData);
   }
-  return pdfDoc.embedJpg(imageData);
+  if (mimeType === 'image/jpeg' || mimeType === 'image/jpg') {
+    return pdfDoc.embedJpg(imageData);
+  }
+
+  // For GIF, WebP, BMP, etc., convert to PNG first
+  const pngDataUrl = await convertToPng(imageData);
+  return pdfDoc.embedPng(pngDataUrl);
 }
 
 /**
@@ -183,7 +228,7 @@ export async function convertImagesToPdf(
   for (const image of images) {
     const page = pdfDoc.addPage([pageWidth, pageHeight]);
 
-    const mimeType = getMimeType(image.file.name);
+    const mimeType = getMimeType(image.dataUrl, image.file.name);
     const embeddedImage = await embedImage(pdfDoc, image.dataUrl, mimeType);
 
     const dims = calculateImageDimensions(

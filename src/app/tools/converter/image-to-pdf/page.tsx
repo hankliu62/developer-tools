@@ -3,10 +3,11 @@
 import {
   DeleteOutlined,
   DownloadOutlined,
+  EyeOutlined,
   FileImageOutlined,
   SwapOutlined,
 } from '@ant-design/icons';
-import { Button, Card, Input, message, Select, Slider, Upload } from 'antd';
+import { Button, Card, Input, Modal, message, Select, Slider, Upload } from 'antd';
 import { saveAs } from 'file-saver';
 import { useCallback, useState } from 'react';
 import {
@@ -50,6 +51,8 @@ export default function ImageToPdfPage() {
   const [imageFit, setImageFit] = useState<'fit' | 'fill' | 'original'>('fit');
   const [margin, setMargin] = useState(36);
   const [filename, setFilename] = useState('image-to-pdf.pdf');
+  const [pdfBlobUrl, setPdfBlobUrl] = useState<string | null>(null);
+  const [previewVisible, setPreviewVisible] = useState(false);
 
   // Auto-detect orientation from first image
   const detectOrientation = useCallback((imgs: ImageFile[]) => {
@@ -137,15 +140,48 @@ export default function ImageToPdfPage() {
       // Convert Uint8Array to ArrayBuffer for Blob compatibility
       const pdfArray = new Uint8Array(pdfBytes);
       const blob = new Blob([pdfArray], { type: 'application/pdf' });
-      saveAs(blob, filename);
 
+      // Create blob URL for preview
+      const blobUrl = URL.createObjectURL(blob);
+      // Revoke previous URL if exists
+      if (pdfBlobUrl) {
+        URL.revokeObjectURL(pdfBlobUrl);
+      }
+      setPdfBlobUrl(blobUrl);
+
+      // Auto-open preview
+      setPreviewVisible(true);
       message.success('PDF 生成成功！');
     } catch (error) {
       message.error(error instanceof Error ? error.message : 'PDF 生成失败');
     } finally {
       setLoading(false);
     }
-  }, [images, pageSize, customWidth, customHeight, pageOrientation, imageFit, margin, filename]);
+  }, [
+    images,
+    pageSize,
+    customWidth,
+    customHeight,
+    pageOrientation,
+    imageFit,
+    margin,
+    filename,
+    pdfBlobUrl,
+  ]);
+
+  const handleDownload = useCallback(() => {
+    if (!pdfBlobUrl) return;
+    fetch(pdfBlobUrl)
+      .then((res) => res.blob())
+      .then((blob) => {
+        saveAs(blob, filename);
+        message.success('下载成功');
+      });
+  }, [pdfBlobUrl, filename]);
+
+  const handleClosePreview = useCallback(() => {
+    setPreviewVisible(false);
+  }, []);
 
   const uploadProps = {
     multiple: true,
@@ -331,13 +367,21 @@ export default function ImageToPdfPage() {
         <Button
           type="primary"
           size="large"
-          icon={<DownloadOutlined />}
+          icon={<EyeOutlined />}
           onClick={handleConvert}
           loading={loading}
           disabled={images.length === 0}
           className="min-w-40"
         >
-          {loading ? '生成中...' : '生成 PDF'}
+          {loading ? '生成中...' : '预览 PDF'}
+        </Button>
+        <Button
+          size="large"
+          icon={<DownloadOutlined />}
+          onClick={handleDownload}
+          disabled={!pdfBlobUrl}
+        >
+          下载
         </Button>
         <Button
           size="large"
@@ -348,6 +392,43 @@ export default function ImageToPdfPage() {
           清空
         </Button>
       </div>
+
+      {/* PDF Preview Modal */}
+      <Modal
+        title={
+          <div className="flex items-center gap-2">
+            <EyeOutlined className="text-teal-500" />
+            <span>PDF 预览 - {filename}</span>
+          </div>
+        }
+        open={previewVisible}
+        onCancel={handleClosePreview}
+        footer={[
+          <Button
+            key="download"
+            type="primary"
+            icon={<DownloadOutlined />}
+            onClick={handleDownload}
+          >
+            下载 PDF
+          </Button>,
+          <Button key="close" onClick={handleClosePreview}>
+            关闭
+          </Button>,
+        ]}
+        width={900}
+        style={{ top: 20 }}
+        bodyStyle={{ height: '70vh', padding: 0 }}
+        centered
+      >
+        {pdfBlobUrl && (
+          <iframe
+            src={pdfBlobUrl}
+            title="PDF Preview"
+            style={{ width: '100%', height: '100%', border: 'none' }}
+          />
+        )}
+      </Modal>
     </div>
   );
 }

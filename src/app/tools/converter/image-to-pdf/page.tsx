@@ -431,7 +431,7 @@ export default function ImageToPdfPage() {
         ]}
         width={900}
         style={{ top: 20 }}
-        bodyStyle={{ height: '70vh', padding: 0 }}
+        styles={{ body: { height: '70vh', padding: 0 } }}
         centered
       >
         {pdfBlobUrl && (
@@ -452,7 +452,7 @@ export default function ImageToPdfPage() {
           previewImageIndex !== null ? Math.min(images[previewImageIndex]?.width || 800, 1200) : 0
         }
         style={{ top: 20 }}
-        bodyStyle={{ padding: 0, textAlign: 'center', background: '#000' }}
+        styles={{ body: { padding: 0, textAlign: 'center', background: '#000' } }}
         centered
         closable={true}
       >

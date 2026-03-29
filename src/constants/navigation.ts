@@ -302,6 +302,13 @@ export const categories: Category[] = [
         icon: 'i-carbon-image',
         status: 'new',
       },
+      {
+        name: '图片转 PDF',
+        description: '将图片转换为 PDF 文档，支持批量处理和自定义页面设置',
+        href: '/tools/converter/image-to-pdf',
+        icon: 'i-carbon-document',
+        status: 'new',
+      },
     ],
   },
   {

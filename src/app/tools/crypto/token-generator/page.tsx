@@ -1,5 +1,5 @@
 'use client';
-import { Button, message } from 'antd';
+import { Button, Checkbox, message, Slider } from 'antd';
 import copy from 'copy-to-clipboard';
 import { useCallback, useState } from 'react';
 
@@ -75,104 +75,57 @@ export default function TokenGeneratorPage() {
         <span className="font-semibold text-gray-800 block mb-4">⚙️ 生成选项</span>
 
         <div className="mb-6">
-          <label htmlFor="token-length" className="text-sm text-gray-700 block mb-2">
-            Token 长度
-          </label>
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-gray-500">{length} 字符</span>
+            <label className="text-sm text-gray-700">Token 长度</label>
+            <span className="text-sm text-teal-600 font-medium">{length} 字符</span>
           </div>
-          <input
-            type="range"
-            id="token-length"
+          <Slider
             min={8}
             max={128}
             value={length}
-            onChange={(e) => setLength(parseInt(e.target.value, 10))}
-            className="w-full"
+            onChange={setLength}
+            marks={{ 8: '8', 32: '32', 64: '64', 128: '128' }}
           />
-          <div className="flex justify-between text-xs text-gray-400 mt-1">
-            <span>8</span>
-            <span>32</span>
-            <span>64</span>
-            <span>128</span>
-          </div>
         </div>
 
         <div className="mb-6">
-          <label htmlFor="token-count" className="text-sm text-gray-700 block mb-2">
-            生成数量
-          </label>
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-gray-500">{count} 个</span>
+            <label className="text-sm text-gray-700">生成数量</label>
+            <span className="text-sm text-teal-600 font-medium">{count} 个</span>
           </div>
-          <input
-            type="range"
-            id="token-count"
+          <Slider
             min={1}
             max={100}
             value={count}
-            onChange={(e) => setCount(parseInt(e.target.value, 10))}
-            className="w-full"
+            onChange={setCount}
+            marks={{ 1: '1', 10: '10', 50: '50', 100: '100' }}
           />
-          <div className="flex justify-between text-xs text-gray-400 mt-1">
-            <span>1</span>
-            <span>10</span>
-            <span>50</span>
-            <span>100</span>
-          </div>
         </div>
 
         <div>
           <span className="text-sm text-gray-700 block mb-3">包含字符</span>
           <div className="flex flex-wrap gap-4">
-            <div className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                id="include-uppercase"
-                checked={includeUppercase}
-                onChange={(e) => setIncludeUppercase(e.target.checked)}
-                className="w-4 h-4"
-              />
-              <label htmlFor="include-uppercase" className="text-sm text-gray-700">
-                大写字母 (A-Z)
-              </label>
-            </div>
-            <div className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                id="include-lowercase"
-                checked={includeLowercase}
-                onChange={(e) => setIncludeLowercase(e.target.checked)}
-                className="w-4 h-4"
-              />
-              <label htmlFor="include-lowercase" className="text-sm text-gray-700">
-                小写字母 (a-z)
-              </label>
-            </div>
-            <div className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                id="include-digits"
-                checked={includeDigits}
-                onChange={(e) => setIncludeDigits(e.target.checked)}
-                className="w-4 h-4"
-              />
-              <label htmlFor="include-digits" className="text-sm text-gray-700">
-                数字 (0-9)
-              </label>
-            </div>
-            <div className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                id="include-symbols"
-                checked={includeSymbols}
-                onChange={(e) => setIncludeSymbols(e.target.checked)}
-                className="w-4 h-4"
-              />
-              <label htmlFor="include-symbols" className="text-sm text-gray-700">
-                符号 (!@#$%^&*)
-              </label>
-            </div>
+            <Checkbox
+              checked={includeUppercase}
+              onChange={(e) => setIncludeUppercase(e.target.checked)}
+            >
+              大写字母 (A-Z)
+            </Checkbox>
+            <Checkbox
+              checked={includeLowercase}
+              onChange={(e) => setIncludeLowercase(e.target.checked)}
+            >
+              小写字母 (a-z)
+            </Checkbox>
+            <Checkbox checked={includeDigits} onChange={(e) => setIncludeDigits(e.target.checked)}>
+              数字 (0-9)
+            </Checkbox>
+            <Checkbox
+              checked={includeSymbols}
+              onChange={(e) => setIncludeSymbols(e.target.checked)}
+            >
+              符号 (!@#$%^&*)
+            </Checkbox>
           </div>
         </div>
       </div>

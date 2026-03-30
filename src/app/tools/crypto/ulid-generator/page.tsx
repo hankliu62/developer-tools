@@ -1,5 +1,5 @@
 'use client';
-import { Button, message, Slider } from 'antd';
+import { Button, Checkbox, message, Slider } from 'antd';
 import copy from 'copy-to-clipboard';
 import { useCallback, useState } from 'react';
 import { generateULID } from '@/tools/crypto';
@@ -63,18 +63,9 @@ export default function ULIDGeneratorPage() {
         </div>
 
         <div className="flex flex-wrap gap-6">
-          <div className="flex items-center gap-3">
-            <input
-              type="checkbox"
-              id="uppercase"
-              checked={uppercase}
-              onChange={(e) => setUppercase(e.target.checked)}
-              className="w-4 h-4"
-            />
-            <label htmlFor="uppercase" className="text-sm text-gray-700">
-              大写
-            </label>
-          </div>
+          <Checkbox checked={uppercase} onChange={(e) => setUppercase(e.target.checked)}>
+            大写
+          </Checkbox>
         </div>
       </div>
 

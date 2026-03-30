@@ -14,6 +14,80 @@ const themeConfig = {
     colorPrimary: '#14b8a6',
     colorLink: '#14b8a6',
     colorLinkHover: '#0d9488',
+    borderRadius: 6,
+  },
+  components: {
+    Slider: {
+      colorPrimary: '#14b8a6',
+      colorPrimaryBorder: '#14b8a6',
+      colorPrimaryBorderHover: '#0d9488',
+      handleColor: '#14b8a6',
+      handleActiveColor: '#0d9488',
+      trackBg: '#14b8a6',
+      trackHoverBg: '#0d9488',
+      dotActiveBorderColor: '#14b8a6',
+    },
+    Switch: {
+      colorPrimary: '#14b8a6',
+      colorPrimaryHover: '#0d9488',
+    },
+    Select: {
+      colorPrimary: '#14b8a6',
+      colorPrimaryHover: '#0d9488',
+      colorPrimaryActive: '#0d9488',
+    },
+    Button: {
+      primaryColor: '#ffffff',
+      colorPrimary: '#14b8a6',
+      colorPrimaryHover: '#0d9488',
+      colorPrimaryActive: '#0f766e',
+    },
+    Tabs: {
+      colorPrimary: '#14b8a6',
+      itemSelectedColor: '#14b8a6',
+      itemHoverColor: '#0d9488',
+      inkBarColor: '#14b8a6',
+    },
+    Input: {
+      colorPrimary: '#14b8a6',
+      colorPrimaryHover: '#0d9488',
+      colorPrimaryActive: '#0f766e',
+    },
+    InputNumber: {
+      colorPrimary: '#14b8a6',
+      colorPrimaryHover: '#0d9488',
+    },
+    Checkbox: {
+      colorPrimary: '#14b8a6',
+      colorPrimaryHover: '#0d9488',
+    },
+    Radio: {
+      colorPrimary: '#14b8a6',
+      colorPrimaryHover: '#0d9488',
+    },
+    DatePicker: {
+      colorPrimary: '#14b8a6',
+      colorPrimaryHover: '#0d9488',
+    },
+    TimePicker: {
+      colorPrimary: '#14b8a6',
+      colorPrimaryHover: '#0d9488',
+    },
+    Upload: {
+      colorPrimary: '#14b8a6',
+    },
+    Progress: {
+      colorPrimary: '#14b8a6',
+    },
+    Steps: {
+      colorPrimary: '#14b8a6',
+    },
+    Rate: {
+      colorPrimary: '#14b8a6',
+    },
+    Spin: {
+      colorPrimary: '#14b8a6',
+    },
   },
 };
 

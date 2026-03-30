@@ -1,5 +1,5 @@
 'use client';
-import { Button, message, Select, Slider } from 'antd';
+import { Button, Checkbox, message, Select, Slider } from 'antd';
 import copy from 'copy-to-clipboard';
 import { useCallback, useState } from 'react';
 
@@ -229,18 +229,12 @@ export default function LoremIpsumPage() {
           </div>
           <div>
             <span className="text-sm text-gray-600 block mb-2">选项</span>
-            <div className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                id="startWithLorem"
-                checked={startWithLorem}
-                onChange={(e) => setStartWithLorem(e.target.checked)}
-                className="w-4 h-4"
-              />
-              <label htmlFor="startWithLorem" className="text-sm">
-                以 "Lorem ipsum" 开头
-              </label>
-            </div>
+            <Checkbox
+              checked={startWithLorem}
+              onChange={(e) => setStartWithLorem(e.target.checked)}
+            >
+              以 "Lorem ipsum" 开头
+            </Checkbox>
           </div>
         </div>
       </div>

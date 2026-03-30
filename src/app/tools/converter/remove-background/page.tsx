@@ -9,7 +9,7 @@ import {
   SparklesIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
-import { Button, Modal, message, Popconfirm, Radio, Slider, Spin } from 'antd';
+import { Button, Checkbox, Modal, message, Popconfirm, Radio, Slider, Spin } from 'antd';
 import { saveAs } from 'file-saver';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { API_BASE_URL } from '@/config/api';
@@ -693,11 +693,9 @@ export default function RemoveBackgroundPage() {
 
       <div className="flex items-center justify-between">
         <label className="text-sm text-gray-700">Alpha 抠图</label>
-        <input
-          type="checkbox"
+        <Checkbox
           checked={currentParams.matting.alphaMatting}
           onChange={(e) => updateParam('matting', 'alphaMatting', e.target.checked)}
-          className="w-4 h-4 text-teal-600 rounded focus:ring-teal-500"
         />
       </div>
 

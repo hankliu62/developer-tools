@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Input, message, Radio, Space } from 'antd';
+import { Button, Checkbox, Input, message, Radio, Space } from 'antd';
 import { useCallback, useState } from 'react';
 
 export default function WifiQrCodePage() {
@@ -92,15 +92,9 @@ export default function WifiQrCodePage() {
             </Radio.Group>
           </div>
           <div className="flex items-center">
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={hidden}
-                onChange={(e) => setHidden(e.target.checked)}
-                className="w-4 h-4"
-              />
-              <span className="text-sm text-gray-600">隐藏网络</span>
-            </label>
+            <Checkbox checked={hidden} onChange={(e) => setHidden(e.target.checked)}>
+              隐藏网络
+            </Checkbox>
           </div>
         </div>
       </div>

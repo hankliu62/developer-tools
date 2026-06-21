@@ -98,6 +98,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "biome lint --write",
-    "*.{json,css,scss}": "biome format --write"
+    "*.{json,css,scss}": "biome format --write",
+    "!package-lock.json": ""
   }
 }

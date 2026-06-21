@@ -785,6 +785,13 @@ export const categories: Category[] = [
         icon: 'i-carbon-calendar',
         status: 'new',
       },
+      {
+        name: '天命灵签',
+        description: '诚心问天，一签定命，永世不移',
+        href: '/tools/life/fate-dice',
+        icon: 'i-carbon-dice',
+        status: 'new',
+      },
     ],
   },
   {
